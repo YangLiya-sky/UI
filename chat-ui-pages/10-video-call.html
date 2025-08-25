@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>聊天应用 - 视频通话</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 隐藏滚动条但保持滚动功能 */
+        * {
+            scrollbar-width: none;
+            /* Firefox */
+            -ms-overflow-style: none;
+            /* IE and Edge */
+        }
+
+        *::-webkit-scrollbar {
+            display: none;
+            /* Chrome, Safari, Opera */
+        }
+
+        /* 对于需要滚动的元素，保持垂直滚动功能 */
+        .scrollable {
+            overflow-y: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .scrollable::-webkit-scrollbar {
+            display: none;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-image: url('bg.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .main-container {
+            width: 1200px;
+            height: 800px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            /* 确保主容器不显示滚动条 */
+        }
+
+        .main-container * {
+            overflow-x: hidden;
+            /* 隐藏水平滚动条 */
+        }
+
+        .video-call-container {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            width: 1000px;
+            height: 700px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-main {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .remote-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 24px;
+        }
+
+        .remote-avatar {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 80px;
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .call-info {
+            position: absolute;
+            top: 32px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            z-index: 10;
+        }
+
+        .caller-name {
+            color: white;
+            font-size: 32px;
+            font-weight: 300;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .call-status {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .status-indicator {
+            width: 8px;
+            height: 8px;
+            background: #10b981;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .call-duration {
+            position: absolute;
+            top: 32px;
+            right: 32px;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 8px 16px;
+            color: white;
+            font-size: 16px;
+            font-weight: 500;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .local-video {
+            position: absolute;
+            top: 32px;
+            left: 32px;
+            width: 240px;
+            height: 180px;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            overflow: hidden;
+            z-index: 10;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .local-video-content {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .local-avatar {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 48px;
+            border-radius: 16px;
+        }
+
+        .video-controls {
+            position: absolute;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 16px;
+            z-index: 10;
+        }
+
+        .control-btn {
+            width: 64px;
+            height: 64px;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .control-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .mute-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .mute-btn.muted {
+            background: rgba(239, 68, 68, 0.8);
+            color: white;
+        }
+
+        .video-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .video-btn.disabled {
+            background: rgba(239, 68, 68, 0.8);
+            color: white;
+        }
+
+        .screen-share-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .screen-share-btn.active {
+            background: rgba(16, 185, 129, 0.8);
+            color: white;
+        }
+
+        .end-call-btn {
+            background: rgba(239, 68, 68, 0.8);
+            color: white;
+            width: 72px;
+            height: 72px;
+        }
+
+        .end-call-btn:hover {
+            background: rgba(220, 38, 38, 0.9);
+            transform: scale(1.1);
+        }
+
+        .more-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .participants-panel {
+            position: absolute;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(20px);
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            transition: right 0.3s ease;
+            z-index: 20;
+        }
+
+        .participants-panel.open {
+            right: 0;
+        }
+
+        .panel-header {
+            padding: 24px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .panel-title {
+            color: white;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .close-panel-btn {
+            width: 32px;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: rgba(255, 255, 255, 0.6);
+            transition: all 0.3s ease;
+        }
+
+        .close-panel-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .participants-list {
+            padding: 16px;
+        }
+
+        .participant-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .participant-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .participant-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .participant-info {
+            flex: 1;
+        }
+
+        .participant-name {
+            color: white;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+
+        .participant-status {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .status-icon {
+            width: 12px;
+            height: 12px;
+        }
+
+        .connection-status {
+            position: absolute;
+            top: 50%;
+            left: 32px;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 12px 16px;
+            color: white;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .connection-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .connection-good {
+            background: #10b981;
+        }
+
+        .connection-fair {
+            background: #f59e0b;
+        }
+
+        .connection-poor {
+            background: #ef4444;
+        }
+
+        .chat-panel {
+            position: absolute;
+            bottom: -400px;
+            left: 0;
+            right: 0;
+            height: 400px;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            transition: bottom 0.3s ease;
+            z-index: 15;
+        }
+
+        .chat-panel.open {
+            bottom: 0;
+        }
+
+        .notification {
+            position: absolute;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 16px 24px;
+            color: white;
+            font-size: 16px;
+            z-index: 25;
+            animation: slideDown 0.3s ease;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateX(-50%) translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="video-call-container">
+            <div class="video-main">
+                <!-- 远程视频或头像 -->
+                <div class="remote-avatar">李</div>
+                <!-- <video class="remote-video" autoplay></video> -->
+            </div>
+
+            <!-- 通话信息 -->
+            <div class="call-info">
+                <h2 class="caller-name">李小红</h2>
+                <div class="call-status">
+                    <div class="status-indicator"></div>
+                    <span>通话中</span>
+                </div>
+            </div>
+
+            <!-- 通话时长 -->
+            <div class="call-duration">15:42</div>
+
+            <!-- 本地视频 -->
+            <div class="local-video">
+                <div class="local-avatar">张</div>
+                <!-- <video class="local-video-content" autoplay muted></video> -->
+            </div>
+
+            <!-- 连接状态 -->
+            <div class="connection-status">
+                <div class="connection-indicator connection-good"></div>
+                <span>连接良好</span>
+            </div>
+
+            <!-- 控制按钮 -->
+            <div class="video-controls">
+                <button class="control-btn mute-btn" title="静音">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3zM19 10v2a7 7 0 01-14 0v-2" />
+                    </svg>
+                </button>
+
+                <button class="control-btn video-btn" title="摄像头">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                    </svg>
+                </button>
+
+                <button class="control-btn screen-share-btn" title="屏幕共享">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                </button>
+
+                <button class="control-btn end-call-btn" title="结束通话">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                </button>
+
+                <button class="control-btn more-btn" title="更多">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- 参与者面板 -->
+            <div class="participants-panel">
+                <div class="panel-header">
+                    <h3 class="panel-title">参与者 (2)</h3>
+                    <button class="close-panel-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="participants-list">
+                    <div class="participant-item">
+                        <div class="participant-avatar" style="background: linear-gradient(135deg, #f093fb, #f5576c);">李
+                        </div>
+                        <div class="participant-info">
+                            <div class="participant-name">李小红</div>
+                            <div class="participant-status">
+                                <svg class="status-icon" viewBox="0 0 24 24" fill="#10b981">
+                                    <path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z" />
+                                </svg>
+                                <svg class="status-icon" viewBox="0 0 24 24" fill="#10b981">
+                                    <path
+                                        d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                                </svg>
+                                主持人
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="participant-item">
+                        <div class="participant-avatar" style="background: linear-gradient(135deg, #667eea, #764ba2);">张
+                        </div>
+                        <div class="participant-info">
+                            <div class="participant-name">张小明 (我)</div>
+                            <div class="participant-status">
+                                <svg class="status-icon" viewBox="0 0 24 24" fill="#ef4444">
+                                    <path
+                                        d="M5.889 16.611a15.93 15.93 0 01-1.78-8.611 15.93 15.93 0 011.78-8.611M18.111 7.389a15.93 15.93 0 011.78 8.611 15.93 15.93 0 01-1.78 8.611M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z" />
+                                </svg>
+                                <svg class="status-icon" viewBox="0 0 24 24" fill="#10b981">
+                                    <path
+                                        d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                                </svg>
+                                已静音
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 聊天面板 -->
+            <div class="chat-panel">
+                <div class="panel-header">
+                    <h3 class="panel-title">聊天</h3>
+                    <button class="close-panel-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 通知 -->
+            <div class="notification">
+                李小红加入了通话
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

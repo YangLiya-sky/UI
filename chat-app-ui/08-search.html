@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VibeChat - 搜索</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="glass-styles.css">
+</head>
+<body>
+        <div class="flex items-center justify-center w-full h-full">
+            
+            <!-- Search Screen -->
+            <div class="animate-slide-up delay-100 flex items-center justify-center">
+                <div class="phone-container">
+                    <div class="phone-screen">
+                        <!-- Status Bar -->
+                        <div class="status-bar flex justify-between items-center px-8 pt-4 pb-2">
+                            <span class="text-sm font-jakarta text-white">9:41</span>
+                            <div class="flex items-center gap-1">
+                                <div class="w-4 h-2 border rounded-sm border-white">
+                                    <div class="w-3 h-1 rounded-sm bg-white"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Header -->
+                        <div class="px-8 pt-6 pb-4">
+                            <div class="flex justify-between items-center">
+                                <div class="animate-slide-up delay-200">
+                                    <h1 class="text-2xl font-jakarta text-white">搜索</h1>
+                                </div>
+                                <button class="w-10 h-10 rounded-full flex items-center justify-center glass-button animate-slide-up delay-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                        <path d="M13 8H7"></path>
+                                        <path d="M17 12H7"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Search Bar -->
+                        <div class="px-8 mb-6">
+                            <div class="relative">
+                                <input type="text" placeholder="搜索聊天、联系人或消息..." class="w-full px-4 py-3 pl-12 rounded-2xl glass-button border border-white/10 text-white placeholder-white/40 font-jakarta focus:outline-none focus:border-white/30 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white-40">
+                                    <path d="m21 21-4.34-4.34"></path>
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <!-- Search Filters -->
+                        <div class="px-8 mb-6">
+                            <div class="flex gap-3 overflow-x-auto hide-scroll">
+                                <button class="px-4 py-2 rounded-full btn-primary text-white text-sm font-jakarta whitespace-nowrap">
+                                    全部
+                                </button>
+                                <button class="px-4 py-2 rounded-full glass-button text-white-80 text-sm font-jakarta whitespace-nowrap hover:bg-gray-700 transition-colors">
+                                    聊天
+                                </button>
+                                <button class="px-4 py-2 rounded-full glass-button text-white-80 text-sm font-jakarta whitespace-nowrap hover:bg-gray-700 transition-colors">
+                                    联系人
+                                </button>
+                                <button class="px-4 py-2 rounded-full glass-button text-white-80 text-sm font-jakarta whitespace-nowrap hover:bg-gray-700 transition-colors">
+                                    消息
+                                </button>
+                                <button class="px-4 py-2 rounded-full glass-button text-white-80 text-sm font-jakarta whitespace-nowrap hover:bg-gray-700 transition-colors">
+                                    文件
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Search Results -->
+                        <div class="flex-1 px-8 overflow-y-auto hide-scroll">
+                            <div class="space-y-6">
+                                <!-- Recent Searches -->
+                                <div>
+                                    <h3 class="text-lg font-jakarta text-white mb-4">最近搜索</h3>
+                                    <div class="space-y-3">
+                                        <div class="flex items-center gap-3 p-3 rounded-2xl glass-button hover:glass-button transition-colors">
+                                            <div class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white-60">
+                                                    <path d="m21 21-4.34-4.34"></path>
+                                                    <circle cx="11" cy="11" r="8"></circle>
+                                                </svg>
+                                            </div>
+                                            <span class="text-white font-jakarta">小红</span>
+                                        </div>
+                                        <div class="flex items-center gap-3 p-3 rounded-2xl glass-button hover:glass-button transition-colors">
+                                            <div class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white-60">
+                                                    <path d="m21 21-4.34-4.34"></path>
+                                                    <circle cx="11" cy="11" r="8"></circle>
+                                                </svg>
+                                            </div>
+                                            <span class="text-white font-jakarta">项目讨论</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Popular Searches -->
+                                <div>
+                                    <h3 class="text-lg font-jakarta text-white mb-4">热门搜索</h3>
+                                    <div class="grid grid-cols-2 gap-3">
+                                        <button class="p-3 rounded-2xl glass-button hover:glass-button transition-colors text-left">
+                                            <div class="flex items-center gap-2 mb-2">
+                                                <div class="w-6 h-6 rounded-full btn-primary flex items-center justify-center">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                                        <circle cx="9" cy="7" r="4"></circle>
+                                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                                    </svg>
+                                                </div>
+                                                <span class="text-white font-jakarta text-sm">群组聊天</span>
+                                            </div>
+                                            <p class="text-white-60 font-jakarta text-xs">找到相关的群组</p>
+                                        </button>
+                                        <button class="p-3 rounded-2xl glass-button hover:glass-button transition-colors text-left">
+                                            <div class="flex items-center gap-2 mb-2">
+                                                <div class="w-6 h-6 rounded-full btn-primary flex items-center justify-center">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                                                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                                    </svg>
+                                                </div>
+                                                <span class="text-white font-jakarta text-sm">语音通话</span>
+                                            </div>
+                                            <p class="text-white-60 font-jakarta text-xs">搜索通话记录</p>
+                                        </button>
+                                        <button class="p-3 rounded-2xl glass-button hover:glass-button transition-colors text-left">
+                                            <div class="flex items-center gap-2 mb-2">
+                                                <div class="w-6 h-6 rounded-full btn-primary flex items-center justify-center">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                                        <polyline points="14,2 14,8 20,8"></polyline>
+                                                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                                                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                                                        <polyline points="10,9 9,9 8,9"></polyline>
+                                                    </svg>
+                                                </div>
+                                                <span class="text-white font-jakarta text-sm">文档</span>
+                                            </div>
+                                            <p class="text-white-60 font-jakarta text-xs">搜索共享文件</p>
+                                        </button>
+                                        <button class="p-3 rounded-2xl glass-button hover:glass-button transition-colors text-left">
+                                            <div class="flex items-center gap-2 mb-2">
+                                                <div class="w-6 h-6 rounded-full bg-yellow-600 flex items-center justify-center">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                                                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                                    </svg>
+                                                </div>
+                                                <span class="text-white font-jakarta text-sm">消息</span>
+                                            </div>
+                                            <p class="text-white-60 font-jakarta text-xs">搜索聊天记录</p>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Quick Actions -->
+                                <div>
+                                    <h3 class="text-lg font-jakarta text-white mb-4">快速操作</h3>
+                                    <div class="space-y-3">
+                                        <button class="w-full flex items-center gap-4 p-4 rounded-2xl glass-button hover:glass-button transition-colors">
+                                            <div class="w-10 h-10 rounded-2xl btn-primary flex items-center justify-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                                                    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                                    <circle cx="8.5" cy="7" r="4"></circle>
+                                                    <line x1="20" y1="8" x2="20" y2="14"></line>
+                                                    <line x1="23" y1="11" x2="17" y2="11"></line>
+                                                </svg>
+                                            </div>
+                                            <div class="flex-1 text-left">
+                                                <h4 class="text-white font-jakarta">添加新联系人</h4>
+                                                <p class="text-white-60 font-jakarta text-sm">通过用户名或手机号添加</p>
+                                            </div>
+                                        </button>
+                                        <button class="w-full flex items-center gap-4 p-4 rounded-2xl glass-button hover:glass-button transition-colors">
+                                            <div class="w-10 h-10 rounded-2xl btn-primary flex items-center justify-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                                    <circle cx="9" cy="7" r="4"></circle>
+                                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                                </svg>
+                                            </div>
+                                            <div class="flex-1 text-left">
+                                                <h4 class="text-white font-jakarta">创建群组</h4>
+                                                <p class="text-white-60 font-jakarta text-sm">邀请好友创建群聊</p>
+                                            </div>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bottom Navigation -->
+                        <nav class="h-24 border-t flex items-center justify-around glass-card border-white/10">
+                            <button class="flex flex-col items-center gap-2 text-white-60">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7">
+                                    <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path>
+                                    <path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                </svg>
+                                <span class="text-xs font-jakarta">主页</span>
+                            </button>
+                            <button class="flex flex-col items-center gap-2 nav-item active">
+                                <div class="w-8 h-8 rounded-xl flex items-center justify-center glass-button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+                                        <path d="m21 21-4.34-4.34"></path>
+                                        <circle cx="11" cy="11" r="8"></circle>
+                                    </svg>
+                                </div>
+                                <span class="text-xs font-jakarta">搜索</span>
+                            </button>
+                            <button class="flex flex-col items-center gap-2 text-white-60">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                </svg>
+                                <span class="text-xs font-jakarta">通话</span>
+                            </button>
+                            <button class="flex flex-col items-center gap-2 text-white-60">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7">
+                                    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                                <span class="text-xs font-jakarta">我的</span>
+                            </button>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>

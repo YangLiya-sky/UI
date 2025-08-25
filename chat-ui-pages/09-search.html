@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>聊天应用 - 搜索</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* 隐藏滚动条但保持滚动功能 */
+        * {
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE and Edge */
+        }
+        
+        *::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+        
+        .main-container {
+            overflow: hidden; /* 确保主容器不显示滚动条 */
+        }
+        
+        .main-container * {
+            overflow-x: hidden; /* 隐藏水平滚动条 */
+        }
+        
+        /* 对于需要滚动的元素，保持垂直滚动功能 */
+        .scrollable {
+            overflow-y: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        
+        .scrollable::-webkit-scrollbar {
+            display: none;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-image: url('bg.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .main-container {
+            width: 1200px;
+            height: 800px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .search-container {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            width: 900px;
+            height: 650px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .search-header {
+            padding: 32px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .header-top {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        
+        .back-btn {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+        
+        .header-title {
+            color: white;
+            font-size: 28px;
+            font-weight: 300;
+        }
+        
+        .search-box {
+            position: relative;
+            margin-bottom: 24px;
+        }
+        
+        .search-input {
+            width: 100%;
+            height: 56px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 0 60px 0 20px;
+            color: white;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+        
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .search-btn {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background: #667eea;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .search-btn:hover {
+            background: #5a67d8;
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .search-filters {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .filter-btn {
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .search-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 0 32px 32px;
+        }
+        
+        .search-section {
+            margin-bottom: 32px;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+        
+        .section-title {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 16px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .section-count {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 14px;
+        }
+        
+        .search-results {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .result-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .result-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .result-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+        
+        .result-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 16px;
+        }
+        
+        .result-info {
+            flex: 1;
+        }
+        
+        .result-name {
+            color: white;
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+        
+        .result-type {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 12px;
+        }
+        
+        .result-time {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 12px;
+        }
+        
+        .result-content {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        
+        .highlight {
+            background: rgba(102, 126, 234, 0.3);
+            color: white;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        
+        .message-result {
+            border-left: 3px solid #667eea;
+        }
+        
+        .contact-result {
+            border-left: 3px solid #10b981;
+        }
+        
+        .group-result {
+            border-left: 3px solid #f59e0b;
+        }
+        
+        .file-result {
+            border-left: 3px solid #ef4444;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 48px 24px;
+        }
+        
+        .no-results-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+        }
+        
+        .no-results-title {
+            color: white;
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        
+        .no-results-desc {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        
+        .recent-searches {
+            margin-bottom: 24px;
+        }
+        
+        .recent-title {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+        
+        .recent-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .recent-item {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 8px 16px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .recent-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+        
+        .remove-recent {
+            color: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        
+        .remove-recent:hover {
+            color: rgba(255, 255, 255, 0.8);
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="search-container">
+        <div class="search-header">
+            <div class="header-top">
+                <button class="back-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="rgba(255,255,255,0.8)">
+                        <path d="M19 12H5m7-7l-7 7 7 7" stroke="currentColor" stroke-width="2" fill="none"/>
+                    </svg>
+                </button>
+                <h1 class="header-title">搜索</h1>
+            </div>
+            
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="搜索消息、联系人、群组..." value="会议">
+                <button class="search-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                        <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke="currentColor" stroke-width="2" fill="none"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="search-filters">
+                <button class="filter-btn active">全部</button>
+                <button class="filter-btn">消息</button>
+                <button class="filter-btn">联系人</button>
+                <button class="filter-btn">群组</button>
+                <button class="filter-btn">文件</button>
+            </div>
+        </div>
+        
+        <div class="search-content">
+            <div class="recent-searches">
+                <h3 class="recent-title">最近搜索</h3>
+                <div class="recent-items">
+                    <div class="recent-item">
+                        项目进度
+                        <span class="remove-recent">×</span>
+                    </div>
+                    <div class="recent-item">
+                        李小红
+                        <span class="remove-recent">×</span>
+                    </div>
+                    <div class="recent-item">
+                        工作群
+                        <span class="remove-recent">×</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="search-section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                        </svg>
+                        消息
+                    </h2>
+                    <span class="section-count">找到 5 条结果</span>
+                </div>
+                
+                <div class="search-results">
+                    <div class="result-item message-result">
+                        <div class="result-header">
+                            <div class="result-avatar" style="background: linear-gradient(135deg, #f093fb, #f5576c);">李</div>
+                            <div class="result-info">
+                                <div class="result-name">李小红</div>
+                                <div class="result-type">私聊消息</div>
+                            </div>
+                            <div class="result-time">今天 15:20</div>
+                        </div>
+                        <div class="result-content">
+                            大家好，今天下午3点的<span class="highlight">会议</span>大家都能参加吗？
+                        </div>
+                    </div>
+                    
+                    <div class="result-item message-result">
+                        <div class="result-header">
+                            <div class="result-avatar" style="background: linear-gradient(135deg, #667eea, #764ba2);">工</div>
+                            <div class="result-info">
+                                <div class="result-name">工作小组</div>
+                                <div class="result-type">群聊消息</div>
+                            </div>
+                            <div class="result-time">昨天 14:30</div>
+                        </div>
+                        <div class="result-content">
+                            张小明: <span class="highlight">会议</span>室在A座301，记得带上项目资料
+                        </div>
+                    </div>
+                    
+                    <div class="result-item message-result">
+                        <div class="result-header">
+                            <div class="result-avatar" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">王</div>
+                            <div class="result-info">
+                                <div class="result-name">王大力</div>
+                                <div class="result-type">私聊消息</div>
+                            </div>
+                            <div class="result-time">周二 10:15</div>
+                        </div>
+                        <div class="result-content">
+                            明天的<span class="highlight">会议</span>议程发给我看看吧
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="search-section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                        </svg>
+                        联系人
+                    </h2>
+                    <span class="section-count">找到 2 条结果</span>
+                </div>
+                
+                <div class="search-results">
+                    <div class="result-item contact-result">
+                        <div class="result-header">
+                            <div class="result-avatar" style="background: linear-gradient(135deg, #fa709a, #fee140);">刘</div>
+                            <div class="result-info">
+                                <div class="result-name">刘美丽</div>
+                                <div class="result-type">联系人</div>
+                            </div>
+                            <div class="result-time">在线</div>
+                        </div>
+                        <div class="result-content">
+                            产品经理 · 负责<span class="highlight">会议</span>安排和项目协调
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="search-section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20a3 3 0 01-3-3v-2a3 3 0 013-3h4a3 3 0 013 3v2a3 3 0 01-3 3zM16 3.13a4 4 0 010 7.75M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                        群组
+                    </h2>
+                    <span class="section-count">找到 1 条结果</span>
+                </div>
+                
+                <div class="search-results">
+                    <div class="result-item group-result">
+                        <div class="result-header">
+                            <div class="result-avatar" style="background: linear-gradient(135deg, #667eea, #764ba2);">工</div>
+                            <div class="result-info">
+                                <div class="result-name">工作小组</div>
+                                <div class="result-type">群组 · 5人</div>
+                            </div>
+                            <div class="result-time">3人在线</div>
+                        </div>
+                        <div class="result-content">
+                            项目讨论群，主要用于日常工作沟通和<span class="highlight">会议</span>安排
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="search-section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                        文件
+                    </h2>
+                    <span class="section-count">找到 3 条结果</span>
+                </div>
+                
+                <div class="search-results">
+                    <div class="result-item file-result">
+                        <div class="result-header">
+                            <div class="result-avatar" style="background: #ef4444;">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                                    <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                </svg>
+                            </div>
+                            <div class="result-info">
+                                <div class="result-name"><span class="highlight">会议</span>纪要_20240125.docx</div>
+                                <div class="result-type">Word文档 · 2.3MB</div>
+                            </div>
+                            <div class="result-time">昨天</div>
+                        </div>
+                        <div class="result-content">
+                            来自李小红 · 工作小组
+                        </div>
+                    </div>
+                    
+                    <div class="result-item file-result">
+                        <div class="result-header">
+                            <div class="result-avatar" style="background: #10b981;">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                                    <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                </svg>
+                            </div>
+                            <div class="result-info">
+                                <div class="result-name">项目<span class="highlight">会议</span>安排.xlsx</div>
+                                <div class="result-type">Excel表格 · 1.8MB</div>
+                            </div>
+                            <div class="result-time">周一</div>
+                        </div>
+                        <div class="result-content">
+                            来自王大力 · 工作小组
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
