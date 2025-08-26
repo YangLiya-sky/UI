@@ -1,0 +1,250 @@
+:root {
+  /* 背景色系 */
+  --background: #0f0f0f;
+  --foreground: #ffffff;
+  --card: #1a1a1a;
+  --card-foreground: #ffffff;
+  --popover: #1a1a1a;
+  --popover-foreground: #ffffff;
+  
+  /* 主色调 - 蓝绿色系，体现科技感和安全感 */
+  --primary: #00d4aa;
+  --primary-foreground: #000000;
+  --secondary: #2a2a2a;
+  --secondary-foreground: #ffffff;
+  
+  /* 辅助色 */
+  --muted: #262626;
+  --muted-foreground: #a3a3a3;
+  --accent: #00b894;
+  --accent-foreground: #ffffff;
+  
+  /* 功能色 */
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --success: #22c55e;
+  --warning: #f59e0b;
+  
+  /* 边框和输入 */
+  --border: #404040;
+  --input: #2a2a2a;
+  --ring: #00d4aa;
+  
+  /* 侧边栏 */
+  --sidebar: #1a1a1a;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #00d4aa;
+  --sidebar-primary-foreground: #000000;
+  --sidebar-accent: #2a2a2a;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #404040;
+  --sidebar-ring: #00d4aa;
+  
+  /* 字体 */
+  --font-sans: 'Inter', 'Microsoft YaHei', '微软雅黑', sans-serif;
+  --font-serif: 'Inter', 'Microsoft YaHei', '微软雅黑', serif;
+  --font-mono: 'JetBrains Mono', 'Consolas', monospace;
+  
+  /* 圆角 */
+  --radius: 8px;
+  
+  /* 阴影 */
+  --shadow-2xs: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-xs: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px -1px rgba(0, 0, 0, 0.4);
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px -1px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -4px rgba(0, 0, 0, 0.4);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 8px 10px -6px rgba(0, 0, 0, 0.4);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  
+  /* 间距 */
+  --spacing: 0.25rem;
+  
+  /* 圆角变体 */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/* 全局样式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans) !important;
+  background-color: var(--background) !important;
+  color: var(--foreground) !important;
+  line-height: 1.6 !important;
+  overflow-x: hidden !important;
+}
+
+/* 容器样式 */
+.container {
+  width: 1200px !important;
+  height: 800px !important;
+  margin: 0 auto !important;
+  background-color: var(--background) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-2xl) !important;
+  overflow: hidden !important;
+}
+
+/* 顶部导航栏 */
+.header {
+  height: 60px !important;
+  background-color: var(--card) !important;
+  border-bottom: 1px solid var(--border) !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 0 20px !important;
+  justify-content: space-between !important;
+}
+
+/* 主内容区域 */
+.main-content {
+  height: 680px !important;
+  background-color: var(--background) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 20px !important;
+}
+
+/* 底部状态栏 */
+.footer {
+  height: 60px !important;
+  background-color: var(--card) !important;
+  border-top: 1px solid var(--border) !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 0 20px !important;
+  font-size: 12px !important;
+  color: var(--muted-foreground) !important;
+}
+
+/* 按钮样式 */
+.btn {
+  padding: 12px 24px !important;
+  border-radius: var(--radius) !important;
+  border: none !important;
+  cursor: pointer !important;
+  font-family: var(--font-sans) !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-primary {
+  background-color: var(--primary) !important;
+  color: var(--primary-foreground) !important;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent) !important;
+  transform: translateY(-1px) !important;
+}
+
+.btn-secondary {
+  background-color: var(--secondary) !important;
+  color: var(--secondary-foreground) !important;
+}
+
+/* 输入框样式 */
+.input {
+  padding: 12px 16px !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius) !important;
+  background-color: var(--input) !important;
+  color: var(--foreground) !important;
+  font-family: var(--font-sans) !important;
+  transition: all 0.2s ease !important;
+}
+
+.input:focus {
+  outline: none !important;
+  border-color: var(--ring) !important;
+  box-shadow: 0 0 0 2px rgba(0, 212, 170, 0.2) !important;
+}
+
+/* 卡片样式 */
+.card {
+  background-color: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-lg) !important;
+  padding: 24px !important;
+  box-shadow: var(--shadow) !important;
+}
+
+/* 侧边栏样式 */
+.sidebar {
+  background-color: var(--sidebar) !important;
+  border-right: 1px solid var(--sidebar-border) !important;
+  width: 300px !important;
+  height: 100% !important;
+}
+
+/* 消息气泡样式 */
+.message-bubble {
+  max-width: 70% !important;
+  padding: 12px 16px !important;
+  border-radius: var(--radius-lg) !important;
+  margin: 8px 0 !important;
+  word-wrap: break-word !important;
+}
+
+.message-sent {
+  background-color: var(--primary) !important;
+  color: var(--primary-foreground) !important;
+  margin-left: auto !important;
+}
+
+.message-received {
+  background-color: var(--secondary) !important;
+  color: var(--secondary-foreground) !important;
+  margin-right: auto !important;
+}
+
+/* 图标样式 */
+.icon {
+  width: 20px !important;
+  height: 20px !important;
+  fill: currentColor !important;
+}
+
+/* 加密指示器 */
+.encrypted-indicator {
+  color: var(--success) !important;
+  font-size: 12px !important;
+}
+
+/* 在线状态 */
+.online-status {
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 50% !important;
+  background-color: var(--success) !important;
+  display: inline-block !important;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 6px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--muted) !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border) !important;
+  border-radius: 3px !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-foreground) !important;
+}
