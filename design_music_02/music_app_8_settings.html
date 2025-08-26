@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="h-full antialiased">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>设置 - 音乐App</title>
+  <link rel="preconnect" href="https://fonts.bunny.net">
+  <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Serif:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="music_app_theme.css">
+</head>
+<body class="h-full flex items-center justify-center bg-gradient-to-bl from-teal-400 to-blue-500">
+  <div class="mobile-container">
+    <!-- Content Area -->
+    <div class="content-area">
+      <!-- Header -->
+      <div class="px-6 pt-8 pb-4">
+        <div class="flex items-center justify-between mb-6">
+          <button class="p-2 hover:bg-white/10 rounded-full transition-colors">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+          </button>
+          <h1 class="text-lg font-semibold">设置</h1>
+          <div class="w-10"></div>
+        </div>
+      </div>
+
+      <!-- Settings Content -->
+      <div class="px-6 pb-20">
+        <!-- Playback Settings -->
+        <div class="mb-8">
+          <h2 class="text-lg font-semibold mb-4 text-slate-300">播放设置</h2>
+          <div class="space-y-1">
+            <div class="flex items-center justify-between hover:bg-slate-800/30 rounded-lg p-4 transition-colors cursor-pointer animate-fade-in-up">
+              <div class="flex-1">
+                <p class="text-sm font-semibold">音质选择</p>
+                <p class="text-xs text-slate-400">当前：高品质 (320kbps)</p>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-sm text-primary">高品质</span>
+                <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between hover:bg-slate-800/30 rounded-lg p-4 transition-colors animate-fade-in-up" style="animation-delay: 0.1s">
+              <div class="flex-1">
+                <p class="text-sm font-semibold">自动播放</p>
+                <p class="text-xs text-slate-400">歌曲结束后自动播放相似音乐</p>
+              </div>
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" class="sr-only peer" checked>
+                <div class="w-11 h-6 bg-slate-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+              </label>
+            </div>
+
+            <div class="flex items-center justify-between hover:bg-slate-800/30 rounded-lg p-4 transition-colors animate-fade-in-up" style="animation-delay: 0.2s">
+              <div class="flex-1">
+                <p class="text-sm font-semibold">淡入淡出</p>
+                <p class="text-xs text-slate-400">歌曲切换时的平滑过渡</p>
+              </div>
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" class="sr-only peer" checked>
+                <div class="w-11 h-6 bg-slate-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+              </label>
+            </div>
+
+            <div class="flex items-center justify-between hover:bg-slate-800/30 rounded-lg p-4 transition-colors animate-fade-in-up" style="animation-delay: 0.3s">
+              <div class="flex-1">
+                <p class="text-sm font-semibold">均衡器</p>
+                <p class="text-xs text-slate-400">调整音频频率响应</p>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-sm text-slate-400">流行</span>
+                <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Download Settings -->
+        <div class="mb-8">
+          <h2 class="text-lg font-semibold mb-4 text-slate-300">下载设置</h2>
+          <div class="space-y-1">
+            <div class="flex items-center justify-between hover:bg-slate-800/30 rounded-lg p-4 transition-colors animate-fade-in-up" style="animation-delay: 0.4s">
+              <div class="flex-1">
+                <p class="text-sm font-semibold">仅WiFi下载</p>
+                <p class="text-xs text-slate-400">避免使用移动数据下载</p>
+              </div>
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" class="sr-only peer" checked>
+                <div class="w-11 h-6 bg-slate-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+              </label>
+            </div>
+
+            <div class="flex items-center justify-between hover:bg-slate-800/30 rounded-lg p-4 transition-colors cursor-pointer animate-fade-in-up" style="animation-delay: 0.5s">
+              <div class="flex-1">
+                <p class="text-sm font-semibold">下载音质</p>
+                <p class="text-xs text-slate-400">当前：标准 (128kbps)</p>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-sm text-slate-400">标准</span>
+                <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between hover:bg-slate-800/30 rounded-lg p-4 transition-colors cursor-pointer animate-fade-in-up" style="animation-delay: 0.6s">
+              <div class="flex-1">
+                <p class="text-sm font-semibold">存储位置</p>
+                <p class="text-xs text-slate-400">当前：内部存储</p>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-sm text-slate-400">内存</span>
+                <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between hover:bg-slate-800/30 rounded-lg p-4 transition-colors animate-fade-in-up" style="animation-delay: 0.7s">
+              <div class="flex-1">
+                <p class="text-sm font-semibold">存储空间</p>
+                <p class="text-xs text-slate-400">已使用 2.3GB / 可用 15.7GB</p>
+              </div>
+              <div class="w-20 h-2 bg-slate-600 rounded-full overflow-hidden">
+                <div class="w-3/12 h-full bg-primary rounded-full"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Notification Settings -->
+        <div class="mb-8">
+          <h2 class="text-lg font-semibold mb-4 text-slate-300">通知设置</h2>
+          <div class="space-y-1">
+            <div class="flex items-center justify-between hover:bg-slate-800/30 rounded-lg p-4 transition-colors animate-fade-in-up" style="animation-delay: 0.8s">
+              <div class="flex-1">
+                <p class="text-sm font-semibold">推送通知</p>
+                <p class="text-xs text-slate-400">接收应用推送消息</p>
+              </div>
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" class="sr-only peer" checked>
+                <div class="w-11 h-6 bg-slate-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+              </label>
+            </div>
+
+            <div class="flex items-center justify-between hover:bg-slate-800/30 rounded-lg p-4 transition-colors animate-fade-in-up" style="animation-delay: 0.9s">
+              <div class="flex-1">
+                <p class="text-sm font-semibold">新歌提醒</p>
+                <p class="text-xs text-slate-400">关注歌手发布新歌时通知</p>
+              </div>
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" class="sr-only peer" checked>
+                <div class="w-11 h-6 bg-slate-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+              </label>
+            </div>
+
+            <div class="flex items-center justify-between hover:bg-slate-800/30 rounded-lg p-4 transition-colors animate-fade-in-up" style="animation-delay: 1s">
+              <div class="flex-1">
+                <p class="text-sm font-semibold">活动通知</p>
+                <p class="text-xs text-slate-400">演唱会、活动等信息推送</p>
+              </div>
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" class="sr-only peer">
+                <div class="w-11 h-6 bg-slate-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Other Settings -->
+        <div class="mb-8">
+          <h2 class="text-lg font-semibold mb-4 text-slate-300">其他</h2>
+          <div class="space-y-1">
+            <div class="flex items-center justify-between hover:bg-slate-800/30 rounded-lg p-4 transition-colors cursor-pointer animate-fade-in-up" style="animation-delay: 1.1s">
+              <div class="flex-1">
+                <p class="text-sm font-semibold">清除缓存</p>
+                <p class="text-xs text-slate-400">清理临时文件，释放存储空间</p>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-sm text-slate-400">456MB</span>
+                <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between hover:bg-slate-800/30 rounded-lg p-4 transition-colors cursor-pointer animate-fade-in-up" style="animation-delay: 1.2s">
+              <div class="flex-1">
+                <p class="text-sm font-semibold">隐私政策</p>
+                <p class="text-xs text-slate-400">查看我们的隐私保护政策</p>
+              </div>
+              <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </div>
+
+            <div class="flex items-center justify-between hover:bg-slate-800/30 rounded-lg p-4 transition-colors cursor-pointer animate-fade-in-up" style="animation-delay: 1.3s">
+              <div class="flex-1">
+                <p class="text-sm font-semibold">服务条款</p>
+                <p class="text-xs text-slate-400">用户协议和使用条款</p>
+              </div>
+              <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </div>
+
+            <div class="flex items-center justify-between hover:bg-slate-800/30 rounded-lg p-4 transition-colors cursor-pointer animate-fade-in-up" style="animation-delay: 1.4s">
+              <div class="flex-1">
+                <p class="text-sm font-semibold">版本信息</p>
+                <p class="text-xs text-slate-400">当前版本 v2.1.0</p>
+              </div>
+              <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Logout Button -->
+        <div class="pt-4 border-t border-slate-700">
+          <button class="w-full bg-red-600/20 hover:bg-red-600/30 text-red-400 rounded-lg p-4 transition-colors animate-fade-in-up" style="animation-delay: 1.5s">
+            <p class="text-sm font-semibold">退出登录</p>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <div class="bottom-nav">
+      <div class="flex items-center justify-around py-3 h-full">
+        <button class="nav-item flex flex-col items-center gap-1 p-2">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+          </svg>
+          <span class="text-xs">首页</span>
+        </button>
+        <button class="nav-item flex flex-col items-center gap-1 p-2">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+          <span class="text-xs">搜索</span>
+        </button>
+        <button class="nav-item flex flex-col items-center gap-1 p-2">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+          </svg>
+          <span class="text-xs">音乐库</span>
+        </button>
+        <button class="nav-item active flex flex-col items-center gap-1 p-2">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
+          </svg>
+          <span class="text-xs font-medium">我的</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

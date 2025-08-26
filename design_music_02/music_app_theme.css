@@ -1,0 +1,226 @@
+:root {
+  /* 基础颜色 */
+  --background: oklch(0.0902 0.0157 264.0520);
+  --foreground: oklch(0.9804 0.0078 264.0520);
+  --card: oklch(0.1176 0.0196 264.0520);
+  --card-foreground: oklch(0.9804 0.0078 264.0520);
+  --popover: oklch(0.0902 0.0157 264.0520);
+  --popover-foreground: oklch(0.9804 0.0078 264.0520);
+  
+  /* 主色调 - 青蓝色系 */
+  --primary: oklch(0.6471 0.1765 220.3846);
+  --primary-foreground: oklch(0.0902 0.0157 264.0520);
+  --secondary: oklch(0.1569 0.0196 264.0520);
+  --secondary-foreground: oklch(0.9804 0.0078 264.0520);
+  
+  /* 静音色调 */
+  --muted: oklch(0.1569 0.0196 264.0520);
+  --muted-foreground: oklch(0.6275 0.0157 264.0520);
+  
+  /* 强调色 - 绿色播放按钮 */
+  --accent: oklch(0.7216 0.1765 142.4953);
+  --accent-foreground: oklch(0.0902 0.0157 264.0520);
+  
+  /* 危险色 */
+  --destructive: oklch(0.5830 0.2387 28.4765);
+  --destructive-foreground: oklch(0.9804 0.0078 264.0520);
+  
+  /* 边框和输入 */
+  --border: oklch(0.2353 0.0196 264.0520);
+  --input: oklch(0.2353 0.0196 264.0520);
+  --ring: oklch(0.6471 0.1765 220.3846);
+  
+  /* 字体 */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-serif: 'IBM Plex Serif', Georgia, Cambria, 'Times New Roman', Times, serif;
+  --font-mono: 'IBM Plex Mono', 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+  
+  /* 圆角 */
+  --radius: 0.75rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  
+  /* 阴影 */
+  --shadow-2xs: 0 1px 2px 0 hsl(0 0% 0% / 0.05);
+  --shadow-xs: 0 1px 3px 0 hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+  --shadow-sm: 0 1px 3px 0 hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+  --shadow: 0 4px 6px -1px hsl(0 0% 0% / 0.1), 0 2px 4px -2px hsl(0 0% 0% / 0.1);
+  --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.1), 0 2px 4px -2px hsl(0 0% 0% / 0.1);
+  --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.1), 0 4px 6px -4px hsl(0 0% 0% / 0.1);
+  --shadow-xl: 0 20px 25px -5px hsl(0 0% 0% / 0.1), 0 8px 10px -6px hsl(0 0% 0% / 0.1);
+  --shadow-2xl: 0 25px 50px -12px hsl(0 0% 0% / 0.25);
+  
+  /* 间距 */
+  --spacing: 0.25rem;
+  --tracking-normal: 0em;
+}
+
+/* 自定义样式 */
+body {
+  font-family: var(--font-sans) !important;
+  background: linear-gradient(135deg, oklch(0.4706 0.1765 200.3846), oklch(0.5490 0.1765 220.3846)) !important;
+  color: var(--foreground) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  min-height: 100vh !important;
+  overflow: hidden !important;
+}
+
+.mobile-container {
+  width: 412px !important;
+  height: 915px !important;
+  background: linear-gradient(180deg, oklch(0.1569 0.0196 264.0520), oklch(0.0902 0.0157 264.0520), oklch(0.0392 0.0078 264.0520)) !important;
+  border-radius: var(--radius-xl) !important;
+  box-shadow: var(--shadow-2xl) !important;
+  overflow: hidden !important;
+  position: relative !important;
+  margin: 0 auto !important;
+}
+
+.content-area {
+  height: calc(100% - 80px) !important;
+  overflow-y: auto !important;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+.content-area::-webkit-scrollbar {
+  display: none !important;
+}
+
+.bottom-nav {
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 80px !important;
+  background: oklch(0.0902 0.0157 264.0520 / 0.95) !important;
+  backdrop-filter: blur(12px) !important;
+  border-top: 1px solid var(--border) !important;
+}
+
+.nav-item {
+  color: var(--muted-foreground) !important;
+  transition: color 0.2s ease !important;
+}
+
+.nav-item.active {
+  color: var(--primary) !important;
+}
+
+.nav-item:hover {
+  color: var(--foreground) !important;
+}
+
+.card {
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+
+.btn-primary {
+  background: var(--primary) !important;
+  color: var(--primary-foreground) !important;
+  border: none !important;
+  border-radius: var(--radius) !important;
+  padding: 0.75rem 1.5rem !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-primary:hover {
+  background: oklch(0.7471 0.1765 220.3846) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+.btn-accent {
+  background: var(--accent) !important;
+  color: var(--accent-foreground) !important;
+  border: none !important;
+  border-radius: 50% !important;
+  width: 48px !important;
+  height: 48px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn-accent:hover {
+  background: oklch(0.8216 0.1765 142.4953) !important;
+  transform: scale(1.05) !important;
+  box-shadow: var(--shadow-lg) !important;
+}
+
+.text-primary {
+  color: var(--primary) !important;
+}
+
+.text-muted {
+  color: var(--muted-foreground) !important;
+}
+
+.bg-muted {
+  background: var(--muted) !important;
+}
+
+.border-muted {
+  border-color: var(--border) !important;
+}
+
+/* 动画效果 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.4s ease-out !important;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.4s ease-out !important;
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite !important;
+}
+
+/* 响应式调整 */
+@media (max-width: 412px) {
+  .mobile-container {
+    width: 100vw !important;
+    height: 100vh !important;
+    border-radius: 0 !important;
+  }
+}

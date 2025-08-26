@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正在播放 - 音乐APP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="default_ui_darkmode.css">
+    <link rel="stylesheet" href="music-app-theme.css">
+</head>
+<body class="page-center">
+    <div class="mobile-container animate-fadeIn">
+        <!-- 状态栏 -->
+        <div class="status-bar">
+            <div class="flex items-center gap-1">
+                <div class="w-1 h-1 bg-white rounded-full"></div>
+                <div class="w-1 h-1 bg-white rounded-full"></div>
+                <div class="w-1 h-1 bg-white rounded-full opacity-50"></div>
+                <span class="ml-2 text-sm">中国移动</span>
+            </div>
+            <div class="text-sm font-medium">9:41</div>
+            <div class="flex items-center gap-1">
+                <i data-lucide="signal" class="w-4 h-4"></i>
+                <i data-lucide="wifi" class="w-4 h-4"></i>
+                <div class="w-6 h-3 bg-white rounded-sm relative">
+                    <div class="w-4 h-2 bg-green-400 rounded-sm absolute top-0.5 left-0.5"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 播放页面导航 -->
+        <div class="navbar">
+            <button class="navbar-action" onclick="goBack()">
+                <i data-lucide="chevron-down" class="w-6 h-6"></i>
+            </button>
+            <div class="text-center flex-1">
+                <p class="text-sm font-medium text-white">正在播放</p>
+                <p class="text-xs text-slate-400">来自 "民谣时光"</p>
+            </div>
+            <button class="navbar-action">
+                <i data-lucide="more-horizontal" class="w-5 h-5"></i>
+            </button>
+        </div>
+
+        <!-- 主内容区域 -->
+        <div class="main-content scrollbar-hide flex flex-col justify-center">
+            <!-- 专辑封面 -->
+            <div class="flex justify-center mb-8">
+                <div class="relative w-80 h-80">
+                    <img id="albumCover" 
+                         src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=500&q=80" 
+                         class="w-full h-full rounded-3xl object-cover shadow-2xl animate-spin-slow" 
+                         alt="专辑封面">
+                    <!-- 播放指示器 -->
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-16 h-16 bg-black/30 rounded-full flex items-center justify-center backdrop-blur-sm">
+                            <div class="w-4 h-4 bg-white rounded-full"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 歌曲信息 -->
+            <div class="text-center mb-8">
+                <h1 id="songTitle" class="text-2xl font-bold text-white mb-2">夜空中最亮的星</h1>
+                <p id="artistName" class="text-lg text-slate-400">逃跑计划</p>
+            </div>
+
+            <!-- 进度条 -->
+            <div class="mb-8 px-6">
+                <div class="relative">
+                    <div class="w-full h-2 bg-slate-700/50 rounded-full overflow-hidden">
+                        <div id="progressBar" class="h-full bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full transition-all duration-300" style="width: 35%"></div>
+                    </div>
+                    <input type="range" id="progressSlider" min="0" max="100" value="35" 
+                           class="absolute top-0 left-0 w-full h-2 opacity-0 cursor-pointer">
+                </div>
+                <div class="flex justify-between mt-2 text-xs text-slate-400">
+                    <span id="currentTime">1:32</span>
+                    <span id="totalTime">4:21</span>
+                </div>
+            </div>
+
+            <!-- 播放控制 -->
+            <div class="flex items-center justify-center gap-8 mb-8">
+                <button id="shuffleBtn" class="p-3 rounded-full transition-colors">
+                    <i data-lucide="shuffle" class="w-6 h-6 text-slate-400"></i>
+                </button>
+                <button id="prevBtn" class="p-3 rounded-full hover:bg-white/10 transition-colors">
+                    <i data-lucide="skip-back" class="w-8 h-8 text-white"></i>
+                </button>
+                <button id="playBtn" class="w-20 h-20 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full flex items-center justify-center hover:scale-105 transition-all shadow-lg">
+                    <i id="playIcon" data-lucide="pause" class="w-10 h-10 text-white ml-1"></i>
+                </button>
+                <button id="nextBtn" class="p-3 rounded-full hover:bg-white/10 transition-colors">
+                    <i data-lucide="skip-forward" class="w-8 h-8 text-white"></i>
+                </button>
+                <button id="repeatBtn" class="p-3 rounded-full transition-colors">
+                    <i data-lucide="repeat" class="w-6 h-6 text-slate-400"></i>
+                </button>
+            </div>
+
+            <!-- 操作按钮 -->
+            <div class="flex items-center justify-center gap-8">
+                <button id="likeBtn" class="p-3 rounded-full hover:bg-white/10 transition-colors">
+                    <i data-lucide="heart" class="w-6 h-6 text-slate-400"></i>
+                </button>
+                <button id="downloadBtn" class="p-3 rounded-full hover:bg-white/10 transition-colors">
+                    <i data-lucide="download" class="w-6 h-6 text-slate-400"></i>
+                </button>
+                <button id="playlistBtn" class="p-3 rounded-full hover:bg-white/10 transition-colors">
+                    <i data-lucide="list" class="w-6 h-6 text-slate-400"></i>
+                </button>
+                <button id="shareBtn" class="p-3 rounded-full hover:bg-white/10 transition-colors">
+                    <i data-lucide="share-2" class="w-6 h-6 text-slate-400"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- 迷你播放列表 (滑动抽屉) -->
+        <div id="miniPlaylist" class="fixed bottom-0 left-0 right-0 bg-slate-900/95 backdrop-blur-sm transform translate-y-full transition-transform duration-300">
+            <div class="p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-bold text-white">播放队列</h3>
+                    <button id="closePlaylist" class="text-slate-400 hover:text-white">
+                        <i data-lucide="x" class="w-5 h-5"></i>
+                    </button>
+                </div>
+                <div class="space-y-3 max-h-80 overflow-y-auto scrollbar-hide">
+                    <div class="flex items-center gap-3 p-2 bg-blue-500/20 rounded-lg">
+                        <div class="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
+                        <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=200&q=80" 
+                             class="w-12 h-12 rounded-lg object-cover" alt="正在播放">
+                        <div class="flex-1">
+                            <p class="text-sm font-semibold text-white">夜空中最亮的星</p>
+                            <p class="text-xs text-slate-400">逃跑计划</p>
+                        </div>
+                        <span class="text-xs text-blue-400">正在播放</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-2 hover:bg-slate-800/30 rounded-lg cursor-pointer transition-colors">
+                        <div class="w-2 h-2"></div>
+                        <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=200&q=80" 
+                             class="w-12 h-12 rounded-lg object-cover" alt="下一首">
+                        <div class="flex-1">
+                            <p class="text-sm font-semibold text-white">成都</p>
+                            <p class="text-xs text-slate-400">赵雷</p>
+                        </div>
+                        <span class="text-xs text-slate-500">3:47</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-2 hover:bg-slate-800/30 rounded-lg cursor-pointer transition-colors">
+                        <div class="w-2 h-2"></div>
+                        <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=200&q=80" 
+                             class="w-12 h-12 rounded-lg object-cover" alt="下一首">
+                        <div class="flex-1">
+                            <p class="text-sm font-semibold text-white">告白气球</p>
+                            <p class="text-xs text-slate-400">周杰伦</p>
+                        </div>
+                        <span class="text-xs text-slate-500">4:12</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        @keyframes spin-slow {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .animate-spin-slow {
+            animation: spin-slow 10s linear infinite;
+        }
+        
+        .paused {
+            animation-play-state: paused;
+        }
+        
+        #progressSlider::-webkit-slider-thumb {
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #3b82f6;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+
+    <script>
+        lucide.createIcons();
+        
+        // 播放状态
+        let isPlaying = true;
+        let currentProgress = 35;
+        let isShuffleOn = false;
+        let repeatMode = 'off'; // 'off', 'one', 'all'
+        let isLiked = false;
+        
+        // DOM 元素
+        const playBtn = document.getElementById('playBtn');
+        const playIcon = document.getElementById('playIcon');
+        const albumCover = document.getElementById('albumCover');
+        const progressSlider = document.getElementById('progressSlider');
+        const progressBar = document.getElementById('progressBar');
+        const shuffleBtn = document.getElementById('shuffleBtn');
+        const repeatBtn = document.getElementById('repeatBtn');
+        const likeBtn = document.getElementById('likeBtn');
+        const playlistBtn = document.getElementById('playlistBtn');
+        const miniPlaylist = document.getElementById('miniPlaylist');
+        const closePlaylist = document.getElementById('closePlaylist');
+        
+        // 播放/暂停切换
+        playBtn.addEventListener('click', () => {
+            isPlaying = !isPlaying;
+            
+            if (isPlaying) {
+                playIcon.setAttribute('data-lucide', 'pause');
+                albumCover.classList.remove('paused');
+            } else {
+                playIcon.setAttribute('data-lucide', 'play');
+                albumCover.classList.add('paused');
+            }
+            
+            lucide.createIcons();
+        });
+        
+        // 进度条控制
+        progressSlider.addEventListener('input', (e) => {
+            currentProgress = e.target.value;
+            progressBar.style.width = currentProgress + '%';
+            
+            // 计算时间显示
+            const totalSeconds = 261; // 4:21
+            const currentSeconds = Math.floor((currentProgress / 100) * totalSeconds);
+            const minutes = Math.floor(currentSeconds / 60);
+            const seconds = currentSeconds % 60;
+            document.getElementById('currentTime').textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+        });
+        
+        // 随机播放切换
+        shuffleBtn.addEventListener('click', () => {
+            isShuffleOn = !isShuffleOn;
+            const icon = shuffleBtn.querySelector('i');
+            icon.className = isShuffleOn ? 'w-6 h-6 text-blue-400' : 'w-6 h-6 text-slate-400';
+        });
+        
+        // 循环模式切换
+        repeatBtn.addEventListener('click', () => {
+            const modes = ['off', 'all', 'one'];
+            const currentIndex = modes.indexOf(repeatMode);
+            repeatMode = modes[(currentIndex + 1) % modes.length];
+            
+            const icon = repeatBtn.querySelector('i');
+            switch (repeatMode) {
+                case 'off':
+                    icon.className = 'w-6 h-6 text-slate-400';
+                    icon.setAttribute('data-lucide', 'repeat');
+                    break;
+                case 'all':
+                    icon.className = 'w-6 h-6 text-blue-400';
+                    icon.setAttribute('data-lucide', 'repeat');
+                    break;
+                case 'one':
+                    icon.className = 'w-6 h-6 text-blue-400';
+                    icon.setAttribute('data-lucide', 'repeat-1');
+                    break;
+            }
+            lucide.createIcons();
+        });
+        
+        // 喜欢切换
+        likeBtn.addEventListener('click', () => {
+            isLiked = !isLiked;
+            const icon = likeBtn.querySelector('i');
+            icon.className = isLiked ? 'w-6 h-6 text-red-400' : 'w-6 h-6 text-slate-400';
+        });
+        
+        // 播放列表抽屉
+        playlistBtn.addEventListener('click', () => {
+            miniPlaylist.classList.remove('translate-y-full');
+        });
+        
+        closePlaylist.addEventListener('click', () => {
+            miniPlaylist.classList.add('translate-y-full');
+        });
+        
+        // 上一首/下一首
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            // 这里可以添加切换歌曲的逻辑
+            playBtn.style.transform = 'scale(0.9)';
+            setTimeout(() => {
+                playBtn.style.transform = '';
+            }, 100);
+        });
+        
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            // 这里可以添加切换歌曲的逻辑
+            playBtn.style.transform = 'scale(0.9)';
+            setTimeout(() => {
+                playBtn.style.transform = '';
+            }, 100);
+        });
+        
+        // 其他操作按钮
+        document.getElementById('downloadBtn').addEventListener('click', () => {
+            alert('下载功能');
+        });
+        
+        document.getElementById('shareBtn').addEventListener('click', () => {
+            alert('分享功能');
+        });
+        
+        function goBack() {
+            // 返回上一页的逻辑
+            window.history.back();
+        }
+        
+        // 模拟进度更新
+        setInterval(() => {
+            if (isPlaying && currentProgress < 100) {
+                currentProgress += 0.5;
+                progressSlider.value = currentProgress;
+                progressBar.style.width = currentProgress + '%';
+                
+                // 更新时间显示
+                const totalSeconds = 261;
+                const currentSeconds = Math.floor((currentProgress / 100) * totalSeconds);
+                const minutes = Math.floor(currentSeconds / 60);
+                const seconds = currentSeconds % 60;
+                document.getElementById('currentTime').textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

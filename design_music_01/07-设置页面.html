@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>设置 - 音乐APP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="default_ui_darkmode.css">
+    <link rel="stylesheet" href="music-app-theme.css">
+</head>
+<body class="page-center">
+    <div class="mobile-container animate-fadeIn">
+        <!-- 状态栏 -->
+        <div class="status-bar">
+            <div class="flex items-center gap-1">
+                <div class="w-1 h-1 bg-white rounded-full"></div>
+                <div class="w-1 h-1 bg-white rounded-full"></div>
+                <div class="w-1 h-1 bg-white rounded-full opacity-50"></div>
+                <span class="ml-2 text-sm">中国移动</span>
+            </div>
+            <div class="text-sm font-medium">9:41</div>
+            <div class="flex items-center gap-1">
+                <i data-lucide="signal" class="w-4 h-4"></i>
+                <i data-lucide="wifi" class="w-4 h-4"></i>
+                <div class="w-6 h-3 bg-white rounded-sm relative">
+                    <div class="w-4 h-2 bg-green-400 rounded-sm absolute top-0.5 left-0.5"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 导航栏 -->
+        <div class="navbar">
+            <button class="navbar-action">
+                <i data-lucide="arrow-left" class="w-5 h-5"></i>
+            </button>
+            <h1 class="navbar-title">设置</h1>
+            <div class="w-10"></div>
+        </div>
+
+        <!-- 主内容 -->
+        <div class="main-content scrollbar-hide">
+            <!-- 账户设置 -->
+            <div class="card mb-6 p-4">
+                <h3 class="text-lg font-bold text-white mb-4">账户设置</h3>
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between py-3 cursor-pointer">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="user" class="w-5 h-5 text-slate-400"></i>
+                            <span class="text-sm text-white">个人资料</span>
+                        </div>
+                        <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+                    </div>
+                    <div class="flex items-center justify-between py-3 cursor-pointer">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="shield" class="w-5 h-5 text-slate-400"></i>
+                            <span class="text-sm text-white">隐私设置</span>
+                        </div>
+                        <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 播放设置 -->
+            <div class="card mb-6 p-4">
+                <h3 class="text-lg font-bold text-white mb-4">播放设置</h3>
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm text-white">音质选择</p>
+                            <p class="text-xs text-slate-400">当前：高品质</p>
+                        </div>
+                        <select class="bg-slate-700 text-white text-sm px-3 py-1 rounded-lg">
+                            <option>标准</option>
+                            <option selected>高品质</option>
+                            <option>无损</option>
+                        </select>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <p class="text-sm text-white">自动播放</p>
+                        <label class="relative inline-flex items-center cursor-pointer">
+                            <input type="checkbox" checked class="sr-only peer">
+                            <div class="w-11 h-6 bg-slate-600 rounded-full peer peer-checked:bg-blue-500 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-full"></div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 其他设置 -->
+            <div class="card mb-6 p-4">
+                <h3 class="text-lg font-bold text-white mb-4">其他</h3>
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between py-3 cursor-pointer">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="info" class="w-5 h-5 text-slate-400"></i>
+                            <span class="text-sm text-white">关于应用</span>
+                        </div>
+                        <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+                    </div>
+                    <div class="flex items-center justify-between py-3 cursor-pointer">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="log-out" class="w-5 h-5 text-red-400"></i>
+                            <span class="text-sm text-red-400">退出登录</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部导航 -->
+        <div class="bottom-nav">
+            <button class="nav-item">
+                <i data-lucide="home" class="w-5 h-5"></i>
+                <span>首页</span>
+            </button>
+            <button class="nav-item">
+                <i data-lucide="search" class="w-5 h-5"></i>
+                <span>搜索</span>
+            </button>
+            <button class="nav-item">
+                <i data-lucide="library" class="w-5 h-5"></i>
+                <span>音乐库</span>
+            </button>
+            <button class="nav-item active">
+                <i data-lucide="user" class="w-5 h-5"></i>
+                <span>我的</span>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', () => {
+                document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+                item.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

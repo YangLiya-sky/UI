@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音乐搜索 - 音乐APP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="default_ui_darkmode.css">
+    <link rel="stylesheet" href="music-app-theme.css">
+</head>
+<body class="page-center">
+    <div class="mobile-container animate-fadeIn">
+        <!-- 状态栏 -->
+        <div class="status-bar">
+            <div class="flex items-center gap-1">
+                <div class="w-1 h-1 bg-white rounded-full"></div>
+                <div class="w-1 h-1 bg-white rounded-full"></div>
+                <div class="w-1 h-1 bg-white rounded-full opacity-50"></div>
+                <span class="ml-2 text-sm">中国移动</span>
+            </div>
+            <div class="text-sm font-medium">9:41</div>
+            <div class="flex items-center gap-1">
+                <i data-lucide="signal" class="w-4 h-4"></i>
+                <i data-lucide="wifi" class="w-4 h-4"></i>
+                <div class="w-6 h-3 bg-white rounded-sm relative">
+                    <div class="w-4 h-2 bg-green-400 rounded-sm absolute top-0.5 left-0.5"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 搜索导航 -->
+        <div class="navbar">
+            <div class="flex-1 flex items-center gap-3">
+                <div class="relative flex-1">
+                    <input type="text" id="searchInput" 
+                           class="input pl-12 pr-4 py-3 text-sm" 
+                           placeholder="搜索歌曲、歌手、专辑"
+                           autocomplete="off">
+                    <i data-lucide="search" class="w-5 h-5 absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400"></i>
+                    <button id="clearBtn" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-slate-400 hidden">
+                        <i data-lucide="x" class="w-4 h-4"></i>
+                    </button>
+                </div>
+                <button class="text-sm text-slate-400 hover:text-white transition-colors px-3">取消</button>
+            </div>
+        </div>
+
+        <!-- 主内容区域 -->
+        <div class="main-content scrollbar-hide">
+            <!-- 默认状态 - 热门搜索 -->
+            <div id="defaultContent">
+                <!-- 最近搜索 -->
+                <div class="mb-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-bold text-white">最近搜索</h3>
+                        <button class="text-xs text-slate-400 hover:text-white transition-colors">
+                            <i data-lucide="trash-2" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-2 bg-slate-700/50 rounded-full text-sm text-white cursor-pointer hover:bg-slate-600/50 transition-colors">
+                            周杰伦
+                        </span>
+                        <span class="px-3 py-2 bg-slate-700/50 rounded-full text-sm text-white cursor-pointer hover:bg-slate-600/50 transition-colors">
+                            夜空中最亮的星
+                        </span>
+                        <span class="px-3 py-2 bg-slate-700/50 rounded-full text-sm text-white cursor-pointer hover:bg-slate-600/50 transition-colors">
+                            民谣
+                        </span>
+                    </div>
+                </div>
+
+                <!-- 热门搜索 -->
+                <div class="mb-6">
+                    <h3 class="text-lg font-bold text-white mb-4">热门搜索</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between py-2 cursor-pointer hover:bg-slate-800/30 rounded-lg px-2 transition-colors">
+                            <div class="flex items-center gap-3">
+                                <span class="w-6 text-center text-sm font-bold text-red-400">1</span>
+                                <div>
+                                    <p class="text-sm font-semibold text-white">告白气球</p>
+                                    <p class="text-xs text-slate-400">周杰伦</p>
+                                </div>
+                            </div>
+                            <i data-lucide="trending-up" class="w-4 h-4 text-red-400"></i>
+                        </div>
+                        <div class="flex items-center justify-between py-2 cursor-pointer hover:bg-slate-800/30 rounded-lg px-2 transition-colors">
+                            <div class="flex items-center gap-3">
+                                <span class="w-6 text-center text-sm font-bold text-orange-400">2</span>
+                                <div>
+                                    <p class="text-sm font-semibold text-white">成都</p>
+                                    <p class="text-xs text-slate-400">赵雷</p>
+                                </div>
+                            </div>
+                            <i data-lucide="trending-up" class="w-4 h-4 text-orange-400"></i>
+                        </div>
+                        <div class="flex items-center justify-between py-2 cursor-pointer hover:bg-slate-800/30 rounded-lg px-2 transition-colors">
+                            <div class="flex items-center gap-3">
+                                <span class="w-6 text-center text-sm font-bold text-yellow-400">3</span>
+                                <div>
+                                    <p class="text-sm font-semibold text-white">夜空中最亮的星</p>
+                                    <p class="text-xs text-slate-400">逃跑计划</p>
+                                </div>
+                            </div>
+                            <i data-lucide="trending-up" class="w-4 h-4 text-yellow-400"></i>
+                        </div>
+                        <div class="flex items-center justify-between py-2 cursor-pointer hover:bg-slate-800/30 rounded-lg px-2 transition-colors">
+                            <div class="flex items-center gap-3">
+                                <span class="w-6 text-center text-sm font-bold text-slate-400">4</span>
+                                <div>
+                                    <p class="text-sm font-semibold text-white">稻香</p>
+                                    <p class="text-xs text-slate-400">周杰伦</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between py-2 cursor-pointer hover:bg-slate-800/30 rounded-lg px-2 transition-colors">
+                            <div class="flex items-center gap-3">
+                                <span class="w-6 text-center text-sm font-bold text-slate-400">5</span>
+                                <div>
+                                    <p class="text-sm font-semibold text-white">少年</p>
+                                    <p class="text-xs text-slate-400">梦然</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 音乐分类 -->
+                <div class="mb-6">
+                    <h3 class="text-lg font-bold text-white mb-4">音乐分类</h3>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="card p-4 flex items-center gap-3 cursor-pointer hover:scale-105 transition-transform">
+                            <div class="w-12 h-12 bg-gradient-to-r from-red-500 to-pink-500 rounded-lg flex items-center justify-center">
+                                <i data-lucide="heart" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold text-white">华语流行</p>
+                                <p class="text-xs text-slate-400">2356首歌曲</p>
+                            </div>
+                        </div>
+                        <div class="card p-4 flex items-center gap-3 cursor-pointer hover:scale-105 transition-transform">
+                            <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center">
+                                <i data-lucide="zap" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold text-white">摇滚</p>
+                                <p class="text-xs text-slate-400">1892首歌曲</p>
+                            </div>
+                        </div>
+                        <div class="card p-4 flex items-center gap-3 cursor-pointer hover:scale-105 transition-transform">
+                            <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center">
+                                <i data-lucide="leaf" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold text-white">民谣</p>
+                                <p class="text-xs text-slate-400">1456首歌曲</p>
+                            </div>
+                        </div>
+                        <div class="card p-4 flex items-center gap-3 cursor-pointer hover:scale-105 transition-transform">
+                            <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-lg flex items-center justify-center">
+                                <i data-lucide="sparkles" class="w-6 h-6 text-white"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold text-white">电子音乐</p>
+                                <p class="text-xs text-slate-400">987首歌曲</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 搜索结果 -->
+            <div id="searchResults" class="hidden">
+                <div class="mb-4">
+                    <div class="flex gap-2 overflow-x-auto scrollbar-hide pb-2">
+                        <button class="filter-btn active px-4 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap">
+                            全部
+                        </button>
+                        <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap">
+                            歌曲
+                        </button>
+                        <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap">
+                            歌手
+                        </button>
+                        <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap">
+                            专辑
+                        </button>
+                        <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium transition-colors whitespace-nowrap">
+                            歌单
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 搜索结果列表 -->
+                <div class="space-y-3" id="resultsList">
+                    <!-- 将通过JavaScript动态填充 -->
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部导航 -->
+        <div class="bottom-nav">
+            <button class="nav-item">
+                <i data-lucide="home" class="w-5 h-5"></i>
+                <span>首页</span>
+            </button>
+            <button class="nav-item active">
+                <i data-lucide="search" class="w-5 h-5"></i>
+                <span>搜索</span>
+            </button>
+            <button class="nav-item">
+                <i data-lucide="library" class="w-5 h-5"></i>
+                <span>音乐库</span>
+            </button>
+            <button class="nav-item">
+                <i data-lucide="user" class="w-5 h-5"></i>
+                <span>我的</span>
+            </button>
+        </div>
+    </div>
+
+    <style>
+        .filter-btn {
+            background: var(--surface);
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
+        }
+        
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .filter-btn:hover:not(.active) {
+            background: var(--surface-hover);
+            color: var(--text-primary);
+        }
+    </style>
+
+    <script>
+        lucide.createIcons();
+        
+        const searchInput = document.getElementById('searchInput');
+        const clearBtn = document.getElementById('clearBtn');
+        const defaultContent = document.getElementById('defaultContent');
+        const searchResults = document.getElementById('searchResults');
+        const resultsList = document.getElementById('resultsList');
+        
+        // 模拟搜索数据
+        const mockData = [
+            {
+                type: 'song',
+                title: '告白气球',
+                artist: '周杰伦',
+                album: '周杰伦的床边故事',
+                image: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=200&q=80'
+            },
+            {
+                type: 'song',
+                title: '稻香',
+                artist: '周杰伦',
+                album: '魔杰座',
+                image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=200&q=80'
+            },
+            {
+                type: 'artist',
+                title: '周杰伦',
+                subtitle: '华语流行歌手',
+                image: 'https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=200&q=80'
+            }
+        ];
+        
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.trim();
+            
+            if (query) {
+                clearBtn.classList.remove('hidden');
+                showSearchResults(query);
+            } else {
+                clearBtn.classList.add('hidden');
+                showDefaultContent();
+            }
+        });
+        
+        clearBtn.addEventListener('click', () => {
+            searchInput.value = '';
+            clearBtn.classList.add('hidden');
+            showDefaultContent();
+        });
+        
+        function showDefaultContent() {
+            defaultContent.classList.remove('hidden');
+            searchResults.classList.add('hidden');
+        }
+        
+        function showSearchResults(query) {
+            defaultContent.classList.add('hidden');
+            searchResults.classList.remove('hidden');
+            
+            // 模拟搜索结果
+            const filteredData = mockData.filter(item => 
+                item.title.toLowerCase().includes(query.toLowerCase()) ||
+                item.artist?.toLowerCase().includes(query.toLowerCase())
+            );
+            
+            renderResults(filteredData);
+        }
+        
+        function renderResults(data) {
+            resultsList.innerHTML = '';
+            
+            if (data.length === 0) {
+                resultsList.innerHTML = `
+                    <div class="text-center py-8">
+                        <i data-lucide="search-x" class="w-12 h-12 text-slate-400 mx-auto mb-3"></i>
+                        <p class="text-slate-400">没有找到相关结果</p>
+                    </div>
+                `;
+                lucide.createIcons();
+                return;
+            }
+            
+            data.forEach(item => {
+                const resultItem = document.createElement('div');
+                resultItem.className = 'card p-3 flex items-center gap-3 cursor-pointer hover:bg-opacity-80 transition-all';
+                
+                if (item.type === 'song') {
+                    resultItem.innerHTML = `
+                        <img src="${item.image}" class="w-12 h-12 rounded-lg object-cover" alt="${item.title}">
+                        <div class="flex-1">
+                            <p class="text-sm font-semibold text-white">${item.title}</p>
+                            <p class="text-xs text-slate-400">${item.artist} • ${item.album}</p>
+                        </div>
+                        <button class="navbar-action">
+                            <i data-lucide="play" class="w-4 h-4"></i>
+                        </button>
+                        <button class="navbar-action">
+                            <i data-lucide="more-horizontal" class="w-4 h-4"></i>
+                        </button>
+                    `;
+                } else if (item.type === 'artist') {
+                    resultItem.innerHTML = `
+                        <img src="${item.image}" class="w-12 h-12 rounded-full object-cover" alt="${item.title}">
+                        <div class="flex-1">
+                            <p class="text-sm font-semibold text-white">${item.title}</p>
+                            <p class="text-xs text-slate-400">${item.subtitle}</p>
+                        </div>
+                        <button class="btn-ghost btn text-xs px-3 py-1">
+                            关注
+                        </button>
+                    `;
+                }
+                
+                resultsList.appendChild(resultItem);
+            });
+            
+            lucide.createIcons();
+        }
+        
+        // 筛选按钮功能
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+        
+        // 底部导航
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', () => {
+                document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+                item.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

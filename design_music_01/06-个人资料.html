@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人资料 - 音乐APP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="default_ui_darkmode.css">
+    <link rel="stylesheet" href="music-app-theme.css">
+</head>
+<body class="page-center">
+    <div class="mobile-container animate-fadeIn">
+        <!-- 状态栏 -->
+        <div class="status-bar">
+            <div class="flex items-center gap-1">
+                <div class="w-1 h-1 bg-white rounded-full"></div>
+                <div class="w-1 h-1 bg-white rounded-full"></div>
+                <div class="w-1 h-1 bg-white rounded-full opacity-50"></div>
+                <span class="ml-2 text-sm">中国移动</span>
+            </div>
+            <div class="text-sm font-medium">9:41</div>
+            <div class="flex items-center gap-1">
+                <i data-lucide="signal" class="w-4 h-4"></i>
+                <i data-lucide="wifi" class="w-4 h-4"></i>
+                <div class="w-6 h-3 bg-white rounded-sm relative">
+                    <div class="w-4 h-2 bg-green-400 rounded-sm absolute top-0.5 left-0.5"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 顶部导航 -->
+        <div class="navbar">
+            <button class="navbar-action">
+                <i data-lucide="arrow-left" class="w-5 h-5"></i>
+            </button>
+            <h1 class="navbar-title flex-1 text-center">个人资料</h1>
+            <button class="navbar-action">
+                <i data-lucide="settings" class="w-5 h-5"></i>
+            </button>
+        </div>
+
+        <!-- 主内容区域 -->
+        <div class="main-content scrollbar-hide">
+            <!-- 用户头部信息 -->
+            <div class="card mb-6 p-6 text-center">
+                <div class="relative inline-block mb-4">
+                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=200&q=80" 
+                         class="w-24 h-24 rounded-full object-cover mx-auto" alt="用户头像">
+                    <button class="absolute bottom-0 right-0 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                        <i data-lucide="camera" class="w-4 h-4 text-white"></i>
+                    </button>
+                </div>
+                <h2 class="text-xl font-bold text-white mb-1">张小明</h2>
+                <p class="text-sm text-slate-400 mb-4">音乐ID: music_lover_2023</p>
+                <div class="flex items-center justify-center gap-6">
+                    <div class="text-center">
+                        <p class="text-lg font-bold text-white">156</p>
+                        <p class="text-xs text-slate-400">关注</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-lg font-bold text-white">89</p>
+                        <p class="text-xs text-slate-400">粉丝</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-lg font-bold text-white">12</p>
+                        <p class="text-xs text-slate-400">动态</p>
+                    </div>
+                </div>
+                <div class="flex gap-3 mt-6">
+                    <button class="btn-primary flex-1 py-2 text-sm">编辑资料</button>
+                    <button class="btn-ghost px-4 py-2 text-sm">分享</button>
+                </div>
+            </div>
+
+            <!-- 听歌统计 -->
+            <div class="card mb-6 p-6">
+                <h3 class="text-lg font-bold text-white mb-4">听歌统计</h3>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-gradient-to-r from-blue-500/20 to-cyan-500/20 p-4 rounded-lg">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-2xl font-bold text-white">48h</p>
+                                <p class="text-sm text-slate-400">本周听歌</p>
+                            </div>
+                            <i data-lucide="headphones" class="w-8 h-8 text-blue-400"></i>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-r from-green-500/20 to-emerald-500/20 p-4 rounded-lg">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-2xl font-bold text-white">356</p>
+                                <p class="text-sm text-slate-400">播放次数</p>
+                            </div>
+                            <i data-lucide="play-circle" class="w-8 h-8 text-green-400"></i>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-r from-purple-500/20 to-indigo-500/20 p-4 rounded-lg">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-2xl font-bold text-white">24</p>
+                                <p class="text-sm text-slate-400">收藏歌手</p>
+                            </div>
+                            <i data-lucide="user-plus" class="w-8 h-8 text-purple-400"></i>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-r from-red-500/20 to-pink-500/20 p-4 rounded-lg">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-2xl font-bold text-white">168</p>
+                                <p class="text-sm text-slate-400">收藏歌曲</p>
+                            </div>
+                            <i data-lucide="heart" class="w-8 h-8 text-red-400"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 最近活动 -->
+            <div class="card mb-6 p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-bold text-white">最近活动</h3>
+                    <button class="text-xs text-slate-400 hover:text-white transition-colors">查看全部</button>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex items-start gap-3">
+                        <div class="w-2 h-2 bg-blue-400 rounded-full mt-2"></div>
+                        <div class="flex-1">
+                            <p class="text-sm text-white">收藏了歌单 <span class="text-blue-400">"民谣精选"</span></p>
+                            <p class="text-xs text-slate-400">2小时前</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-2 h-2 bg-green-400 rounded-full mt-2"></div>
+                        <div class="flex-1">
+                            <p class="text-sm text-white">关注了歌手 <span class="text-green-400">"周杰伦"</span></p>
+                            <p class="text-xs text-slate-400">5小时前</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-2 h-2 bg-purple-400 rounded-full mt-2"></div>
+                        <div class="flex-1">
+                            <p class="text-sm text-white">创建了歌单 <span class="text-purple-400">"深夜音乐"</span></p>
+                            <p class="text-xs text-slate-400">1天前</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 音乐喜好 -->
+            <div class="card mb-6 p-6">
+                <h3 class="text-lg font-bold text-white mb-4">音乐喜好</h3>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm">华语流行</span>
+                    <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-sm">民谣</span>
+                    <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-sm">摇滚</span>
+                    <span class="px-3 py-1 bg-red-500/20 text-red-400 rounded-full text-sm">电子音乐</span>
+                    <span class="px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-sm">轻音乐</span>
+                </div>
+            </div>
+
+            <!-- 成就徽章 -->
+            <div class="card mb-6 p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-bold text-white">成就徽章</h3>
+                    <span class="text-xs text-slate-400">3/10</span>
+                </div>
+                <div class="grid grid-cols-4 gap-3">
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full flex items-center justify-center mx-auto mb-2">
+                            <i data-lucide="star" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <p class="text-xs text-slate-400">音乐新手</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full flex items-center justify-center mx-auto mb-2">
+                            <i data-lucide="headphones" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <p class="text-xs text-slate-400">听歌达人</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-gradient-to-r from-green-400 to-emerald-400 rounded-full flex items-center justify-center mx-auto mb-2">
+                            <i data-lucide="heart" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <p class="text-xs text-slate-400">收藏家</p>
+                    </div>
+                    <div class="text-center opacity-50">
+                        <div class="w-12 h-12 bg-slate-600 rounded-full flex items-center justify-center mx-auto mb-2">
+                            <i data-lucide="lock" class="w-6 h-6 text-slate-400"></i>
+                        </div>
+                        <p class="text-xs text-slate-400">待解锁</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部导航 -->
+        <div class="bottom-nav">
+            <button class="nav-item">
+                <i data-lucide="home" class="w-5 h-5"></i>
+                <span>首页</span>
+            </button>
+            <button class="nav-item">
+                <i data-lucide="search" class="w-5 h-5"></i>
+                <span>搜索</span>
+            </button>
+            <button class="nav-item">
+                <i data-lucide="library" class="w-5 h-5"></i>
+                <span>音乐库</span>
+            </button>
+            <button class="nav-item active">
+                <i data-lucide="user" class="w-5 h-5"></i>
+                <span>我的</span>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+        
+        // 编辑头像
+        document.querySelector('[data-lucide="camera"]').parentElement.addEventListener('click', () => {
+            alert('更换头像功能');
+        });
+        
+        // 编辑资料
+        document.querySelector('.btn-primary').addEventListener('click', () => {
+            alert('编辑个人资料');
+        });
+        
+        // 底部导航
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', () => {
+                document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+                item.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
