@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="h-full scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旅行指南 - 旅行助手</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="../travel_app_theme.css">
+</head>
+<body class="h-screen w-screen overflow-hidden antialiased flex items-center justify-center font-inter bg-teal-50 bg-[url('https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=2160&q=80')] bg-cover">
+    <div class="relative w-[380px] h-[850px] flex flex-col gap-6 glass-card rounded-3xl pt-6 pr-6 pb-6 pl-6 shadow-2xl animate-slide-up overflow-hidden">
+        <!-- Header -->
+        <div class="flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <button class="h-8 w-8 rounded-full bg-white shadow flex items-center justify-center hover:scale-105 transition-transform">
+                    <i data-lucide="chevron-left" class="h-5 w-5 stroke-gray-700"></i>
+                </button>
+                <h2 class="text-lg font-semibold text-gray-900">旅行指南</h2>
+            </div>
+            <button class="h-8 w-8 rounded-full bg-white shadow flex items-center justify-center hover:scale-105 transition-transform">
+                <i data-lucide="bookmark" class="h-4 w-4 stroke-gray-700"></i>
+            </button>
+        </div>
+
+        <!-- Search -->
+        <div class="relative">
+            <input type="text" placeholder="搜索指南、攻略..." class="w-full glass-input rounded-xl px-4 py-3 pr-10 focus:ring-2 focus:ring-teal-500 focus:outline-none">
+            <i data-lucide="search" class="absolute right-3 top-1/2 transform -translate-y-1/2 h-5 w-5 stroke-gray-500"></i>
+        </div>
+
+        <!-- Categories -->
+        <div class="flex flex-col gap-3">
+            <h3 class="text-base font-semibold text-gray-900">指南分类</h3>
+            <div class="grid grid-cols-2 gap-3">
+                <button class="flex flex-col items-center gap-2 bg-white rounded-xl p-4 shadow hover:shadow-lg transition-shadow animate-scale-in">
+                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                        <i data-lucide="plane" class="h-6 w-6 stroke-blue-600"></i>
+                    </div>
+                    <span class="text-sm font-medium text-gray-800">交通出行</span>
+                </button>
+                <button class="flex flex-col items-center gap-2 bg-white rounded-xl p-4 shadow hover:shadow-lg transition-shadow animate-scale-in" style="animation-delay: 0.1s">
+                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                        <i data-lucide="utensils" class="h-6 w-6 stroke-green-600"></i>
+                    </div>
+                    <span class="text-sm font-medium text-gray-800">美食攻略</span>
+                </button>
+                <button class="flex flex-col items-center gap-2 bg-white rounded-xl p-4 shadow hover:shadow-lg transition-shadow animate-scale-in" style="animation-delay: 0.2s">
+                    <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+                        <i data-lucide="map-pin" class="h-6 w-6 stroke-purple-600"></i>
+                    </div>
+                    <span class="text-sm font-medium text-gray-800">景点推荐</span>
+                </button>
+                <button class="flex flex-col items-center gap-2 bg-white rounded-xl p-4 shadow hover:shadow-lg transition-shadow animate-scale-in" style="animation-delay: 0.3s">
+                    <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
+                        <i data-lucide="shopping-bag" class="h-6 w-6 stroke-orange-600"></i>
+                    </div>
+                    <span class="text-sm font-medium text-gray-800">购物指南</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Featured Articles -->
+        <div class="flex flex-col gap-3">
+            <div class="flex items-center justify-between">
+                <h3 class="text-base font-semibold text-gray-900">精选文章</h3>
+                <button class="text-sm text-teal-600 font-medium">查看全部</button>
+            </div>
+            
+            <div class="flex flex-col gap-3 flex-1 overflow-y-auto">
+                <!-- Article 1 -->
+                <div class="bg-white rounded-xl shadow hover:shadow-lg transition-shadow animate-fade-in">
+                    <img src="https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?w=400&q=80" class="w-full h-24 object-cover rounded-t-xl" alt="东京攻略">
+                    <div class="p-3">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full text-xs font-medium">交通</span>
+                            <span class="text-xs text-gray-500">5分钟阅读</span>
+                        </div>
+                        <h4 class="text-sm font-semibold text-gray-900 mb-1">东京地铁完全攻略</h4>
+                        <p class="text-xs text-gray-600 mb-2">详细介绍东京复杂的地铁系统，包括购票、换乘和实用技巧...</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-1">
+                                <i data-lucide="eye" class="h-3 w-3 stroke-gray-400"></i>
+                                <span class="text-xs text-gray-500">1.2k</span>
+                            </div>
+                            <span class="text-xs text-gray-500">2天前</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Article 2 -->
+                <div class="bg-white rounded-xl shadow hover:shadow-lg transition-shadow animate-fade-in" style="animation-delay: 0.1s">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400&q=80" class="w-full h-24 object-cover rounded-t-xl" alt="日本美食">
+                    <div class="p-3">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="bg-green-100 text-green-700 px-2 py-0.5 rounded-full text-xs font-medium">美食</span>
+                            <span class="text-xs text-gray-500">8分钟阅读</span>
+                        </div>
+                        <h4 class="text-sm font-semibold text-gray-900 mb-1">日本必吃美食清单</h4>
+                        <p class="text-xs text-gray-600 mb-2">从街头小吃到米其林餐厅，带你品尝最地道的日本味道...</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-1">
+                                <i data-lucide="eye" class="h-3 w-3 stroke-gray-400"></i>
+                                <span class="text-xs text-gray-500">2.8k</span>
+                            </div>
+                            <span class="text-xs text-gray-500">1周前</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Article 3 -->
+                <div class="bg-white rounded-xl shadow hover:shadow-lg transition-shadow animate-fade-in" style="animation-delay: 0.2s">
+                    <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=400&q=80" class="w-full h-24 object-cover rounded-t-xl" alt="浅草寺">
+                    <div class="p-3">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="bg-purple-100 text-purple-700 px-2 py-0.5 rounded-full text-xs font-medium">景点</span>
+                            <span class="text-xs text-gray-500">6分钟阅读</span>
+                        </div>
+                        <h4 class="text-sm font-semibold text-gray-900 mb-1">东京十大必游景点</h4>
+                        <p class="text-xs text-gray-600 mb-2">从传统寺庙到现代地标，精选东京最值得一游的景点...</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-1">
+                                <i data-lucide="eye" class="h-3 w-3 stroke-gray-400"></i>
+                                <span class="text-xs text-gray-500">3.5k</span>
+                            </div>
+                            <span class="text-xs text-gray-500">3天前</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Tips -->
+        <div class="flex flex-col gap-3">
+            <h3 class="text-base font-semibold text-gray-900">实用贴士</h3>
+            <div class="flex flex-col gap-2">
+                <div class="flex items-start gap-3 bg-white rounded-lg p-3 shadow animate-fade-in">
+                    <div class="w-8 h-8 bg-yellow-100 rounded-lg flex items-center justify-center shrink-0">
+                        <i data-lucide="lightbulb" class="h-4 w-4 stroke-yellow-600"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm font-medium text-gray-800">货币兑换</p>
+                        <p class="text-xs text-gray-600">建议在机场或银行兑换日元，避免使用信用卡产生手续费</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start gap-3 bg-white rounded-lg p-3 shadow animate-fade-in" style="animation-delay: 0.1s">
+                    <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center shrink-0">
+                        <i data-lucide="wifi" class="h-4 w-4 stroke-blue-600"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm font-medium text-gray-800">网络连接</p>
+                        <p class="text-xs text-gray-600">租用便携WiFi或购买当地SIM卡，保持网络畅通</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start gap-3 bg-white rounded-lg p-3 shadow animate-fade-in" style="animation-delay: 0.2s">
+                    <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center shrink-0">
+                        <i data-lucide="clock" class="h-4 w-4 stroke-green-600"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm font-medium text-gray-800">时差调整</p>
+                        <p class="text-xs text-gray-600">日本比中国快1小时，提前调整作息避免时差反应</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <nav class="flex items-center justify-between glass-nav rounded-full py-3 px-6 shadow mt-4">
+            <button class="hover:scale-110 transition-transform">
+                <i data-lucide="home" class="stroke-gray-400 w-6 h-6"></i>
+            </button>
+            <button class="hover:scale-110 transition-transform">
+                <i data-lucide="map-pin" class="stroke-gray-400 w-6 h-6"></i>
+            </button>
+            <button class="hover:scale-110 transition-transform">
+                <i data-lucide="heart" class="stroke-gray-400 w-6 h-6"></i>
+            </button>
+            <button class="hover:scale-110 transition-transform">
+                <i data-lucide="user" class="stroke-gray-400 w-6 h-6"></i>
+            </button>
+        </nav>
+    </div>
+
+    <script>
+        lucide.createIcons();
+        
+        // 添加交互动画
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+    </script>
+</body>
+</html>

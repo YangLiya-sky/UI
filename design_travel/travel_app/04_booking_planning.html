@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="h-full scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>行程规划 - 旅行助手</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="../travel_app_theme.css">
+</head>
+<body class="h-screen w-screen overflow-hidden antialiased flex items-center justify-center font-inter bg-teal-50 bg-[url('https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=2160&q=80')] bg-cover">
+    <div class="relative w-[380px] h-[850px] flex flex-col gap-6 glass-card rounded-3xl pt-6 pr-6 pb-6 pl-6 shadow-2xl animate-slide-up overflow-y-auto">
+        <!-- Header -->
+        <div class="flex items-center gap-4">
+            <button class="h-8 w-8 rounded-full bg-white shadow flex items-center justify-center hover:scale-105 transition-transform">
+                <i data-lucide="chevron-left" class="h-5 w-5 stroke-gray-700"></i>
+            </button>
+            <h2 class="flex-1 text-lg font-semibold text-gray-900 text-center pr-8">规划新旅程</h2>
+        </div>
+
+        <!-- Progress Indicator -->
+        <div class="flex items-center gap-2">
+            <div class="flex-1 h-1 bg-teal-500 rounded-full"></div>
+            <div class="flex-1 h-1 bg-teal-500 rounded-full"></div>
+            <div class="flex-1 h-1 bg-gray-200 rounded-full"></div>
+            <div class="flex-1 h-1 bg-gray-200 rounded-full"></div>
+        </div>
+
+        <!-- Destination Selection -->
+        <div class="flex flex-col gap-4">
+            <h3 class="text-base font-semibold text-gray-900">选择目的地</h3>
+            <div class="relative">
+                <input type="text" placeholder="搜索城市或国家..." class="w-full glass-input rounded-xl px-4 py-3 pr-10 focus:ring-2 focus:ring-teal-500 focus:outline-none">
+                <i data-lucide="search" class="absolute right-3 top-1/2 transform -translate-y-1/2 h-5 w-5 stroke-gray-500"></i>
+            </div>
+            
+            <!-- Popular Destinations -->
+            <div class="flex flex-col gap-2">
+                <p class="text-sm text-gray-600">热门目的地</p>
+                <div class="grid grid-cols-2 gap-2">
+                    <button class="flex items-center gap-2 bg-white rounded-lg p-3 shadow hover:shadow-md transition-shadow animate-scale-in">
+                        <img src="https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?w=100&q=80" class="w-8 h-8 object-cover rounded-lg" alt="东京">
+                        <span class="text-sm font-medium text-gray-800">东京</span>
+                    </button>
+                    <button class="flex items-center gap-2 bg-white rounded-lg p-3 shadow hover:shadow-md transition-shadow animate-scale-in" style="animation-delay: 0.1s">
+                        <img src="https://images.unsplash.com/photo-1502602898536-47ad22581b52?w=100&q=80" class="w-8 h-8 object-cover rounded-lg" alt="巴黎">
+                        <span class="text-sm font-medium text-gray-800">巴黎</span>
+                    </button>
+                    <button class="flex items-center gap-2 bg-white rounded-lg p-3 shadow hover:shadow-md transition-shadow animate-scale-in" style="animation-delay: 0.2s">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=100&q=80" class="w-8 h-8 object-cover rounded-lg" alt="巴厘岛">
+                        <span class="text-sm font-medium text-gray-800">巴厘岛</span>
+                    </button>
+                    <button class="flex items-center gap-2 bg-white rounded-lg p-3 shadow hover:shadow-md transition-shadow animate-scale-in" style="animation-delay: 0.3s">
+                        <img src="https://images.unsplash.com/photo-1504218727796-db522606b16f?w=100&q=80" class="w-8 h-8 object-cover rounded-lg" alt="瑞士">
+                        <span class="text-sm font-medium text-gray-800">瑞士</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Date Selection -->
+        <div class="flex flex-col gap-4">
+            <h3 class="text-base font-semibold text-gray-900">选择日期</h3>
+            <div class="grid grid-cols-2 gap-3">
+                <div class="flex flex-col gap-2">
+                    <label class="text-sm text-gray-600">出发日期</label>
+                    <button class="flex items-center justify-between bg-white rounded-lg px-3 py-3 shadow hover:shadow-md transition-shadow">
+                        <span class="text-sm text-gray-800">5月15日</span>
+                        <i data-lucide="calendar" class="h-4 w-4 stroke-gray-500"></i>
+                    </button>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label class="text-sm text-gray-600">返回日期</label>
+                    <button class="flex items-center justify-between bg-white rounded-lg px-3 py-3 shadow hover:shadow-md transition-shadow">
+                        <span class="text-sm text-gray-800">5月22日</span>
+                        <i data-lucide="calendar" class="h-4 w-4 stroke-gray-500"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Travelers -->
+        <div class="flex flex-col gap-4">
+            <h3 class="text-base font-semibold text-gray-900">旅行人数</h3>
+            <div class="flex items-center justify-between bg-white rounded-lg px-4 py-3 shadow">
+                <div class="flex items-center gap-3">
+                    <i data-lucide="users" class="h-5 w-5 stroke-gray-600"></i>
+                    <span class="text-sm text-gray-800">成人</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition-colors">
+                        <i data-lucide="minus" class="h-4 w-4 stroke-gray-600"></i>
+                    </button>
+                    <span class="text-sm font-medium text-gray-800 w-6 text-center">2</span>
+                    <button class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition-colors">
+                        <i data-lucide="plus" class="h-4 w-4 stroke-gray-600"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="flex items-center justify-between bg-white rounded-lg px-4 py-3 shadow">
+                <div class="flex items-center gap-3">
+                    <i data-lucide="baby" class="h-5 w-5 stroke-gray-600"></i>
+                    <span class="text-sm text-gray-800">儿童</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition-colors">
+                        <i data-lucide="minus" class="h-4 w-4 stroke-gray-600"></i>
+                    </button>
+                    <span class="text-sm font-medium text-gray-800 w-6 text-center">0</span>
+                    <button class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition-colors">
+                        <i data-lucide="plus" class="h-4 w-4 stroke-gray-600"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Budget Range -->
+        <div class="flex flex-col gap-4">
+            <h3 class="text-base font-semibold text-gray-900">预算范围</h3>
+            <div class="grid grid-cols-3 gap-2">
+                <button class="flex flex-col items-center gap-1 bg-white rounded-lg p-3 shadow hover:shadow-md transition-shadow">
+                    <i data-lucide="dollar-sign" class="h-5 w-5 stroke-green-600"></i>
+                    <span class="text-xs font-medium text-gray-800">经济</span>
+                    <span class="text-xs text-gray-500">< ¥5000</span>
+                </button>
+                <button class="flex flex-col items-center gap-1 bg-teal-50 border-2 border-teal-500 rounded-lg p-3 shadow">
+                    <i data-lucide="dollar-sign" class="h-5 w-5 stroke-teal-600"></i>
+                    <span class="text-xs font-medium text-teal-800">舒适</span>
+                    <span class="text-xs text-teal-600">¥5000-15000</span>
+                </button>
+                <button class="flex flex-col items-center gap-1 bg-white rounded-lg p-3 shadow hover:shadow-md transition-shadow">
+                    <i data-lucide="dollar-sign" class="h-5 w-5 stroke-purple-600"></i>
+                    <span class="text-xs font-medium text-gray-800">奢华</span>
+                    <span class="text-xs text-gray-500">> ¥15000</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex gap-3 mt-4">
+            <button class="flex-1 btn-secondary text-center">
+                保存草稿
+            </button>
+            <button class="flex-1 btn-primary text-center">
+                生成行程
+            </button>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+        
+        // 添加交互动画
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+
+        // 数量控制
+        document.querySelectorAll('[data-lucide="plus"], [data-lucide="minus"]').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const isPlus = this.getAttribute('data-lucide') === 'plus';
+                const countElement = isPlus ? 
+                    this.previousElementSibling : 
+                    this.nextElementSibling;
+                
+                let count = parseInt(countElement.textContent);
+                if (isPlus) {
+                    count = Math.min(count + 1, 10);
+                } else {
+                    count = Math.max(count - 1, 0);
+                }
+                countElement.textContent = count;
+            });
+        });
+    </script>
+</body>
+</html>

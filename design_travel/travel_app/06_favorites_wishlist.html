@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="h-full scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的收藏 - 旅行助手</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="../travel_app_theme.css">
+</head>
+<body class="h-screen w-screen overflow-hidden antialiased flex items-center justify-center font-inter bg-teal-50 bg-[url('https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=2160&q=80')] bg-cover">
+    <div class="relative w-[380px] h-[850px] flex flex-col gap-6 glass-card rounded-3xl pt-6 pr-6 pb-6 pl-6 shadow-2xl animate-slide-up overflow-hidden">
+        <!-- Header -->
+        <div class="flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <button class="h-8 w-8 rounded-full bg-white shadow flex items-center justify-center hover:scale-105 transition-transform">
+                    <i data-lucide="chevron-left" class="h-5 w-5 stroke-gray-700"></i>
+                </button>
+                <h2 class="text-lg font-semibold text-gray-900">我的收藏</h2>
+            </div>
+            <button class="h-8 w-8 rounded-full bg-white shadow flex items-center justify-center hover:scale-105 transition-transform">
+                <i data-lucide="search" class="h-4 w-4 stroke-gray-700"></i>
+            </button>
+        </div>
+
+        <!-- Stats -->
+        <div class="grid grid-cols-3 gap-3">
+            <div class="bg-white rounded-xl p-3 shadow text-center animate-scale-in">
+                <p class="text-lg font-bold text-teal-600">24</p>
+                <p class="text-xs text-gray-500">已收藏</p>
+            </div>
+            <div class="bg-white rounded-xl p-3 shadow text-center animate-scale-in" style="animation-delay: 0.1s">
+                <p class="text-lg font-bold text-blue-600">8</p>
+                <p class="text-xs text-gray-500">已访问</p>
+            </div>
+            <div class="bg-white rounded-xl p-3 shadow text-center animate-scale-in" style="animation-delay: 0.2s">
+                <p class="text-lg font-bold text-purple-600">16</p>
+                <p class="text-xs text-gray-500">待访问</p>
+            </div>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="flex gap-2 overflow-x-auto pb-1">
+            <button class="shrink-0 flex items-center gap-1 bg-teal-500 text-white px-3 py-1.5 rounded-full text-xs font-medium">
+                <i data-lucide="heart" class="h-3 w-3"></i>
+                全部
+            </button>
+            <button class="shrink-0 flex items-center gap-1 bg-white px-3 py-1.5 rounded-full text-xs font-medium text-gray-700 hover:bg-gray-50 transition-colors">
+                <i data-lucide="map-pin" class="h-3 w-3"></i>
+                景点
+            </button>
+            <button class="shrink-0 flex items-center gap-1 bg-white px-3 py-1.5 rounded-full text-xs font-medium text-gray-700 hover:bg-gray-50 transition-colors">
+                <i data-lucide="utensils" class="h-3 w-3"></i>
+                餐厅
+            </button>
+            <button class="shrink-0 flex items-center gap-1 bg-white px-3 py-1.5 rounded-full text-xs font-medium text-gray-700 hover:bg-gray-50 transition-colors">
+                <i data-lucide="hotel" class="h-3 w-3"></i>
+                酒店
+            </button>
+        </div>
+
+        <!-- Favorites Grid -->
+        <div class="flex-1 overflow-y-auto">
+            <div class="grid grid-cols-2 gap-3">
+                <!-- Tokyo -->
+                <div class="bg-white rounded-xl shadow hover:shadow-lg transition-shadow animate-fade-in">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?w=400&q=80" class="w-full h-24 object-cover rounded-t-xl" alt="东京">
+                        <button class="absolute top-2 right-2 w-6 h-6 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center">
+                            <i data-lucide="heart" class="h-3 w-3 stroke-red-500 fill-red-500"></i>
+                        </button>
+                        <div class="absolute bottom-2 left-2 bg-green-500 text-white px-2 py-0.5 rounded-full text-xs font-medium">
+                            已访问
+                        </div>
+                    </div>
+                    <div class="p-3">
+                        <p class="text-sm font-semibold text-gray-900">东京</p>
+                        <p class="text-xs text-gray-500">日本</p>
+                        <div class="flex items-center justify-between mt-2">
+                            <div class="flex items-center gap-1">
+                                <i data-lucide="star" class="h-3 w-3 fill-yellow-400 stroke-yellow-400"></i>
+                                <span class="text-xs text-gray-600">4.8</span>
+                            </div>
+                            <span class="text-xs text-gray-500">2天前</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paris -->
+                <div class="bg-white rounded-xl shadow hover:shadow-lg transition-shadow animate-fade-in" style="animation-delay: 0.1s">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1502602898536-47ad22581b52?w=400&q=80" class="w-full h-24 object-cover rounded-t-xl" alt="巴黎">
+                        <button class="absolute top-2 right-2 w-6 h-6 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center">
+                            <i data-lucide="heart" class="h-3 w-3 stroke-red-500 fill-red-500"></i>
+                        </button>
+                        <div class="absolute bottom-2 left-2 bg-blue-500 text-white px-2 py-0.5 rounded-full text-xs font-medium">
+                            计划中
+                        </div>
+                    </div>
+                    <div class="p-3">
+                        <p class="text-sm font-semibold text-gray-900">巴黎</p>
+                        <p class="text-xs text-gray-500">法国</p>
+                        <div class="flex items-center justify-between mt-2">
+                            <div class="flex items-center gap-1">
+                                <i data-lucide="star" class="h-3 w-3 fill-yellow-400 stroke-yellow-400"></i>
+                                <span class="text-xs text-gray-600">4.9</span>
+                            </div>
+                            <span class="text-xs text-gray-500">1周前</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bali -->
+                <div class="bg-white rounded-xl shadow hover:shadow-lg transition-shadow animate-fade-in" style="animation-delay: 0.2s">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=80" class="w-full h-24 object-cover rounded-t-xl" alt="巴厘岛">
+                        <button class="absolute top-2 right-2 w-6 h-6 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center">
+                            <i data-lucide="heart" class="h-3 w-3 stroke-red-500 fill-red-500"></i>
+                        </button>
+                        <div class="absolute bottom-2 left-2 bg-orange-500 text-white px-2 py-0.5 rounded-full text-xs font-medium">
+                            愿望清单
+                        </div>
+                    </div>
+                    <div class="p-3">
+                        <p class="text-sm font-semibold text-gray-900">巴厘岛</p>
+                        <p class="text-xs text-gray-500">印度尼西亚</p>
+                        <div class="flex items-center justify-between mt-2">
+                            <div class="flex items-center gap-1">
+                                <i data-lucide="star" class="h-3 w-3 fill-yellow-400 stroke-yellow-400"></i>
+                                <span class="text-xs text-gray-600">4.7</span>
+                            </div>
+                            <span class="text-xs text-gray-500">3天前</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Switzerland -->
+                <div class="bg-white rounded-xl shadow hover:shadow-lg transition-shadow animate-fade-in" style="animation-delay: 0.3s">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1504218727796-db522606b16f?w=400&q=80" class="w-full h-24 object-cover rounded-t-xl" alt="瑞士">
+                        <button class="absolute top-2 right-2 w-6 h-6 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center">
+                            <i data-lucide="heart" class="h-3 w-3 stroke-red-500 fill-red-500"></i>
+                        </button>
+                        <div class="absolute bottom-2 left-2 bg-purple-500 text-white px-2 py-0.5 rounded-full text-xs font-medium">
+                            夏季计划
+                        </div>
+                    </div>
+                    <div class="p-3">
+                        <p class="text-sm font-semibold text-gray-900">瑞士</p>
+                        <p class="text-xs text-gray-500">欧洲</p>
+                        <div class="flex items-center justify-between mt-2">
+                            <div class="flex items-center gap-1">
+                                <i data-lucide="star" class="h-3 w-3 fill-yellow-400 stroke-yellow-400"></i>
+                                <span class="text-xs text-gray-600">4.9</span>
+                            </div>
+                            <span class="text-xs text-gray-500">5天前</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Iceland -->
+                <div class="bg-white rounded-xl shadow hover:shadow-lg transition-shadow animate-fade-in" style="animation-delay: 0.4s">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1539066834862-2e1cd2b3400a?w=400&q=80" class="w-full h-24 object-cover rounded-t-xl" alt="冰岛">
+                        <button class="absolute top-2 right-2 w-6 h-6 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center">
+                            <i data-lucide="heart" class="h-3 w-3 stroke-red-500 fill-red-500"></i>
+                        </button>
+                        <div class="absolute bottom-2 left-2 bg-cyan-500 text-white px-2 py-0.5 rounded-full text-xs font-medium">
+                            冬季计划
+                        </div>
+                    </div>
+                    <div class="p-3">
+                        <p class="text-sm font-semibold text-gray-900">冰岛</p>
+                        <p class="text-xs text-gray-500">北欧</p>
+                        <div class="flex items-center justify-between mt-2">
+                            <div class="flex items-center gap-1">
+                                <i data-lucide="star" class="h-3 w-3 fill-yellow-400 stroke-yellow-400"></i>
+                                <span class="text-xs text-gray-600">4.8</span>
+                            </div>
+                            <span class="text-xs text-gray-500">1周前</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- New York -->
+                <div class="bg-white rounded-xl shadow hover:shadow-lg transition-shadow animate-fade-in" style="animation-delay: 0.5s">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=400&q=80" class="w-full h-24 object-cover rounded-t-xl" alt="纽约">
+                        <button class="absolute top-2 right-2 w-6 h-6 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center">
+                            <i data-lucide="heart" class="h-3 w-3 stroke-red-500 fill-red-500"></i>
+                        </button>
+                        <div class="absolute bottom-2 left-2 bg-red-500 text-white px-2 py-0.5 rounded-full text-xs font-medium">
+                            热门
+                        </div>
+                    </div>
+                    <div class="p-3">
+                        <p class="text-sm font-semibold text-gray-900">纽约</p>
+                        <p class="text-xs text-gray-500">美国</p>
+                        <div class="flex items-center justify-between mt-2">
+                            <div class="flex items-center gap-1">
+                                <i data-lucide="star" class="h-3 w-3 fill-yellow-400 stroke-yellow-400"></i>
+                                <span class="text-xs text-gray-600">4.6</span>
+                            </div>
+                            <span class="text-xs text-gray-500">2天前</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <nav class="flex items-center justify-between glass-nav rounded-full py-3 px-6 shadow mt-4">
+            <button class="hover:scale-110 transition-transform">
+                <i data-lucide="home" class="stroke-gray-400 w-6 h-6"></i>
+            </button>
+            <button class="hover:scale-110 transition-transform">
+                <i data-lucide="map-pin" class="stroke-gray-400 w-6 h-6"></i>
+            </button>
+            <button class="flex flex-col items-center gap-1">
+                <span class="flex h-8 w-8 items-center justify-center rounded-full bg-teal-500">
+                    <i data-lucide="heart" class="h-4 w-4 stroke-white"></i>
+                </span>
+            </button>
+            <button class="hover:scale-110 transition-transform">
+                <i data-lucide="user" class="stroke-gray-400 w-6 h-6"></i>
+            </button>
+        </nav>
+    </div>
+
+    <script>
+        lucide.createIcons();
+        
+        // 添加交互动画
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="h-full scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>目的地详情 - 旅行助手</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="../travel_app_theme.css">
+</head>
+
+<body
+    class="h-screen w-screen overflow-hidden antialiased flex items-center justify-center font-inter bg-teal-50 bg-[url('https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=2160&q=80')] bg-cover">
+    <div
+        class="relative w-[380px] h-[850px] flex flex-col gap-4 glass-card rounded-3xl pt-0 pr-0 pb-6 pl-0 shadow-2xl animate-slide-up overflow-hidden">
+        <!-- Hero Image -->
+        <div class="relative h-48 overflow-hidden rounded-t-3xl">
+            <img src="https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?w=1080&q=80"
+                class="w-full h-full object-cover" alt="东京夜景">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+
+            <!-- Header Controls -->
+            <div class="absolute top-4 left-4 right-4 flex items-center justify-between">
+                <button
+                    class="h-8 w-8 rounded-full bg-white/80 backdrop-blur-sm shadow flex items-center justify-center hover:scale-105 transition-transform">
+                    <i data-lucide="chevron-left" class="h-5 w-5 stroke-gray-700"></i>
+                </button>
+                <button
+                    class="h-8 w-8 rounded-full bg-white/80 backdrop-blur-sm shadow flex items-center justify-center hover:scale-105 transition-transform">
+                    <i data-lucide="share" class="h-4 w-4 stroke-gray-700"></i>
+                </button>
+            </div>
+
+            <!-- Save Button -->
+            <button
+                class="absolute bottom-4 right-4 h-10 w-10 rounded-full bg-white/90 backdrop-blur-sm shadow flex items-center justify-center hover:scale-105 transition-transform">
+                <i data-lucide="heart" class="h-5 w-5 stroke-red-500 fill-red-500"></i>
+            </button>
+        </div>
+
+        <div class="px-6 flex flex-col gap-4 flex-1 overflow-y-auto"></div>
+        <!-- Title & Rating -->
+        <div class="flex items-start justify-between">
+            <div>
+                <h1 class="text-xl font-bold text-gray-900">东京</h1>
+                <p class="text-sm text-gray-500">日本 • 亚洲</p>
+            </div>
+            <div class="flex items-center gap-1 bg-yellow-100 px-2 py-1 rounded-full">
+                <i data-lucide="star" class="h-3 w-3 fill-yellow-400 stroke-yellow-400"></i>
+                <span class="text-xs font-medium text-yellow-700">4.8</span>
+            </div>
+        </div>
+
+        <!-- Description -->
+        <p class="text-sm text-gray-600 leading-relaxed">
+            东京是一座充满活力的现代化都市，传统与现代完美融合。从古老的寺庙到摩天大楼，从传统料理到创新美食，这里有无数精彩等待探索。
+        </p>
+
+        <!-- Photo Gallery -->
+        <div class="flex flex-col gap-3">
+            <h3 class="text-sm font-semibold text-gray-900">精彩瞬间</h3>
+            <div class="flex gap-2 overflow-x-auto pb-1">
+                <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=400&q=80"
+                    class="shrink-0 w-16 h-16 object-cover rounded-xl hover:scale-105 transition-transform" alt="浅草寺">
+                <img src="https://images.unsplash.com/photo-1513407030348-c983a97b98d8?w=400&q=80"
+                    class="shrink-0 w-16 h-16 object-cover rounded-xl hover:scale-105 transition-transform"
+                    alt="涩谷十字路口">
+                <img src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=400&q=80"
+                    class="shrink-0 w-16 h-16 object-cover rounded-xl hover:scale-105 transition-transform" alt="东京塔">
+                <img src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=400&q=80"
+                    class="shrink-0 w-16 h-16 object-cover rounded-xl hover:scale-105 transition-transform" alt="银座">
+                <button
+                    class="shrink-0 w-16 h-16 bg-gray-100 rounded-xl flex items-center justify-center hover:scale-105 transition-transform">
+                    <i data-lucide="plus" class="h-5 w-5 stroke-gray-500"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Highlights -->
+        <div class="flex flex-col gap-3">
+            <h3 class="text-sm font-semibold text-gray-900">亮点特色</h3>
+            <div class="grid grid-cols-2 gap-2">
+                <div class="flex items-center gap-2 bg-blue-50 px-3 py-2 rounded-lg">
+                    <i data-lucide="map-pin" class="h-4 w-4 stroke-blue-500"></i>
+                    <span class="text-xs text-blue-700">文化古迹</span>
+                </div>
+                <div class="flex items-center gap-2 bg-green-50 px-3 py-2 rounded-lg">
+                    <i data-lucide="utensils" class="h-4 w-4 stroke-green-500"></i>
+                    <span class="text-xs text-green-700">美食天堂</span>
+                </div>
+                <div class="flex items-center gap-2 bg-purple-50 px-3 py-2 rounded-lg">
+                    <i data-lucide="shopping-bag" class="h-4 w-4 stroke-purple-500"></i>
+                    <span class="text-xs text-purple-700">购物胜地</span>
+                </div>
+                <div class="flex items-center gap-2 bg-orange-50 px-3 py-2 rounded-lg">
+                    <i data-lucide="camera" class="h-4 w-4 stroke-orange-500"></i>
+                    <span class="text-xs text-orange-700">摄影圣地</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reviews -->
+        <div class="flex flex-col gap-3">
+            <div class="flex items-center justify-between">
+                <h3 class="text-sm font-semibold text-gray-900">用户评价</h3>
+                <button class="text-xs text-teal-600 font-medium">查看全部</button>
+            </div>
+            <div class="flex flex-col gap-2">
+                <div class="bg-gray-50 p-3 rounded-lg">
+                    <div class="flex items-center gap-2 mb-1">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&q=80"
+                            class="h-6 w-6 object-cover rounded-full" alt="用户头像">
+                        <span class="text-xs font-medium text-gray-900">小美</span>
+                        <div class="flex">
+                            <i data-lucide="star" class="h-3 w-3 fill-yellow-400 stroke-yellow-400"></i>
+                            <i data-lucide="star" class="h-3 w-3 fill-yellow-400 stroke-yellow-400"></i>
+                            <i data-lucide="star" class="h-3 w-3 fill-yellow-400 stroke-yellow-400"></i>
+                            <i data-lucide="star" class="h-3 w-3 fill-yellow-400 stroke-yellow-400"></i>
+                            <i data-lucide="star" class="h-3 w-3 fill-yellow-400 stroke-yellow-400"></i>
+                        </div>
+                    </div>
+                    <p class="text-xs text-gray-600">东京真的太棒了！从传统的浅草寺到现代的涩谷，每个地方都有独特的魅力。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex gap-3 mt-2">
+            <button class="flex-1 btn-primary text-center">
+                立即预订
+            </button>
+            <button class="px-4 py-3 bg-gray-100 rounded-xl hover:bg-gray-200 transition-colors">
+                <i data-lucide="calendar" class="h-5 w-5 stroke-gray-600"></i>
+            </button>
+        </div>
+    </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        // 添加交互动画
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function () {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+    </script>
+</body>
+
+</html>

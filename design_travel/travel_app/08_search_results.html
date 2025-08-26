@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="h-full scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搜索结果 - 旅行助手</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="../travel_app_theme.css">
+</head>
+<body class="h-screen w-screen overflow-hidden antialiased flex items-center justify-center font-inter bg-teal-50 bg-[url('https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=2160&q=80')] bg-cover">
+    <div class="relative w-[380px] h-[850px] flex flex-col gap-4 glass-card rounded-3xl pt-6 pr-6 pb-6 pl-6 shadow-2xl animate-slide-up overflow-hidden">
+        <!-- Header -->
+        <div class="flex items-center gap-4">
+            <button class="h-8 w-8 rounded-full bg-white shadow flex items-center justify-center hover:scale-105 transition-transform">
+                <i data-lucide="chevron-left" class="h-5 w-5 stroke-gray-700"></i>
+            </button>
+            <div class="flex-1 relative">
+                <input type="text" value="日本" class="w-full glass-input rounded-xl px-4 py-2 pr-10 focus:ring-2 focus:ring-teal-500 focus:outline-none text-sm">
+                <i data-lucide="search" class="absolute right-3 top-1/2 transform -translate-y-1/2 h-4 w-4 stroke-gray-500"></i>
+            </div>
+        </div>
+
+        <!-- Results Summary -->
+        <div class="flex items-center justify-between">
+            <p class="text-sm text-gray-600">找到 <span class="font-semibold text-gray-900">24</span> 个结果</p>
+            <button class="flex items-center gap-1 text-sm text-teal-600 font-medium hover:text-teal-700 transition-colors">
+                <i data-lucide="sliders-horizontal" class="h-4 w-4"></i>
+                筛选
+            </button>
+        </div>
+
+        <!-- Filter Chips -->
+        <div class="flex gap-2 overflow-x-auto pb-1">
+            <button class="shrink-0 flex items-center gap-1 bg-teal-500 text-white px-3 py-1.5 rounded-full text-xs font-medium">
+                <i data-lucide="map-pin" class="h-3 w-3"></i>
+                全部
+            </button>
+            <button class="shrink-0 flex items-center gap-1 bg-white px-3 py-1.5 rounded-full text-xs font-medium text-gray-700 hover:bg-gray-50 transition-colors">
+                <i data-lucide="star" class="h-3 w-3"></i>
+                高评分
+            </button>
+            <button class="shrink-0 flex items-center gap-1 bg-white px-3 py-1.5 rounded-full text-xs font-medium text-gray-700 hover:bg-gray-50 transition-colors">
+                <i data-lucide="dollar-sign" class="h-3 w-3"></i>
+                价格
+            </button>
+            <button class="shrink-0 flex items-center gap-1 bg-white px-3 py-1.5 rounded-full text-xs font-medium text-gray-700 hover:bg-gray-50 transition-colors">
+                <i data-lucide="clock" class="h-3 w-3"></i>
+                最新
+            </button>
+        </div>
+
+        <!-- Sort Options -->
+        <div class="flex items-center gap-2 text-xs">
+            <span class="text-gray-500">排序:</span>
+            <button class="text-teal-600 font-medium">推荐</button>
+            <span class="text-gray-300">|</span>
+            <button class="text-gray-500 hover:text-gray-700 transition-colors">价格</button>
+            <span class="text-gray-300">|</span>
+            <button class="text-gray-500 hover:text-gray-700 transition-colors">评分</button>
+            <span class="text-gray-300">|</span>
+            <button class="text-gray-500 hover:text-gray-700 transition-colors">距离</button>
+        </div>
+
+        <!-- Results List -->
+        <div class="flex-1 overflow-y-auto flex flex-col gap-3">
+            <!-- Tokyo -->
+            <div class="bg-white rounded-xl shadow hover:shadow-lg transition-shadow p-3 animate-fade-in">
+                <div class="flex gap-3">
+                    <img src="https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?w=200&q=80" class="w-16 h-16 object-cover rounded-lg" alt="东京">
+                    <div class="flex-1">
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <h3 class="text-sm font-semibold text-gray-900">东京</h3>
+                                <p class="text-xs text-gray-500">日本 • 关东地区</p>
+                            </div>
+                            <button class="w-6 h-6 flex items-center justify-center">
+                                <i data-lucide="heart" class="h-4 w-4 stroke-gray-400 hover:stroke-red-500 hover:fill-red-500 transition-colors"></i>
+                            </button>
+                        </div>
+                        <div class="flex items-center gap-2 mt-1">
+                            <div class="flex items-center gap-1">
+                                <i data-lucide="star" class="h-3 w-3 fill-yellow-400 stroke-yellow-400"></i>
+                                <span class="text-xs text-gray-600">4.8</span>
+                            </div>
+                            <span class="text-xs text-gray-400">•</span>
+                            <span class="text-xs text-gray-500">1,234 评价</span>
+                        </div>
+                        <div class="flex items-center justify-between mt-2">
+                            <div class="flex items-center gap-1">
+                                <i data-lucide="plane" class="h-3 w-3 stroke-gray-500"></i>
+                                <span class="text-xs text-gray-500">直飞 3小时</span>
+                            </div>
+                            <span class="text-sm font-semibold text-teal-600">¥3,200起</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Osaka -->
+            <div class="bg-white rounded-xl shadow hover:shadow-lg transition-shadow p-3 animate-fade-in" style="animation-delay: 0.1s">
+                <div class="flex gap-3">
+                    <img src="https://images.unsplash.com/photo-1590559899731-a382839e5549?w=200&q=80" class="w-16 h-16 object-cover rounded-lg" alt="大阪">
+                    <div class="flex-1">
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <h3 class="text-sm font-semibold text-gray-900">大阪</h3>
+                                <p class="text-xs text-gray-500">日本 • 关西地区</p>
+                            </div>
+                            <button class="w-6 h-6 flex items-center justify-center">
+                                <i data-lucide="heart" class="h-4 w-4 stroke-gray-400 hover:stroke-red-500 hover:fill-red-500 transition-colors"></i>
+                            </button>
+                        </div>
+                        <div class="flex items-center gap-2 mt-1">
+                            <div class="flex items-center gap-1">
+                                <i data-lucide="star" class="h-3 w-3 fill-yellow-400 stroke-yellow-400"></i>
+                                <span class="text-xs text-gray-600">4.7</span>
+                            </div>
+                            <span class="text-xs text-gray-400">•</span>
+                            <span class="text-xs text-gray-500">892 评价</span>
+                        </div>
+                        <div class="flex items-center justify-between mt-2">
+                            <div class="flex items-center gap-1">
+                                <i data-lucide="plane" class="h-3 w-3 stroke-gray-500"></i>
+                                <span class="text-xs text-gray-500">直飞 2.5小时</span>
+                            </div>
+                            <span class="text-sm font-semibold text-teal-600">¥2,800起</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kyoto -->
+            <div class="bg-white rounded-xl shadow hover:shadow-lg transition-shadow p-3 animate-fade-in" style="animation-delay: 0.2s">
+                <div class="flex gap-3">
+                    <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=200&q=80" class="w-16 h-16 object-cover rounded-lg" alt="京都">
+                    <div class="flex-1">
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <h3 class="text-sm font-semibold text-gray-900">京都</h3>
+                                <p class="text-xs text-gray-500">日本 • 关西地区</p>
+                            </div>
+                            <button class="w-6 h-6 flex items-center justify-center">
+                                <i data-lucide="heart" class="h-4 w-4 stroke-red-500 fill-red-500"></i>
+                            </button>
+                        </div>
+                        <div class="flex items-center gap-2 mt-1">
+                            <div class="flex items-center gap-1">
+                                <i data-lucide="star" class="h-3 w-3 fill-yellow-400 stroke-yellow-400"></i>
+                                <span class="text-xs text-gray-600">4.9</span>
+                            </div>
+                            <span class="text-xs text-gray-400">•</span>
+                            <span class="text-xs text-gray-500">2,156 评价</span>
+                        </div>
+                        <div class="flex items-center justify-between mt-2">
+                            <div class="flex items-center gap-1">
+                                <i data-lucide="train" class="h-3 w-3 stroke-gray-500"></i>
+                                <span class="text-xs text-gray-500">从大阪 1小时</span>
+                            </div>
+                            <span class="text-sm font-semibold text-teal-600">¥2,600起</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hiroshima -->
+            <div class="bg-white rounded-xl shadow hover:shadow-lg transition-shadow p-3 animate-fade-in" style="animation-delay: 0.3s">
+                <div class="flex gap-3">
+                    <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=200&q=80" class="w-16 h-16 object-cover rounded-lg" alt="广岛">
+                    <div class="flex-1">
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <h3 class="text-sm font-semibold text-gray-900">广岛</h3>
+                                <p class="text-xs text-gray-500">日本 • 中国地区</p>
+                            </div>
+                            <button class="w-6 h-6 flex items-center justify-center">
+                                <i data-lucide="heart" class="h-4 w-4 stroke-gray-400 hover:stroke-red-500 hover:fill-red-500 transition-colors"></i>
+                            </button>
+                        </div>
+                        <div class="flex items-center gap-2 mt-1">
+                            <div class="flex items-center gap-1">
+                                <i data-lucide="star" class="h-3 w-3 fill-yellow-400 stroke-yellow-400"></i>
+                                <span class="text-xs text-gray-600">4.6</span>
+                            </div>
+                            <span class="text-xs text-gray-400">•</span>
+                            <span class="text-xs text-gray-500">567 评价</span>
+                        </div>
+                        <div class="flex items-center justify-between mt-2">
+                            <div class="flex items-center gap-1">
+                                <i data-lucide="train" class="h-3 w-3 stroke-gray-500"></i>
+                                <span class="text-xs text-gray-500">新干线 4小时</span>
+                            </div>
+                            <span class="text-sm font-semibold text-teal-600">¥2,400起</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nara -->
+            <div class="bg-white rounded-xl shadow hover:shadow-lg transition-shadow p-3 animate-fade-in" style="animation-delay: 0.4s">
+                <div class="flex gap-3">
+                    <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=200&q=80" class="w-16 h-16 object-cover rounded-lg" alt="奈良">
+                    <div class="flex-1">
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <h3 class="text-sm font-semibold text-gray-900">奈良</h3>
+                                <p class="text-xs text-gray-500">日本 • 关西地区</p>
+                            </div>
+                            <button class="w-6 h-6 flex items-center justify-center">
+                                <i data-lucide="heart" class="h-4 w-4 stroke-gray-400 hover:stroke-red-500 hover:fill-red-500 transition-colors"></i>
+                            </button>
+                        </div>
+                        <div class="flex items-center gap-2 mt-1">
+                            <div class="flex items-center gap-1">
+                                <i data-lucide="star" class="h-3 w-3 fill-yellow-400 stroke-yellow-400"></i>
+                                <span class="text-xs text-gray-600">4.5</span>
+                            </div>
+                            <span class="text-xs text-gray-400">•</span>
+                            <span class="text-xs text-gray-500">423 评价</span>
+                        </div>
+                        <div class="flex items-center justify-between mt-2">
+                            <div class="flex items-center gap-1">
+                                <i data-lucide="train" class="h-3 w-3 stroke-gray-500"></i>
+                                <span class="text-xs text-gray-500">从京都 45分钟</span>
+                            </div>
+                            <span class="text-sm font-semibold text-teal-600">¥2,200起</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Load More -->
+        <button class="btn-secondary text-center mt-2">
+            <i data-lucide="refresh-cw" class="h-4 w-4 mr-2 inline"></i>
+            加载更多
+        </button>
+    </div>
+
+    <script>
+        lucide.createIcons();
+        
+        // 添加交互动画
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+    </script>
+</body>
+</html>
