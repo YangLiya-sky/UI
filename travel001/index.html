@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旅行助手</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="travel_theme.css">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+    <div class="mobile-container">
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <span style="font-weight: 600; font-size: 18px;">8:30</span>
+            <div style="display: flex; gap: 8px; align-items: center;">
+                <i data-lucide="signal" class="icon-sm"></i>
+                <i data-lucide="wifi" class="icon-sm"></i>
+                <div style="display: flex; align-items: center; gap: 2px;">
+                    <div style="width: 24px; height: 12px; border: 1px solid #D9D9D9; border-radius: 3px; position: relative;">
+                        <div style="width: 80%; height: 100%; background: #34C759; border-radius: 2px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Splash Screen -->
+        <div style="height: calc(100% - 44px); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px;">
+            <!-- Logo -->
+            <div class="glass-card" style="width: 120px; height: 120px; display: flex; align-items: center; justify-content: center; margin-bottom: 32px; border-radius: 50%;">
+                <i data-lucide="map" style="width: 60px; height: 60px; color: var(--travel-blue);"></i>
+            </div>
+            
+            <!-- App Name -->
+            <h1 style="font-size: 32px; font-weight: 700; color: var(--foreground); margin-bottom: 16px; text-align: center;">旅行助手</h1>
+            <p style="font-size: 16px; color: var(--muted-foreground); text-align: center; margin-bottom: 48px; line-height: 1.5;">
+                发现世界的美好<br>
+                让每一次旅行都充满惊喜
+            </p>
+            
+            <!-- Start Button -->
+            <button class="btn" style="width: 200px; height: 56px; font-size: 18px; font-weight: 600; background: var(--travel-blue); margin-bottom: 24px;" onclick="startApp()">
+                <i data-lucide="compass" class="icon"></i>
+                开始旅程
+            </button>
+            
+            <!-- Features -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; width: 100%; max-width: 300px;">
+                <div style="text-align: center;">
+                    <div style="width: 48px; height: 48px; background: var(--travel-green); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 8px;">
+                        <i data-lucide="map-pin" style="width: 24px; height: 24px; color: white;"></i>
+                    </div>
+                    <p style="font-size: 12px; color: var(--muted-foreground);">精选目的地</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="width: 48px; height: 48px; background: var(--travel-orange); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 8px;">
+                        <i data-lucide="calendar" style="width: 24px; height: 24px; color: white;"></i>
+                    </div>
+                    <p style="font-size: 12px; color: var(--muted-foreground);">智能规划</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="width: 48px; height: 48px; background: var(--travel-purple); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 8px;">
+                        <i data-lucide="heart" style="width: 24px; height: 24px; color: white;"></i>
+                    </div>
+                    <p style="font-size: 12px; color: var(--muted-foreground);">个性推荐</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="width: 48px; height: 48px; background: var(--travel-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 8px;">
+                        <i data-lucide="users" style="width: 24px; height: 24px; color: white;"></i>
+                    </div>
+                    <p style="font-size: 12px; color: var(--muted-foreground);">社区分享</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+        
+        function startApp() {
+            // 添加启动动画
+            document.body.style.transition = 'opacity 0.5s ease';
+            document.body.style.opacity = '0';
+            
+            setTimeout(() => {
+                window.location.href = 'travel_home_1.html';
+            }, 500);
+        }
+        
+        // 页面加载动画
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.8s ease';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>

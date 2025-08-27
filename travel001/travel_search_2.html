@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旅行助手 - 搜索</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="travel_theme.css">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="travel_navigation.js"></script>
+</head>
+
+<body>
+    <div class="mobile-container">
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <span style="font-weight: 600; font-size: 18px;">8:30</span>
+            <div style="display: flex; gap: 8px; align-items: center;">
+                <i data-lucide="signal" class="icon-sm"></i>
+                <i data-lucide="wifi" class="icon-sm"></i>
+                <div style="display: flex; align-items: center; gap: 2px;">
+                    <div
+                        style="width: 24px; height: 12px; border: 1px solid #D9D9D9; border-radius: 3px; position: relative;">
+                        <div style="width: 80%; height: 100%; background: #34C759; border-radius: 2px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <div class="header">
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <i data-lucide="arrow-left" class="icon"></i>
+                <span style="font-size: 20px; font-weight: 600;">搜索目的地</span>
+            </div>
+            <i data-lucide="filter" class="icon"></i>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Search Bar -->
+            <div class="glass-card animate-fade-in">
+                <div style="position: relative;">
+                    <input type="text" placeholder="搜索城市、景点、酒店..."
+                        style="width: 100%; padding: 16px 48px 16px 16px; background: var(--input); border: var(--glass-border); border-radius: var(--radius-sm); color: var(--foreground); font-size: 16px; backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);">
+                    <i data-lucide="search"
+                        style="position: absolute; right: 16px; top: 50%; transform: translateY(-50%); width: 20px; height: 20px; color: var(--muted-foreground);"></i>
+                </div>
+            </div>
+
+            <!-- Filter Tags -->
+            <div class="glass-card animate-fade-in" style="animation-delay: 0.2s;">
+                <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 12px; color: var(--foreground);">热门筛选</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                    <div class="btn" style="padding: 8px 16px; font-size: 14px; background: var(--travel-blue);">
+                        <i data-lucide="mountain" class="icon-sm"></i>
+                        自然风光
+                    </div>
+                    <div class="btn" style="padding: 8px 16px; font-size: 14px;">
+                        <i data-lucide="building" class="icon-sm"></i>
+                        历史文化
+                    </div>
+                    <div class="btn" style="padding: 8px 16px; font-size: 14px;">
+                        <i data-lucide="camera" class="icon-sm"></i>
+                        网红打卡
+                    </div>
+                    <div class="btn" style="padding: 8px 16px; font-size: 14px;">
+                        <i data-lucide="utensils" class="icon-sm"></i>
+                        美食天堂
+                    </div>
+                </div>
+            </div>
+
+            <!-- Popular Searches -->
+            <div class="glass-card animate-fade-in" style="animation-delay: 0.4s;">
+                <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 16px; color: var(--foreground);">热门搜索</h3>
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                    <div
+                        style="display: flex; align-items: center; gap: 12px; padding: 12px; background: var(--secondary); border-radius: var(--radius-sm); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);">
+                        <div
+                            style="width: 32px; height: 32px; background: var(--travel-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <span style="color: white; font-weight: 600; font-size: 14px;">1</span>
+                        </div>
+                        <div style="flex: 1;">
+                            <p style="font-size: 16px; font-weight: 500; margin-bottom: 2px;">三亚</p>
+                            <p class="text-sm">海南省 · 热带海滨城市</p>
+                        </div>
+                        <i data-lucide="trending-up" style="width: 16px; height: 16px; color: var(--travel-green);"></i>
+                    </div>
+
+                    <div
+                        style="display: flex; align-items: center; gap: 12px; padding: 12px; background: var(--secondary); border-radius: var(--radius-sm); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);">
+                        <div
+                            style="width: 32px; height: 32px; background: var(--travel-green); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <span style="color: white; font-weight: 600; font-size: 14px;">2</span>
+                        </div>
+                        <div style="flex: 1;">
+                            <p style="font-size: 16px; font-weight: 500; margin-bottom: 2px;">丽江</p>
+                            <p class="text-sm">云南省 · 古城风情</p>
+                        </div>
+                        <i data-lucide="trending-up" style="width: 16px; height: 16px; color: var(--travel-green);"></i>
+                    </div>
+
+                    <div
+                        style="display: flex; align-items: center; gap: 12px; padding: 12px; background: var(--secondary); border-radius: var(--radius-sm); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);">
+                        <div
+                            style="width: 32px; height: 32px; background: var(--travel-orange); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <span style="color: white; font-weight: 600; font-size: 14px;">3</span>
+                        </div>
+                        <div style="flex: 1;">
+                            <p style="font-size: 16px; font-weight: 500; margin-bottom: 2px;">西安</p>
+                            <p class="text-sm">陕西省 · 千年古都</p>
+                        </div>
+                        <i data-lucide="trending-up" style="width: 16px; height: 16px; color: var(--travel-green);"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Searches -->
+            <div class="glass-card animate-fade-in" style="animation-delay: 0.6s;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                    <h3 style="font-size: 16px; font-weight: 600; color: var(--foreground);">最近搜索</h3>
+                    <button
+                        style="background: none; border: none; color: var(--muted-foreground); font-size: 14px; cursor: pointer;">清除</button>
+                </div>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                    <div
+                        style="padding: 8px 12px; background: var(--secondary); border-radius: var(--radius-sm); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); display: flex; align-items: center; gap: 8px;">
+                        <span style="font-size: 14px;">杭州西湖</span>
+                        <i data-lucide="x"
+                            style="width: 14px; height: 14px; color: var(--muted-foreground); cursor: pointer;"></i>
+                    </div>
+                    <div
+                        style="padding: 8px 12px; background: var(--secondary); border-radius: var(--radius-sm); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); display: flex; align-items: center; gap: 8px;">
+                        <span style="font-size: 14px;">北京故宫</span>
+                        <i data-lucide="x"
+                            style="width: 14px; height: 14px; color: var(--muted-foreground); cursor: pointer;"></i>
+                    </div>
+                    <div
+                        style="padding: 8px 12px; background: var(--secondary); border-radius: var(--radius-sm); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); display: flex; align-items: center; gap: 8px;">
+                        <span style="font-size: 14px;">上海外滩</span>
+                        <i data-lucide="x"
+                            style="width: 14px; height: 14px; color: var(--muted-foreground); cursor: pointer;"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Suggestions -->
+            <div class="glass-card animate-fade-in" style="animation-delay: 0.8s;">
+                <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 16px; color: var(--foreground);">为你推荐</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                    <div class="glass-card-sm" style="text-align: center; padding: 16px;">
+                        <div
+                            style="width: 48px; height: 48px; background: var(--travel-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px;">
+                            <i data-lucide="sun" style="width: 24px; height: 24px; color: white;"></i>
+                        </div>
+                        <p style="font-size: 14px; font-weight: 500; margin-bottom: 4px;">春季赏花</p>
+                        <p class="text-sm">樱花、桃花盛开</p>
+                    </div>
+                    <div class="glass-card-sm" style="text-align: center; padding: 16px;">
+                        <div
+                            style="width: 48px; height: 48px; background: var(--travel-green); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px;">
+                            <i data-lucide="waves" style="width: 24px; height: 24px; color: white;"></i>
+                        </div>
+                        <p style="font-size: 14px; font-weight: 500; margin-bottom: 4px;">海滨度假</p>
+                        <p class="text-sm">阳光沙滩海浪</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <a href="travel_home_1.html" class="nav-item">
+                <i data-lucide="home" class="icon-sm"></i>
+                <span style="font-size: 12px;">首页</span>
+            </a>
+            <a href="travel_search_2.html" class="nav-item active">
+                <i data-lucide="search" class="icon-sm"></i>
+                <span style="font-size: 12px;">搜索</span>
+            </a>
+            <a href="travel_destination_3.html" class="nav-item">
+                <i data-lucide="map-pin" class="icon-sm"></i>
+                <span style="font-size: 12px;">目的地</span>
+            </a>
+            <a href="travel_orders_9.html" class="nav-item">
+                <i data-lucide="wallet" class="icon-sm"></i>
+                <span style="font-size: 12px;">订单</span>
+            </a>
+            <a href="travel_profile_10.html" class="nav-item">
+                <i data-lucide="user" class="icon-sm"></i>
+                <span style="font-size: 12px;">我的</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

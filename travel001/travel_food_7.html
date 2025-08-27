@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旅行助手 - 美食推荐</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="travel_theme.css">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="travel_navigation.js"></script>
+</head>
+<body>
+    <div class="mobile-container">
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <span style="font-weight: 600; font-size: 18px;">8:30</span>
+            <div style="display: flex; gap: 8px; align-items: center;">
+                <i data-lucide="signal" class="icon-sm"></i>
+                <i data-lucide="wifi" class="icon-sm"></i>
+                <div style="display: flex; align-items: center; gap: 2px;">
+                    <div style="width: 24px; height: 12px; border: 1px solid #D9D9D9; border-radius: 3px; position: relative;">
+                        <div style="width: 80%; height: 100%; background: #34C759; border-radius: 2px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <div class="header">
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <i data-lucide="arrow-left" class="icon"></i>
+                <span style="font-size: 20px; font-weight: 600;">美食推荐</span>
+            </div>
+            <div style="display: flex; gap: 12px;">
+                <i data-lucide="search" class="icon"></i>
+                <i data-lucide="heart" class="icon"></i>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Location Header -->
+            <div class="glass-card animate-fade-in">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <div style="width: 48px; height: 48px; background: var(--travel-orange); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                        <i data-lucide="map-pin" style="width: 24px; height: 24px; color: white;"></i>
+                    </div>
+                    <div>
+                        <h2 class="title">杭州美食</h2>
+                        <p class="subtitle">发现地道杭帮菜</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Categories -->
+            <div class="glass-card animate-fade-in" style="animation-delay: 0.2s;">
+                <div style="display: flex; gap: 8px; overflow-x: auto; padding-bottom: 8px;">
+                    <div class="btn" style="padding: 8px 16px; font-size: 14px; background: var(--travel-orange); white-space: nowrap;">
+                        <i data-lucide="utensils" class="icon-sm"></i>
+                        杭帮菜
+                    </div>
+                    <div class="btn" style="padding: 8px 16px; font-size: 14px; white-space: nowrap;">
+                        <i data-lucide="coffee" class="icon-sm"></i>
+                        茶餐厅
+                    </div>
+                    <div class="btn" style="padding: 8px 16px; font-size: 14px; white-space: nowrap;">
+                        <i data-lucide="cake" class="icon-sm"></i>
+                        甜品店
+                    </div>
+                    <div class="btn" style="padding: 8px 16px; font-size: 14px; white-space: nowrap;">
+                        <i data-lucide="fish" class="icon-sm"></i>
+                        海鲜
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Restaurant -->
+            <div class="glass-card animate-fade-in" style="animation-delay: 0.4s;">
+                <div style="position: relative; height: 160px; background: linear-gradient(45deg, var(--travel-orange), var(--travel-purple)); border-radius: var(--radius-sm); margin-bottom: 16px; overflow: hidden;">
+                    <div style="position: absolute; top: 12px; right: 12px; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 12px;">
+                        <span style="color: white; font-size: 12px;">今日推荐</span>
+                    </div>
+                    <div style="position: absolute; bottom: 16px; left: 16px; right: 16px;">
+                        <h3 style="font-size: 20px; font-weight: 700; color: white; margin-bottom: 4px;">楼外楼</h3>
+                        <p style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px;">百年老店 · 正宗杭帮菜</p>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <div style="display: flex; align-items: center; gap: 4px;">
+                                <i data-lucide="star" style="width: 14px; height: 14px; color: #FFC107; fill: #FFC107;"></i>
+                                <span style="color: white; font-size: 14px; font-weight: 600;">4.8</span>
+                            </div>
+                            <span style="color: rgba(255,255,255,0.8); font-size: 14px;">人均 ¥128</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Restaurant List -->
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+                <!-- Restaurant 1 -->
+                <div class="glass-card animate-fade-in" style="animation-delay: 0.6s;">
+                    <div style="display: flex; gap: 12px;">
+                        <div style="width: 80px; height: 80px; background: linear-gradient(45deg, var(--travel-blue), var(--travel-green)); border-radius: var(--radius-sm); flex-shrink: 0; position: relative;">
+                            <div style="position: absolute; top: 4px; right: 4px; width: 16px; height: 16px; background: var(--travel-orange); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <span style="color: white; font-size: 8px; font-weight: 600;">热</span>
+                            </div>
+                        </div>
+                        <div style="flex: 1;">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                                <div>
+                                    <h3 style="font-size: 16px; font-weight: 600; color: var(--foreground); margin-bottom: 4px;">知味观</h3>
+                                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+                                        <div style="display: flex; align-items: center; gap: 2px;">
+                                            <i data-lucide="star" style="width: 12px; height: 12px; color: #FFC107; fill: #FFC107;"></i>
+                                            <span style="font-size: 12px; font-weight: 600;">4.6</span>
+                                        </div>
+                                        <span class="text-sm">杭帮菜</span>
+                                        <span class="text-sm">人均¥85</span>
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 4px;">
+                                        <i data-lucide="map-pin" style="width: 12px; height: 12px; color: var(--muted-foreground);"></i>
+                                        <span class="text-sm">距离 0.8km</span>
+                                    </div>
+                                </div>
+                                <i data-lucide="heart" style="width: 20px; height: 20px; color: var(--muted-foreground);"></i>
+                            </div>
+                            <div style="display: flex; gap: 6px;">
+                                <div style="padding: 2px 6px; background: var(--travel-green); border-radius: 4px;">
+                                    <span style="color: white; font-size: 10px;">招牌菜</span>
+                                </div>
+                                <div style="padding: 2px 6px; background: var(--travel-blue); border-radius: 4px;">
+                                    <span style="color: white; font-size: 10px;">老字号</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Restaurant 2 -->
+                <div class="glass-card animate-fade-in" style="animation-delay: 0.8s;">
+                    <div style="display: flex; gap: 12px;">
+                        <div style="width: 80px; height: 80px; background: linear-gradient(45deg, var(--travel-green), var(--travel-orange)); border-radius: var(--radius-sm); flex-shrink: 0;"></div>
+                        <div style="flex: 1;">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                                <div>
+                                    <h3 style="font-size: 16px; font-weight: 600; color: var(--foreground); margin-bottom: 4px;">外婆家</h3>
+                                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+                                        <div style="display: flex; align-items: center; gap: 2px;">
+                                            <i data-lucide="star" style="width: 12px; height: 12px; color: #FFC107; fill: #FFC107;"></i>
+                                            <span style="font-size: 12px; font-weight: 600;">4.4</span>
+                                        </div>
+                                        <span class="text-sm">家常菜</span>
+                                        <span class="text-sm">人均¥68</span>
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 4px;">
+                                        <i data-lucide="map-pin" style="width: 12px; height: 12px; color: var(--muted-foreground);"></i>
+                                        <span class="text-sm">距离 1.2km</span>
+                                    </div>
+                                </div>
+                                <i data-lucide="heart" style="width: 20px; height: 20px; color: var(--travel-orange); fill: var(--travel-orange);"></i>
+                            </div>
+                            <div style="display: flex; gap: 6px;">
+                                <div style="padding: 2px 6px; background: var(--travel-orange); border-radius: 4px;">
+                                    <span style="color: white; font-size: 10px;">性价比高</span>
+                                </div>
+                                <div style="padding: 2px 6px; background: var(--travel-purple); border-radius: 4px;">
+                                    <span style="color: white; font-size: 10px;">环境好</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Restaurant 3 -->
+                <div class="glass-card animate-fade-in" style="animation-delay: 1s;">
+                    <div style="display: flex; gap: 12px;">
+                        <div style="width: 80px; height: 80px; background: linear-gradient(45deg, var(--travel-purple), var(--travel-blue)); border-radius: var(--radius-sm); flex-shrink: 0;"></div>
+                        <div style="flex: 1;">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                                <div>
+                                    <h3 style="font-size: 16px; font-weight: 600; color: var(--foreground); margin-bottom: 4px;">西湖春天</h3>
+                                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+                                        <div style="display: flex; align-items: center; gap: 2px;">
+                                            <i data-lucide="star" style="width: 12px; height: 12px; color: #FFC107; fill: #FFC107;"></i>
+                                            <span style="font-size: 12px; font-weight: 600;">4.7</span>
+                                        </div>
+                                        <span class="text-sm">精品杭菜</span>
+                                        <span class="text-sm">人均¥168</span>
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 4px;">
+                                        <i data-lucide="map-pin" style="width: 12px; height: 12px; color: var(--muted-foreground);"></i>
+                                        <span class="text-sm">距离 2.1km</span>
+                                    </div>
+                                </div>
+                                <i data-lucide="heart" style="width: 20px; height: 20px; color: var(--muted-foreground);"></i>
+                            </div>
+                            <div style="display: flex; gap: 6px;">
+                                <div style="padding: 2px 6px; background: var(--travel-purple); border-radius: 4px;">
+                                    <span style="color: white; font-size: 10px;">高档餐厅</span>
+                                </div>
+                                <div style="padding: 2px 6px; background: var(--travel-green); border-radius: 4px;">
+                                    <span style="color: white; font-size: 10px;">湖景</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Special Dishes -->
+            <div class="glass-card animate-fade-in" style="animation-delay: 1.2s;">
+                <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 16px; color: var(--foreground);">必尝美食</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                    <div class="glass-card-sm" style="text-align: center; padding: 12px;">
+                        <div style="width: 60px; height: 60px; background: linear-gradient(45deg, var(--travel-orange), var(--travel-purple)); border-radius: var(--radius-sm); margin: 0 auto 8px;"></div>
+                        <p style="font-size: 14px; font-weight: 500; margin-bottom: 2px;">西湖醋鱼</p>
+                        <p class="text-sm">酸甜可口</p>
+                    </div>
+                    <div class="glass-card-sm" style="text-align: center; padding: 12px;">
+                        <div style="width: 60px; height: 60px; background: linear-gradient(45deg, var(--travel-green), var(--travel-blue)); border-radius: var(--radius-sm); margin: 0 auto 8px;"></div>
+                        <p style="font-size: 14px; font-weight: 500; margin-bottom: 2px;">龙井虾仁</p>
+                        <p class="text-sm">茶香清淡</p>
+                    </div>
+                    <div class="glass-card-sm" style="text-align: center; padding: 12px;">
+                        <div style="width: 60px; height: 60px; background: linear-gradient(45deg, var(--travel-blue), var(--travel-orange)); border-radius: var(--radius-sm); margin: 0 auto 8px;"></div>
+                        <p style="font-size: 14px; font-weight: 500; margin-bottom: 2px;">东坡肉</p>
+                        <p class="text-sm">肥而不腻</p>
+                    </div>
+                    <div class="glass-card-sm" style="text-align: center; padding: 12px;">
+                        <div style="width: 60px; height: 60px; background: linear-gradient(45deg, var(--travel-purple), var(--travel-green)); border-radius: var(--radius-sm); margin: 0 auto 8px;"></div>
+                        <p style="font-size: 14px; font-weight: 500; margin-bottom: 2px;">叫化鸡</p>
+                        <p class="text-sm">香嫩入味</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Food Map -->
+            <div class="glass-card animate-fade-in" style="animation-delay: 1.4s;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                    <h3 style="font-size: 18px; font-weight: 600; color: var(--foreground);">美食地图</h3>
+                    <button class="btn" style="padding: 8px 16px; font-size: 14px;">
+                        <i data-lucide="map" class="icon-sm"></i>
+                        查看地图
+                    </button>
+                </div>
+                <div style="height: 120px; background: linear-gradient(135deg, var(--travel-blue), var(--travel-green)); border-radius: var(--radius-sm); position: relative; display: flex; align-items: center; justify-content: center;">
+                    <div style="text-align: center;">
+                        <i data-lucide="map-pin" style="width: 32px; height: 32px; color: white; margin-bottom: 8px;"></i>
+                        <p style="color: white; font-size: 16px; font-weight: 600;">发现附近美食</p>
+                        <p style="color: rgba(255,255,255,0.8); font-size: 14px;">128家餐厅等你探索</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <a href="#" class="nav-item">
+                <i data-lucide="home" class="icon-sm"></i>
+                <span style="font-size: 12px;">首页</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i data-lucide="search" class="icon-sm"></i>
+                <span style="font-size: 12px;">搜索</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i data-lucide="map-pin" class="icon-sm"></i>
+                <span style="font-size: 12px;">目的地</span>
+            </a>
+            <a href="#" class="nav-item active">
+                <i data-lucide="utensils" class="icon-sm"></i>
+                <span style="font-size: 12px;">美食</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i data-lucide="user" class="icon-sm"></i>
+                <span style="font-size: 12px;">我的</span>
+            </a>
+        </div>
+    </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <a href="travel_home_1.html" class="nav-item">
+                <i data-lucide="home" class="icon-sm"></i>
+                <span style="font-size: 12px;">首页</span>
+            </a>
+            <a href="travel_search_2.html" class="nav-item">
+                <i data-lucide="search" class="icon-sm"></i>
+                <span style="font-size: 12px;">搜索</span>
+            </a>
+            <a href="travel_destination_3.html" class="nav-item">
+                <i data-lucide="map-pin" class="icon-sm"></i>
+                <span style="font-size: 12px;">目的地</span>
+            </a>
+            <a href="travel_orders_9.html" class="nav-item">
+                <i data-lucide="wallet" class="icon-sm"></i>
+                <span style="font-size: 12px;">订单</span>
+            </a>
+            <a href="travel_profile_10.html" class="nav-item">
+                <i data-lucide="user" class="icon-sm"></i>
+                <span style="font-size: 12px;">我的</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

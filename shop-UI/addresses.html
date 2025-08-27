@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>收货地址</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .ios-blur {
+            background: rgba(28, 28, 30, 0.72);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+        }
+        .ios-card {
+            background: rgba(44, 44, 46, 0.85);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+        }
+        .ios-secondary-card {
+            background: rgba(58, 58, 60, 0.6);
+        }
+        .ios-gradient {
+            background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
+        }
+        .ios-destructive {
+            background: #FF3B30;
+        }
+        .ios-success {
+            background: #34C759;
+        }
+        .ios-separator {
+            background: rgba(84, 84, 88, 0.36);
+            height: 0.33px;
+        }
+    </style>
+</head>
+<body class="ios-gradient">
+    <div class="w-[412px] h-[915px] ios-gradient rounded-[40px] relative overflow-hidden">
+        
+        <!-- 内容区域 -->
+        <div class="pt-16 h-full flex flex-col">
+            <!-- 顶部导航 -->
+            <div class="ios-blur p-4 flex items-center">
+                <button onclick="window.location.href='profile.html'" class="mr-4">
+                    <i data-lucide="arrow-left" class="text-white w-6 h-6"></i>
+                </button>
+                <div class="text-white text-lg font-bold">收货地址</div>
+            </div>
+            
+            <!-- 地址列表 -->
+            <div class="flex-1 overflow-y-auto p-4 space-y-4">
+                <!-- 地址项 1 -->
+                <div class="ios-card p-4 rounded-2xl">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <div class="text-white font-bold">张三</div>
+                            <div class="text-gray-300 text-sm mt-1">138****1234</div>
+                            <div class="text-gray-300 text-sm mt-2">北京市朝阳区某某街道某某小区1号楼101室</div>
+                        </div>
+                        <button class="ios-secondary-card p-2 rounded-full">
+                            <i data-lucide="edit" class="text-white w-4 h-4"></i>
+                        </button>
+                    </div>
+                    <div class="flex items-center mt-3">
+                        <i data-lucide="check-circle" class="text-blue-500 w-4 h-4 mr-2"></i>
+                        <div class="text-gray-400 text-xs">默认地址</div>
+                    </div>
+                </div>
+                
+                <!-- 地址项 2 -->
+                <div class="ios-card p-4 rounded-2xl">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <div class="text-white font-bold">李四</div>
+                            <div class="text-gray-300 text-sm mt-1">139****5678</div>
+                            <div class="text-gray-300 text-sm mt-2">上海市浦东新区某某路某某大厦201室</div>
+                        </div>
+                        <button class="ios-secondary-card p-2 rounded-full">
+                            <i data-lucide="edit" class="text-white w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- 地址项 3 -->
+                <div class="ios-card p-4 rounded-2xl">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <div class="text-white font-bold">王五</div>
+                            <div class="text-gray-300 text-sm mt-1">137****9012</div>
+                            <div class="text-gray-300 text-sm mt-2">广州市天河区某某街道某某花园3栋303室</div>
+                        </div>
+                        <button class="ios-secondary-card p-2 rounded-full">
+                            <i data-lucide="edit" class="text-white w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 添加地址按钮 -->
+            <div class="ios-blur p-4">
+                <button class="ios-gradient w-full py-3 rounded-xl flex items-center justify-center">
+                    <i data-lucide="plus" class="text-white w-5 h-5 mr-2"></i>
+                    <div class="text-white font-bold">添加新地址</div>
+                </button>
+            </div>
+            
+            <!-- 底部导航栏 -->
+            <div class="ios-blur absolute bottom-0 left-0 right-0 h-20 rounded-t-3xl flex justify-around items-center px-6 py-2">
+                <button onclick="window.location.href='index.html'" class="flex flex-col items-center">
+                    <i data-lucide="home" class="text-white w-6 h-6"></i>
+                    <div class="text-white text-xs mt-1">首页</div>
+                </button>
+                
+                <button onclick="window.location.href='categories.html'" class="flex flex-col items-center">
+                    <i data-lucide="grid" class="text-white w-6 h-6"></i>
+                    <div class="text-white text-xs mt-1">分类</div>
+                </button>
+                
+                <button onclick="window.location.href='search.html'" class="flex flex-col items-center">
+                    <i data-lucide="search" class="text-white w-6 h-6"></i>
+                    <div class="text-white text-xs mt-1">搜索</div>
+                </button>
+                
+                <button onclick="window.location.href='cart.html'" class="flex flex-col items-center">
+                    <i data-lucide="shopping-cart" class="text-white w-6 h-6"></i>
+                    <div class="text-white text-xs mt-1">购物车</div>
+                </button>
+                
+                <button onclick="window.location.href='profile.html'" class="flex flex-col items-center">
+                    <i data-lucide="user" class="text-white w-6 h-6"></i>
+                    <div class="text-white text-xs mt-1">我的</div>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 初始化Lucide图标
+        lucide.createIcons();
+    </script>
+</body>
+</html>

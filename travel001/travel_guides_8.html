@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旅行助手 - 攻略分享</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="travel_theme.css">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="travel_navigation.js"></script>
+</head>
+<body>
+    <div class="mobile-container">
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <span style="font-weight: 600; font-size: 18px;">8:30</span>
+            <div style="display: flex; gap: 8px; align-items: center;">
+                <i data-lucide="signal" class="icon-sm"></i>
+                <i data-lucide="wifi" class="icon-sm"></i>
+                <div style="display: flex; align-items: center; gap: 2px;">
+                    <div style="width: 24px; height: 12px; border: 1px solid #D9D9D9; border-radius: 3px; position: relative;">
+                        <div style="width: 80%; height: 100%; background: #34C759; border-radius: 2px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <div class="header">
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <i data-lucide="arrow-left" class="icon"></i>
+                <span style="font-size: 20px; font-weight: 600;">攻略分享</span>
+            </div>
+            <div style="display: flex; gap: 12px;">
+                <i data-lucide="search" class="icon"></i>
+                <i data-lucide="edit" class="icon"></i>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Categories -->
+            <div class="glass-card animate-fade-in">
+                <div style="display: flex; gap: 8px; overflow-x: auto; padding-bottom: 8px;">
+                    <div class="btn" style="padding: 8px 16px; font-size: 14px; background: var(--travel-blue); white-space: nowrap;">
+                        <i data-lucide="trending-up" class="icon-sm"></i>
+                        热门攻略
+                    </div>
+                    <div class="btn" style="padding: 8px 16px; font-size: 14px; white-space: nowrap;">
+                        <i data-lucide="camera" class="icon-sm"></i>
+                        摄影攻略
+                    </div>
+                    <div class="btn" style="padding: 8px 16px; font-size: 14px; white-space: nowrap;">
+                        <i data-lucide="utensils" class="icon-sm"></i>
+                        美食攻略
+                    </div>
+                    <div class="btn" style="padding: 8px 16px; font-size: 14px; white-space: nowrap;">
+                        <i data-lucide="wallet" class="icon-sm"></i>
+                        省钱攻略
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Guide -->
+            <div class="glass-card animate-fade-in" style="animation-delay: 0.2s;">
+                <div style="position: relative; height: 180px; background: linear-gradient(45deg, var(--travel-blue), var(--travel-purple)); border-radius: var(--radius-sm); margin-bottom: 16px; overflow: hidden;">
+                    <div style="position: absolute; top: 12px; left: 12px; background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 12px;">
+                        <span style="color: white; font-size: 12px;">精选攻略</span>
+                    </div>
+                    <div style="position: absolute; top: 12px; right: 12px;">
+                        <i data-lucide="bookmark" style="width: 20px; height: 20px; color: white;"></i>
+                    </div>
+                    <div style="position: absolute; bottom: 16px; left: 16px; right: 16px;">
+                        <h3 style="font-size: 18px; font-weight: 700; color: white; margin-bottom: 8px;">杭州西湖三日游完整攻略</h3>
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+                            <div style="display: flex; align-items: center; gap: 4px;">
+                                <div style="width: 24px; height: 24px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                    <span style="color: white; font-weight: 600; font-size: 12px;">李</span>
+                                </div>
+                                <span style="color: white; font-size: 14px;">旅行达人李小姐</span>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 16px;">
+                            <div style="display: flex; align-items: center; gap: 4px;">
+                                <i data-lucide="eye" style="width: 14px; height: 14px; color: rgba(255,255,255,0.8);"></i>
+                                <span style="color: rgba(255,255,255,0.8); font-size: 12px;">2.3k</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 4px;">
+                                <i data-lucide="heart" style="width: 14px; height: 14px; color: rgba(255,255,255,0.8);"></i>
+                                <span style="color: rgba(255,255,255,0.8); font-size: 12px;">456</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 4px;">
+                                <i data-lucide="message-circle" style="width: 14px; height: 14px; color: rgba(255,255,255,0.8);"></i>
+                                <span style="color: rgba(255,255,255,0.8); font-size: 12px;">89</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Guide List -->
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+                <!-- Guide 1 -->
+                <div class="glass-card animate-fade-in" style="animation-delay: 0.4s;">
+                    <div style="display: flex; gap: 12px;">
+                        <div style="width: 100px; height: 80px; background: linear-gradient(45deg, var(--travel-green), var(--travel-blue)); border-radius: var(--radius-sm); flex-shrink: 0; position: relative;">
+                            <div style="position: absolute; bottom: 4px; right: 4px; background: rgba(0,0,0,0.6); padding: 2px 4px; border-radius: 4px;">
+                                <span style="color: white; font-size: 10px;">5图</span>
+                            </div>
+                        </div>
+                        <div style="flex: 1;">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                                <div>
+                                    <h3 style="font-size: 16px; font-weight: 600; color: var(--foreground); margin-bottom: 4px; line-height: 1.3;">上海到杭州高铁攻略，省钱又省时</h3>
+                                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                                        <div style="width: 20px; height: 20px; background: var(--travel-green); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                            <span style="color: white; font-weight: 600; font-size: 10px;">王</span>
+                                        </div>
+                                        <span style="font-size: 12px; color: var(--muted-foreground);">旅行小王子</span>
+                                    </div>
+                                </div>
+                                <i data-lucide="bookmark" style="width: 16px; height: 16px; color: var(--muted-foreground);"></i>
+                            </div>
+                            <div style="display: flex; align-items: center; justify-content: space-between;">
+                                <div style="display: flex; align-items: center; gap: 12px;">
+                                    <div style="display: flex; align-items: center; gap: 4px;">
+                                        <i data-lucide="eye" style="width: 12px; height: 12px; color: var(--muted-foreground);"></i>
+                                        <span class="text-sm">1.8k</span>
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 4px;">
+                                        <i data-lucide="heart" style="width: 12px; height: 12px; color: var(--muted-foreground);"></i>
+                                        <span class="text-sm">234</span>
+                                    </div>
+                                </div>
+                                <span class="text-sm">2天前</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Guide 2 -->
+                <div class="glass-card animate-fade-in" style="animation-delay: 0.6s;">
+                    <div style="display: flex; gap: 12px;">
+                        <div style="width: 100px; height: 80px; background: linear-gradient(45deg, var(--travel-orange), var(--travel-green)); border-radius: var(--radius-sm); flex-shrink: 0; position: relative;">
+                            <div style="position: absolute; bottom: 4px; right: 4px; background: rgba(0,0,0,0.6); padding: 2px 4px; border-radius: 4px;">
+                                <span style="color: white; font-size: 10px;">8图</span>
+                            </div>
+                        </div>
+                        <div style="flex: 1;">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                                <div>
+                                    <h3 style="font-size: 16px; font-weight: 600; color: var(--foreground); margin-bottom: 4px; line-height: 1.3;">西湖最佳拍照点位大全</h3>
+                                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                                        <div style="width: 20px; height: 20px; background: var(--travel-orange); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                            <span style="color: white; font-weight: 600; font-size: 10px;">摄</span>
+                                        </div>
+                                        <span style="font-size: 12px; color: var(--muted-foreground);">摄影师小明</span>
+                                    </div>
+                                </div>
+                                <i data-lucide="bookmark" style="width: 16px; height: 16px; color: var(--travel-orange); fill: var(--travel-orange);"></i>
+                            </div>
+                            <div style="display: flex; align-items: center; justify-content: space-between;">
+                                <div style="display: flex; align-items: center; gap: 12px;">
+                                    <div style="display: flex; align-items: center; gap: 4px;">
+                                        <i data-lucide="eye" style="width: 12px; height: 12px; color: var(--muted-foreground);"></i>
+                                        <span class="text-sm">3.2k</span>
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 4px;">
+                                        <i data-lucide="heart" style="width: 12px; height: 12px; color: var(--muted-foreground);"></i>
+                                        <span class="text-sm">567</span>
+                                    </div>
+                                </div>
+                                <span class="text-sm">1周前</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Guide 3 -->
+                <div class="glass-card animate-fade-in" style="animation-delay: 0.8s;">
+                    <div style="display: flex; gap: 12px;">
+                        <div style="width: 100px; height: 80px; background: linear-gradient(45deg, var(--travel-purple), var(--travel-blue)); border-radius: var(--radius-sm); flex-shrink: 0; position: relative;">
+                            <div style="position: absolute; bottom: 4px; right: 4px; background: rgba(0,0,0,0.6); padding: 2px 4px; border-radius: 4px;">
+                                <span style="color: white; font-size: 10px;">12图</span>
+                            </div>
+                        </div>
+                        <div style="flex: 1;">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                                <div>
+                                    <h3 style="font-size: 16px; font-weight: 600; color: var(--foreground); margin-bottom: 4px; line-height: 1.3;">杭州美食探店，本地人推荐</h3>
+                                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+                                        <div style="width: 20px; height: 20px; background: var(--travel-purple); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                            <span style="color: white; font-weight: 600; font-size: 10px;">美</span>
+                                        </div>
+                                        <span style="font-size: 12px; color: var(--muted-foreground);">美食家小红</span>
+                                    </div>
+                                </div>
+                                <i data-lucide="bookmark" style="width: 16px; height: 16px; color: var(--muted-foreground);"></i>
+                            </div>
+                            <div style="display: flex; align-items: center; justify-content: space-between;">
+                                <div style="display: flex; align-items: center; gap: 12px;">
+                                    <div style="display: flex; align-items: center; gap: 4px;">
+                                        <i data-lucide="eye" style="width: 12px; height: 12px; color: var(--muted-foreground);"></i>
+                                        <span class="text-sm">2.7k</span>
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 4px;">
+                                        <i data-lucide="heart" style="width: 12px; height: 12px; color: var(--muted-foreground);"></i>
+                                        <span class="text-sm">389</span>
+                                    </div>
+                                </div>
+                                <span class="text-sm">3天前</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Popular Tags -->
+            <div class="glass-card animate-fade-in" style="animation-delay: 1s;">
+                <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 16px; color: var(--foreground);">热门标签</h3>
+                <div style="display: flex; flex-wrap: gap: 8px;">
+                    <div style="padding: 6px 12px; background: var(--secondary); border-radius: var(--radius-sm); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);">
+                        <span style="font-size: 12px;">#西湖十景</span>
+                    </div>
+                    <div style="padding: 6px 12px; background: var(--secondary); border-radius: var(--radius-sm); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);">
+                        <span style="font-size: 12px;">#杭帮菜</span>
+                    </div>
+                    <div style="padding: 6px 12px; background: var(--secondary); border-radius: var(--radius-sm); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);">
+                        <span style="font-size: 12px;">#春季赏花</span>
+                    </div>
+                    <div style="padding: 6px 12px; background: var(--secondary); border-radius: var(--radius-sm); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);">
+                        <span style="font-size: 12px;">#亲子游</span>
+                    </div>
+                    <div style="padding: 6px 12px; background: var(--secondary); border-radius: var(--radius-sm); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);">
+                        <span style="font-size: 12px;">#情侣约会</span>
+                    </div>
+                    <div style="padding: 6px 12px; background: var(--secondary); border-radius: var(--radius-sm); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);">
+                        <span style="font-size: 12px;">#省钱攻略</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Create Guide -->
+            <div class="glass-card animate-fade-in" style="animation-delay: 1.2s;">
+                <div style="text-align: center; padding: 20px;">
+                    <div style="width: 60px; height: 60px; background: var(--travel-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
+                        <i data-lucide="edit" style="width: 28px; height: 28px; color: white;"></i>
+                    </div>
+                    <h3 style="font-size: 18px; font-weight: 600; color: var(--foreground); margin-bottom: 8px;">分享你的旅行故事</h3>
+                    <p style="color: var(--muted-foreground); margin-bottom: 16px; line-height: 1.5;">记录美好时光，帮助更多旅行者</p>
+                    <button class="btn" style="background: var(--travel-blue); padding: 12px 24px;">
+                        <i data-lucide="plus" class="icon-sm"></i>
+                        写攻略
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <a href="#" class="nav-item">
+                <i data-lucide="home" class="icon-sm"></i>
+                <span style="font-size: 12px;">首页</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i data-lucide="search" class="icon-sm"></i>
+                <span style="font-size: 12px;">搜索</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i data-lucide="map-pin" class="icon-sm"></i>
+                <span style="font-size: 12px;">目的地</span>
+            </a>
+            <a href="#" class="nav-item active">
+                <i data-lucide="book-open" class="icon-sm"></i>
+                <span style="font-size: 12px;">攻略</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i data-lucide="user" class="icon-sm"></i>
+                <span style="font-size: 12px;">我的</span>
+            </a>
+        </div>
+    </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <a href="travel_home_1.html" class="nav-item">
+                <i data-lucide="home" class="icon-sm"></i>
+                <span style="font-size: 12px;">首页</span>
+            </a>
+            <a href="travel_search_2.html" class="nav-item">
+                <i data-lucide="search" class="icon-sm"></i>
+                <span style="font-size: 12px;">搜索</span>
+            </a>
+            <a href="travel_destination_3.html" class="nav-item">
+                <i data-lucide="map-pin" class="icon-sm"></i>
+                <span style="font-size: 12px;">目的地</span>
+            </a>
+            <a href="travel_orders_9.html" class="nav-item">
+                <i data-lucide="wallet" class="icon-sm"></i>
+                <span style="font-size: 12px;">订单</span>
+            </a>
+            <a href="travel_profile_10.html" class="nav-item">
+                <i data-lucide="user" class="icon-sm"></i>
+                <span style="font-size: 12px;">我的</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

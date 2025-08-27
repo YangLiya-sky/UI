@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旅行助手 - 交通出行</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="travel_theme.css">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="travel_navigation.js"></script>
+</head>
+
+<body>
+    <div class="mobile-container">
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <span style="font-weight: 600; font-size: 18px;">8:30</span>
+            <div style="display: flex; gap: 8px; align-items: center;">
+                <i data-lucide="signal" class="icon-sm"></i>
+                <i data-lucide="wifi" class="icon-sm"></i>
+                <div style="display: flex; align-items: center; gap: 2px;">
+                    <div
+                        style="width: 24px; height: 12px; border: 1px solid #D9D9D9; border-radius: 3px; position: relative;">
+                        <div style="width: 80%; height: 100%; background: #34C759; border-radius: 2px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <div class="header">
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <i data-lucide="arrow-left" class="icon"></i>
+                <span style="font-size: 20px; font-weight: 600;">交通出行</span>
+            </div>
+            <i data-lucide="calendar" class="icon"></i>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Transport Types -->
+            <div class="glass-card animate-fade-in">
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px;">
+                    <div class="glass-card-sm"
+                        style="text-align: center; padding: 16px; background: var(--travel-blue);">
+                        <i data-lucide="plane" style="width: 28px; height: 28px; color: white; margin-bottom: 8px;"></i>
+                        <p style="font-size: 14px; font-weight: 500; color: white;">机票</p>
+                    </div>
+                    <div class="glass-card-sm" style="text-align: center; padding: 16px;">
+                        <i data-lucide="train"
+                            style="width: 28px; height: 28px; color: var(--travel-green); margin-bottom: 8px;"></i>
+                        <p style="font-size: 14px; font-weight: 500;">火车</p>
+                    </div>
+                    <div class="glass-card-sm" style="text-align: center; padding: 16px;">
+                        <i data-lucide="bus"
+                            style="width: 28px; height: 28px; color: var(--travel-orange); margin-bottom: 8px;"></i>
+                        <p style="font-size: 14px; font-weight: 500;">大巴</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search Form -->
+            <div class="glass-card animate-fade-in" style="animation-delay: 0.2s;">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                    <div style="flex: 1; position: relative;">
+                        <input type="text" placeholder="出发地" value="上海"
+                            style="width: 100%; padding: 16px; background: var(--input); border: var(--glass-border); border-radius: var(--radius-sm); color: var(--foreground); font-size: 16px; backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);">
+                    </div>
+                    <div
+                        style="width: 32px; height: 32px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+                        <i data-lucide="arrow-right-left" style="width: 16px; height: 16px; color: white;"></i>
+                    </div>
+                    <div style="flex: 1;">
+                        <input type="text" placeholder="目的地" value="杭州"
+                            style="width: 100%; padding: 16px; background: var(--input); border: var(--glass-border); border-radius: var(--radius-sm); color: var(--foreground); font-size: 16px; backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);">
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                    <div>
+                        <label
+                            style="font-size: 12px; color: var(--muted-foreground); margin-bottom: 4px; display: block;">出发日期</label>
+                        <div
+                            style="padding: 12px; background: var(--input); border: var(--glass-border); border-radius: var(--radius-sm); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);">
+                            <span style="font-size: 14px;">4月15日 周一</span>
+                        </div>
+                    </div>
+                    <div>
+                        <label
+                            style="font-size: 12px; color: var(--muted-foreground); margin-bottom: 4px; display: block;">乘客</label>
+                        <div
+                            style="padding: 12px; background: var(--input); border: var(--glass-border); border-radius: var(--radius-sm); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);">
+                            <span style="font-size: 14px;">1成人</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flight Results -->
+            <div class="glass-card animate-fade-in" style="animation-delay: 0.4s;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                    <h3 style="font-size: 18px; font-weight: 600; color: var(--foreground);">航班信息</h3>
+                    <div style="display: flex; gap: 8px;">
+                        <button
+                            style="padding: 4px 8px; background: var(--travel-blue); border: none; border-radius: 8px; color: white; font-size: 12px;">价格</button>
+                        <button
+                            style="padding: 4px 8px; background: var(--secondary); border: none; border-radius: 8px; color: var(--muted-foreground); font-size: 12px;">时间</button>
+                    </div>
+                </div>
+
+                <!-- Flight 1 -->
+                <div
+                    style="padding: 16px; background: var(--secondary); border-radius: var(--radius-sm); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); margin-bottom: 12px;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+                                <div
+                                    style="width: 24px; height: 24px; background: var(--travel-blue); border-radius: 4px; display: flex; align-items: center; justify-content: center;">
+                                    <span style="color: white; font-weight: 600; font-size: 12px;">MU</span>
+                                </div>
+                                <span style="font-weight: 600; font-size: 14px;">东方航空 MU5137</span>
+                            </div>
+                            <p class="text-sm">空客A320 · 经济舱</p>
+                        </div>
+                        <div style="text-align: right;">
+                            <p style="font-size: 20px; font-weight: 700; color: var(--travel-orange);">¥428</p>
+                            <p class="text-sm">含税费</p>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; align-items: center; gap: 16px;">
+                        <div style="text-align: center;">
+                            <p style="font-size: 18px; font-weight: 600;">08:30</p>
+                            <p class="text-sm">上海虹桥</p>
+                        </div>
+                        <div style="flex: 1; position: relative;">
+                            <div style="height: 2px; background: var(--travel-blue); border-radius: 1px;"></div>
+                            <div
+                                style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--card); padding: 4px 8px; border-radius: 8px;">
+                                <span style="font-size: 12px; color: var(--muted-foreground);">1h 15m</span>
+                            </div>
+                            <i data-lucide="plane"
+                                style="position: absolute; top: 50%; right: 0; transform: translateY(-50%); width: 16px; height: 16px; color: var(--travel-blue);"></i>
+                        </div>
+                        <div style="text-align: center;">
+                            <p style="font-size: 18px; font-weight: 600;">09:45</p>
+                            <p class="text-sm">杭州萧山</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Flight 2 -->
+                <div
+                    style="padding: 16px; background: var(--secondary); border-radius: var(--radius-sm); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); margin-bottom: 12px;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+                                <div
+                                    style="width: 24px; height: 24px; background: var(--travel-green); border-radius: 4px; display: flex; align-items: center; justify-content: center;">
+                                    <span style="color: white; font-weight: 600; font-size: 12px;">CA</span>
+                                </div>
+                                <span style="font-weight: 600; font-size: 14px;">国航 CA1563</span>
+                            </div>
+                            <p class="text-sm">波音737 · 经济舱</p>
+                        </div>
+                        <div style="text-align: right;">
+                            <p style="font-size: 20px; font-weight: 700; color: var(--travel-orange);">¥468</p>
+                            <p class="text-sm">含税费</p>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; align-items: center; gap: 16px;">
+                        <div style="text-align: center;">
+                            <p style="font-size: 18px; font-weight: 600;">14:20</p>
+                            <p class="text-sm">上海浦东</p>
+                        </div>
+                        <div style="flex: 1; position: relative;">
+                            <div style="height: 2px; background: var(--travel-green); border-radius: 1px;"></div>
+                            <div
+                                style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--card); padding: 4px 8px; border-radius: 8px;">
+                                <span style="font-size: 12px; color: var(--muted-foreground);">1h 20m</span>
+                            </div>
+                            <i data-lucide="plane"
+                                style="position: absolute; top: 50%; right: 0; transform: translateY(-50%); width: 16px; height: 16px; color: var(--travel-green);"></i>
+                        </div>
+                        <div style="text-align: center;">
+                            <p style="font-size: 18px; font-weight: 600;">15:40</p>
+                            <p class="text-sm">杭州萧山</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Train Results -->
+            <div class="glass-card animate-fade-in" style="animation-delay: 0.6s;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                    <h3 style="font-size: 18px; font-weight: 600; color: var(--foreground);">高铁动车</h3>
+                    <span style="color: var(--muted-foreground); font-size: 14px;">查看全部 ></span>
+                </div>
+
+                <div
+                    style="padding: 16px; background: var(--secondary); border-radius: var(--radius-sm); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+                                <div
+                                    style="width: 24px; height: 24px; background: var(--travel-blue); border-radius: 4px; display: flex; align-items: center; justify-content: center;">
+                                    <span style="color: white; font-weight: 600; font-size: 12px;">G</span>
+                                </div>
+                                <span style="font-weight: 600; font-size: 14px;">G7325</span>
+                            </div>
+                            <p class="text-sm">复兴号 · 二等座</p>
+                        </div>
+                        <div style="text-align: right;">
+                            <p style="font-size: 20px; font-weight: 700; color: var(--travel-orange);">¥73</p>
+                            <p class="text-sm">二等座</p>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; align-items: center; gap: 16px;">
+                        <div style="text-align: center;">
+                            <p style="font-size: 18px; font-weight: 600;">09:15</p>
+                            <p class="text-sm">上海虹桥</p>
+                        </div>
+                        <div style="flex: 1; position: relative;">
+                            <div style="height: 2px; background: var(--travel-blue); border-radius: 1px;"></div>
+                            <div
+                                style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--card); padding: 4px 8px; border-radius: 8px;">
+                                <span style="font-size: 12px; color: var(--muted-foreground);">1h 3m</span>
+                            </div>
+                            <i data-lucide="train"
+                                style="position: absolute; top: 50%; right: 0; transform: translateY(-50%); width: 16px; height: 16px; color: var(--travel-blue);"></i>
+                        </div>
+                        <div style="text-align: center;">
+                            <p style="font-size: 18px; font-weight: 600;">10:18</p>
+                            <p class="text-sm">杭州东</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="glass-card animate-fade-in" style="animation-delay: 0.8s;">
+                <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 16px; color: var(--foreground);">其他服务</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                    <div class="glass-card-sm" style="text-align: center; padding: 16px;">
+                        <i data-lucide="car"
+                            style="width: 24px; height: 24px; color: var(--travel-orange); margin-bottom: 8px;"></i>
+                        <p style="font-size: 14px; font-weight: 500;">租车服务</p>
+                        <p class="text-sm">自驾出行</p>
+                    </div>
+                    <div class="glass-card-sm" style="text-align: center; padding: 16px;">
+                        <i data-lucide="map-pin"
+                            style="width: 24px; height: 24px; color: var(--travel-purple); margin-bottom: 8px;"></i>
+                        <p style="font-size: 14px; font-weight: 500;">接送机</p>
+                        <p class="text-sm">专车接送</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <a href="travel_home_1.html" class="nav-item">
+                <i data-lucide="home" class="icon-sm"></i>
+                <span style="font-size: 12px;">首页</span>
+            </a>
+            <a href="travel_search_2.html" class="nav-item">
+                <i data-lucide="search" class="icon-sm"></i>
+                <span style="font-size: 12px;">搜索</span>
+            </a>
+            <a href="travel_destination_3.html" class="nav-item">
+                <i data-lucide="map-pin" class="icon-sm"></i>
+                <span style="font-size: 12px;">目的地</span>
+            </a>
+            <a href="travel_orders_9.html" class="nav-item">
+                <i data-lucide="wallet" class="icon-sm"></i>
+                <span style="font-size: 12px;">订单</span>
+            </a>
+            <a href="travel_profile_10.html" class="nav-item">
+                <i data-lucide="user" class="icon-sm"></i>
+                <span style="font-size: 12px;">我的</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

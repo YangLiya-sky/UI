@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>购物APP - 商品分类</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    html, body { 
+      height: 100%; 
+      overflow: hidden;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+    .ios-blur {
+      background: rgba(28, 28, 30, 0.72);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+    }
+    .ios-card {
+      background: rgba(44, 44, 46, 0.85);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+    }
+    .ios-secondary-card {
+      background: rgba(58, 58, 60, 0.6);
+    }
+    .ios-gradient {
+      background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
+    }
+    .ios-separator {
+      background: rgba(84, 84, 88, 0.36);
+      height: 0.33px;
+    }
+    .scrollable-content {
+      overflow-y: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      height: calc(915px - 112px);
+    }
+    .scrollable-content::-webkit-scrollbar {
+      display: none;
+    }
+    .category-card {
+      background: rgba(44, 44, 46, 0.85);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+    }
+  </style>
+</head>
+<body class="min-h-screen ios-gradient text-white antialiased selection:bg-blue-500/30 flex items-center justify-center">
+  <!-- 主容器 -->
+  <div class="w-[412px] h-[915px] ios-gradient rounded-[40px] shadow-[0_8px_30px_rgba(0,0,0,0.8)] overflow-hidden relative">
+
+    <!-- 可滚动内容区 -->
+    <div class="scrollable-content pt-4 pb-24 px-4">
+      <!-- 顶部导航 -->
+      <div class="flex items-center mb-6">
+        <button onclick="window.location.href='index.html'" class="w-8 h-8 border border-gray-700 rounded-lg flex items-center justify-center mr-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left w-5 h-5 text-white"><path d="m15 18-6-6 6-6"></path></svg>
+        </button>
+        <h1 class="text-lg font-semibold">商品分类</h1>
+      </div>
+
+      <!-- 分类网格 -->
+      <div class="grid grid-cols-2 gap-4">
+        <!-- 服装分类 -->
+        <div class="category-card rounded-xl p-4">
+          <div class="flex flex-col items-center">
+            <div class="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mb-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shirt w-8 h-8 text-white"><path d="M20 7h-3a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h3"></path><path d="M4 7h3a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H4"></path><path d="M20 11v4a2 2 0 0 1-2 2h-3.5L13 21l-1.5-4H8a2 2 0 0 1-2-2v-4"></path><path d="M12 7v10"></path><path d="M8 7v4a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2V7"></path></svg>
+            </div>
+            <h3 class="font-medium mb-1">服装</h3>
+            <p class="text-gray-400 text-xs">256件商品</p>
+          </div>
+        </div>
+
+        <!-- 数码分类 -->
+        <div class="category-card rounded-xl p-4">
+          <div class="flex flex-col items-center">
+            <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mb-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-monitor w-8 h-8 text-white"><rect width="20" height="14" x="2" y="3" rx="2"></rect><line x1="8" x2="16" y1="21" y2="21"></line><line x1="12" x2="12" y1="17" y2="21"></line></svg>
+            </div>
+            <h3 class="font-medium mb-1">数码</h3>
+            <p class="text-gray-400 text-xs">189件商品</p>
+          </div>
+        </div>
+
+        <!-- 美妆分类 -->
+        <div class="category-card rounded-xl p-4">
+          <div class="flex flex-col items-center">
+            <div class="w-16 h-16 bg-pink-500 rounded-full flex items-center justify-center mb-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart w-8 h-8 text-white"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5L12 21l7-7z"></path></svg>
+            </div>
+            <h3 class="font-medium mb-1">美妆</h3>
+            <p class="text-gray-400 text-xs">142件商品</p>
+          </div>
+        </div>
+
+        <!-- 家居分类 -->
+        <div class="category-card rounded-xl p-4">
+          <div class="flex flex-col items-center">
+            <div class="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mb-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home w-8 h-8 text-white"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+            </div>
+            <h3 class="font-medium mb-1">家居</h3>
+            <p class="text-gray-400 text-xs">98件商品</p>
+          </div>
+        </div>
+
+        <!-- 食品分类 -->
+        <div class="category-card rounded-xl p-4">
+          <div class="flex flex-col items-center">
+            <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mb-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-utensils w-8 h-8 text-white"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path><path d="M7 2v20"></path><path d="M21 15V2a5 5 0 0 0-5 5v6c0 3 2.5 5 5 5z"></path></svg>
+            </div>
+            <h3 class="font-medium mb-1">食品</h3>
+            <p class="text-gray-400 text-xs">312件商品</p>
+          </div>
+        </div>
+
+        <!-- 运动分类 -->
+        <div class="category-card rounded-xl p-4">
+          <div class="flex flex-col items-center">
+            <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mb-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-dumbbell w-8 h-8 text-white"><path d="M14.4 14.4 9.6 9.6"></path><path d="M18.657 21.485a10 10 0 0 1-15.314 0 10 10 0 0 1 0-15.314 10 10 0 0 1 15.314 0 10 10 0 0 1 0 15.314z"></path><path d="m9.6 9.6 4.8 4.8"></path><path d="M5.343 5.343a10 10 0 0 1 15.314 0 10 10 0 0 1 0 15.314 10 10 0 0 1-15.314 0 10 10 0 0 1 0-15.314z"></path></svg>
+            </div>
+            <h3 class="font-medium mb-1">运动</h3>
+            <p class="text-gray-400 text-xs">87件商品</p>
+          </div>
+        </div>
+
+        <!-- 图书分类 -->
+        <div class="category-card rounded-xl p-4">
+          <div class="flex flex-col items-center">
+            <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mb-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book w-8 h-8 text-white"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path></svg>
+            </div>
+            <h3 class="font-medium mb-1">图书</h3>
+            <p class="text-gray-400 text-xs">205件商品</p>
+          </div>
+        </div>
+
+        <!-- 母婴分类 -->
+        <div class="category-card rounded-xl p-4">
+          <div class="flex flex-col items-center">
+            <div class="w-16 h-16 bg-teal-500 rounded-full flex items-center justify-center mb-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-baby w-8 h-8 text-white"><path d="M9 12h.01"></path><path d="M15 12h.01"></path><path d="M10 16c.5.3 1.2.3 1.7 0"></path><path d="M19 10c.5.3 1.2.3 1.7 0"></path><path d="M21 14c-1 1.5-3 2-4.5 1.5"></path><path d="M4 10c-.5.3-1.2.3-1.7 0"></path><path d="M3 14c1 1.5 3 2 4.5 1.5"></path><path d="M12 3a9 9 0 0 0 0 18"></path><path d="M12 3a9 9 0 0 1 0 18"></path></svg>
+            </div>
+            <h3 class="font-medium mb-1">母婴</h3>
+            <p class="text-gray-400 text-xs">156件商品</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 底部导航栏 -->
+    <div class="absolute bottom-8 left-2 right-2 ios-blur rounded-xl p-2">
+      <div class="flex items-center justify-around py-2">
+        <div class="flex flex-col items-center gap-1">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home w-6 h-6 text-gray-500"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+          <span class="text-xs text-gray-500">首页</span>
+        </div>
+        <div class="flex flex-col items-center gap-1">
+          <div class="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-grid w-4 h-4 text-black"><rect width="7" height="7" x="3" y="3" rx="1"></rect><rect width="7" height="7" x="14" y="3" rx="1"></rect><rect width="7" height="7" x="14" y="14" rx="1"></rect><rect width="7" height="7" x="3" y="14" rx="1"></rect></svg>
+          </div>
+          <span class="text-xs text-white font-medium">分类</span>
+        </div>
+        <div class="flex flex-col items-center gap-1">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search w-6 h-6 text-gray-500"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+          <span class="text-xs text-gray-500">搜索</span>
+        </div>
+        <div class="flex flex-col items-center gap-1">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart w-6 h-6 text-gray-500"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path></svg>
+          <span class="text-xs text-gray-500">购物车</span>
+        </div>
+        <div class="flex flex-col items-center gap-1">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user w-6 h-6 text-gray-500"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          <span class="text-xs text-gray-500">我的</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Home Indicator -->
+    <div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-32 h-1 bg-gray-600 rounded-full"></div>
+  </div>
+
+  <script>
+    // 初始化Lucide图标
+    lucide.createIcons();
+    
+    // 添加底部导航栏点击事件
+    document.querySelectorAll('.ios-blur .flex-col').forEach((item, index) => {
+      item.addEventListener('click', () => {
+        switch(index) {
+          case 0:
+            window.location.href = 'index.html';
+            break;
+          case 1:
+            // 当前页面
+            break;
+          case 2:
+            window.location.href = 'search.html';
+            break;
+          case 3:
+            window.location.href = 'cart.html';
+            break;
+          case 4:
+            window.location.href = 'profile.html';
+            break;
+        }
+      });
+    });
+  </script>
+</body>
+</html>
