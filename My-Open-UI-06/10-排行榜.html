@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>排行榜 - 音乐APP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="default_ui_darkmode.css">
+    <link rel="stylesheet" href="music-app-theme.css">
+</head>
+<body class="page-center">
+    <div class="mobile-container animate-fadeIn">
+        <!-- 状态栏 -->
+        <div class="status-bar">
+            <div class="flex items-center gap-1">
+                <div class="w-1 h-1 bg-white rounded-full"></div>
+                <div class="w-1 h-1 bg-white rounded-full"></div>
+                <div class="w-1 h-1 bg-white rounded-full opacity-50"></div>
+                <span class="ml-2 text-sm">中国移动</span>
+            </div>
+            <div class="text-sm font-medium">9:41</div>
+            <div class="flex items-center gap-1">
+                <i data-lucide="signal" class="w-4 h-4"></i>
+                <i data-lucide="wifi" class="w-4 h-4"></i>
+                <div class="w-6 h-3 bg-white rounded-sm relative">
+                    <div class="w-4 h-2 bg-green-400 rounded-sm absolute top-0.5 left-0.5"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 导航栏 -->
+        <div class="navbar">
+            <h1 class="navbar-title">排行榜</h1>
+            <button class="navbar-action">
+                <i data-lucide="refresh-cw" class="w-5 h-5"></i>
+            </button>
+        </div>
+
+        <!-- 主内容 -->
+        <div class="main-content scrollbar-hide">
+            <!-- 榜单分类 -->
+            <div class="flex gap-2 mb-6 overflow-x-auto scrollbar-hide pb-2">
+                <button class="filter-btn active px-4 py-2 rounded-full text-sm whitespace-nowrap">热歌榜</button>
+                <button class="filter-btn px-4 py-2 rounded-full text-sm whitespace-nowrap">新歌榜</button>
+                <button class="filter-btn px-4 py-2 rounded-full text-sm whitespace-nowrap">原创榜</button>
+                <button class="filter-btn px-4 py-2 rounded-full text-sm whitespace-nowrap">飙升榜</button>
+            </div>
+
+            <!-- 排行榜歌曲 -->
+            <div class="space-y-2">
+                <div class="flex items-center gap-3 p-3 hover:bg-slate-800/30 rounded-lg cursor-pointer">
+                    <div class="w-8 h-8 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full flex items-center justify-center">
+                        <span class="text-sm font-bold text-white">1</span>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=200&q=80" 
+                         class="w-12 h-12 rounded-lg object-cover" alt="告白气球">
+                    <div class="flex-1">
+                        <p class="text-sm font-semibold text-white">告白气球</p>
+                        <p class="text-xs text-slate-400">周杰伦</p>
+                    </div>
+                    <div class="text-right">
+                        <i data-lucide="trending-up" class="w-4 h-4 text-green-400 mb-1"></i>
+                        <p class="text-xs text-slate-500">↑2</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-center gap-3 p-3 hover:bg-slate-800/30 rounded-lg cursor-pointer">
+                    <div class="w-8 h-8 bg-gradient-to-r from-gray-400 to-gray-500 rounded-full flex items-center justify-center">
+                        <span class="text-sm font-bold text-white">2</span>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=200&q=80" 
+                         class="w-12 h-12 rounded-lg object-cover" alt="夜空中最亮的星">
+                    <div class="flex-1">
+                        <p class="text-sm font-semibold text-white">夜空中最亮的星</p>
+                        <p class="text-xs text-slate-400">逃跑计划</p>
+                    </div>
+                    <div class="text-right">
+                        <i data-lucide="minus" class="w-4 h-4 text-slate-400 mb-1"></i>
+                        <p class="text-xs text-slate-500">-</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-3 p-3 hover:bg-slate-800/30 rounded-lg cursor-pointer">
+                    <div class="w-8 h-8 bg-gradient-to-r from-amber-600 to-yellow-600 rounded-full flex items-center justify-center">
+                        <span class="text-sm font-bold text-white">3</span>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=200&q=80" 
+                         class="w-12 h-12 rounded-lg object-cover" alt="成都">
+                    <div class="flex-1">
+                        <p class="text-sm font-semibold text-white">成都</p>
+                        <p class="text-xs text-slate-400">赵雷</p>
+                    </div>
+                    <div class="text-right">
+                        <i data-lucide="trending-down" class="w-4 h-4 text-red-400 mb-1"></i>
+                        <p class="text-xs text-slate-500">↓1</p>
+                    </div>
+                </div>
+
+                <!-- 4-10名 -->
+                <div class="flex items-center gap-3 p-3 hover:bg-slate-800/30 rounded-lg cursor-pointer">
+                    <span class="w-8 text-center text-sm font-bold text-slate-400">4</span>
+                    <img src="https://images.unsplash.com/photo-1629948618343-0d33f97a3091?w=200&q=80" 
+                         class="w-12 h-12 rounded-lg object-cover" alt="稻香">
+                    <div class="flex-1">
+                        <p class="text-sm font-semibold text-white">稻香</p>
+                        <p class="text-xs text-slate-400">周杰伦</p>
+                    </div>
+                    <div class="text-right">
+                        <i data-lucide="trending-up" class="w-4 h-4 text-green-400 mb-1"></i>
+                        <p class="text-xs text-slate-500">↑3</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-3 p-3 hover:bg-slate-800/30 rounded-lg cursor-pointer">
+                    <span class="w-8 text-center text-sm font-bold text-slate-400">5</span>
+                    <img src="https://images.unsplash.com/photo-1677586883848-695b3ad692b4?w=200&q=80" 
+                         class="w-12 h-12 rounded-lg object-cover" alt="少年">
+                    <div class="flex-1">
+                        <p class="text-sm font-semibold text-white">少年</p>
+                        <p class="text-xs text-slate-400">梦然</p>
+                    </div>
+                    <div class="text-right">
+                        <i data-lucide="star" class="w-4 h-4 text-yellow-400 mb-1"></i>
+                        <p class="text-xs text-slate-500">新</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 更新时间 -->
+            <div class="text-center text-xs text-slate-400 mt-6 mb-4">
+                <p>更新时间：今天 12:00</p>
+            </div>
+        </div>
+
+        <!-- 底部导航 -->
+        <div class="bottom-nav">
+            <button class="nav-item active">
+                <i data-lucide="home" class="w-5 h-5"></i>
+                <span>首页</span>
+            </button>
+            <button class="nav-item">
+                <i data-lucide="search" class="w-5 h-5"></i>
+                <span>搜索</span>
+            </button>
+            <button class="nav-item">
+                <i data-lucide="library" class="w-5 h-5"></i>
+                <span>音乐库</span>
+            </button>
+            <button class="nav-item">
+                <i data-lucide="user" class="w-5 h-5"></i>
+                <span>我的</span>
+            </button>
+        </div>
+    </div>
+
+    <style>
+        .filter-btn {
+            background: var(--surface);
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
+        }
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+    </style>
+
+    <script>
+        lucide.createIcons();
+        
+        // 榜单切换
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+        
+        // 底部导航
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', () => {
+                document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+                item.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="h-full scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>通知中心 - 旅行助手</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="../travel_app_theme.css">
+</head>
+<body class="h-screen w-screen overflow-hidden antialiased flex items-center justify-center font-inter bg-teal-50 bg-[url('https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=2160&q=80')] bg-cover">
+    <div class="relative w-[380px] h-[850px] flex flex-col gap-6 glass-card rounded-3xl pt-6 pr-6 pb-6 pl-6 shadow-2xl animate-slide-up overflow-hidden">
+        <!-- Header -->
+        <div class="flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <button class="h-8 w-8 rounded-full bg-white shadow flex items-center justify-center hover:scale-105 transition-transform">
+                    <i data-lucide="chevron-left" class="h-5 w-5 stroke-gray-700"></i>
+                </button>
+                <h2 class="text-lg font-semibold text-gray-900">通知中心</h2>
+            </div>
+            <button class="text-sm text-teal-600 font-medium hover:text-teal-700 transition-colors">全部已读</button>
+        </div>
+
+        <!-- Notification Stats -->
+        <div class="grid grid-cols-3 gap-3">
+            <div class="bg-white rounded-xl p-3 shadow text-center animate-scale-in">
+                <p class="text-lg font-bold text-red-600">5</p>
+                <p class="text-xs text-gray-500">未读</p>
+            </div>
+            <div class="bg-white rounded-xl p-3 shadow text-center animate-scale-in" style="animation-delay: 0.1s">
+                <p class="text-lg font-bold text-blue-600">12</p>
+                <p class="text-xs text-gray-500">今日</p>
+            </div>
+            <div class="bg-white rounded-xl p-3 shadow text-center animate-scale-in" style="animation-delay: 0.2s">
+                <p class="text-lg font-bold text-green-600">48</p>
+                <p class="text-xs text-gray-500">本周</p>
+            </div>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="flex gap-2 overflow-x-auto pb-1">
+            <button class="shrink-0 flex items-center gap-1 bg-teal-500 text-white px-3 py-1.5 rounded-full text-xs font-medium">
+                <i data-lucide="bell" class="h-3 w-3"></i>
+                全部
+            </button>
+            <button class="shrink-0 flex items-center gap-1 bg-white px-3 py-1.5 rounded-full text-xs font-medium text-gray-700 hover:bg-gray-50 transition-colors">
+                <i data-lucide="plane" class="h-3 w-3"></i>
+                行程
+            </button>
+            <button class="shrink-0 flex items-center gap-1 bg-white px-3 py-1.5 rounded-full text-xs font-medium text-gray-700 hover:bg-gray-50 transition-colors">
+                <i data-lucide="heart" class="h-3 w-3"></i>
+                收藏
+            </button>
+            <button class="shrink-0 flex items-center gap-1 bg-white px-3 py-1.5 rounded-full text-xs font-medium text-gray-700 hover:bg-gray-50 transition-colors">
+                <i data-lucide="tag" class="h-3 w-3"></i>
+                优惠
+            </button>
+        </div>
+
+        <!-- Notifications List -->
+        <div class="flex-1 overflow-y-auto flex flex-col gap-3">
+            <!-- Flight Reminder -->
+            <div class="relative bg-white rounded-xl shadow hover:shadow-lg transition-shadow p-4 animate-fade-in">
+                <div class="absolute top-3 right-3 w-2 h-2 bg-red-500 rounded-full animate-pulse-soft"></div>
+                <div class="flex items-start gap-3">
+                    <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center shrink-0">
+                        <i data-lucide="plane" class="h-5 w-5 stroke-blue-600"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="text-sm font-semibold text-gray-900">航班提醒</h4>
+                        <p class="text-xs text-gray-600 mt-1">您的东京航班将在明天 7:15 AM 起飞，请提前2小时到达机场</p>
+                        <div class="flex items-center justify-between mt-2">
+                            <span class="text-xs text-gray-500">2小时前</span>
+                            <button class="text-xs text-teal-600 font-medium">查看详情</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Price Alert -->
+            <div class="relative bg-white rounded-xl shadow hover:shadow-lg transition-shadow p-4 animate-fade-in" style="animation-delay: 0.1s">
+                <div class="absolute top-3 right-3 w-2 h-2 bg-red-500 rounded-full animate-pulse-soft"></div>
+                <div class="flex items-start gap-3">
+                    <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center shrink-0">
+                        <i data-lucide="tag" class="h-5 w-5 stroke-green-600"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="text-sm font-semibold text-gray-900">价格提醒</h4>
+                        <p class="text-xs text-gray-600 mt-1">巴黎酒店价格下降了 20%！现在预订可节省 ¥800</p>
+                        <div class="flex items-center justify-between mt-2">
+                            <span class="text-xs text-gray-500">4小时前</span>
+                            <button class="text-xs text-teal-600 font-medium">立即预订</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Itinerary Update -->
+            <div class="relative bg-white rounded-xl shadow hover:shadow-lg transition-shadow p-4 animate-fade-in" style="animation-delay: 0.2s">
+                <div class="absolute top-3 right-3 w-2 h-2 bg-red-500 rounded-full animate-pulse-soft"></div>
+                <div class="flex items-start gap-3">
+                    <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center shrink-0">
+                        <i data-lucide="calendar" class="h-5 w-5 stroke-purple-600"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="text-sm font-semibold text-gray-900">行程更新</h4>
+                        <p class="text-xs text-gray-600 mt-1">您的东京行程已更新，新增了浅草寺和银座购物</p>
+                        <div class="flex items-center justify-between mt-2">
+                            <span class="text-xs text-gray-500">6小时前</span>
+                            <button class="text-xs text-teal-600 font-medium">查看行程</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Weather Alert -->
+            <div class="relative bg-white rounded-xl shadow hover:shadow-lg transition-shadow p-4 animate-fade-in" style="animation-delay: 0.3s">
+                <div class="absolute top-3 right-3 w-2 h-2 bg-red-500 rounded-full animate-pulse-soft"></div>
+                <div class="flex items-start gap-3">
+                    <div class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center shrink-0">
+                        <i data-lucide="cloud-rain" class="h-5 w-5 stroke-yellow-600"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="text-sm font-semibold text-gray-900">天气提醒</h4>
+                        <p class="text-xs text-gray-600 mt-1">东京明天有雨，建议携带雨具出行</p>
+                        <div class="flex items-center justify-between mt-2">
+                            <span class="text-xs text-gray-500">8小时前</span>
+                            <button class="text-xs text-teal-600 font-medium">查看天气</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recommendation -->
+            <div class="bg-white rounded-xl shadow hover:shadow-lg transition-shadow p-4 animate-fade-in" style="animation-delay: 0.4s">
+                <div class="flex items-start gap-3">
+                    <div class="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center shrink-0">
+                        <i data-lucide="star" class="h-5 w-5 stroke-orange-600"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="text-sm font-semibold text-gray-900">推荐内容</h4>
+                        <p class="text-xs text-gray-600 mt-1">基于您的喜好，为您推荐了3个新的旅行目的地</p>
+                        <div class="flex items-center justify-between mt-2">
+                            <span class="text-xs text-gray-500">1天前</span>
+                            <button class="text-xs text-teal-600 font-medium">查看推荐</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review Reminder -->
+            <div class="bg-white rounded-xl shadow hover:shadow-lg transition-shadow p-4 animate-fade-in" style="animation-delay: 0.5s">
+                <div class="flex items-start gap-3">
+                    <div class="w-10 h-10 bg-pink-100 rounded-full flex items-center justify-center shrink-0">
+                        <i data-lucide="message-circle" class="h-5 w-5 stroke-pink-600"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="text-sm font-semibold text-gray-900">评价提醒</h4>
+                        <p class="text-xs text-gray-600 mt-1">您的京都之旅结束了，快来分享您的体验吧！</p>
+                        <div class="flex items-center justify-between mt-2">
+                            <span class="text-xs text-gray-500">2天前</span>
+                            <button class="text-xs text-teal-600 font-medium">写评价</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- System Update -->
+            <div class="bg-white rounded-xl shadow hover:shadow-lg transition-shadow p-4 animate-fade-in" style="animation-delay: 0.6s">
+                <div class="flex items-start gap-3">
+                    <div class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center shrink-0">
+                        <i data-lucide="smartphone" class="h-5 w-5 stroke-gray-600"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="text-sm font-semibold text-gray-900">系统更新</h4>
+                        <p class="text-xs text-gray-600 mt-1">旅行助手 v2.1 已发布，新增AI智能推荐功能</p>
+                        <div class="flex items-center justify-between mt-2">
+                            <span class="text-xs text-gray-500">3天前</span>
+                            <button class="text-xs text-teal-600 font-medium">立即更新</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings Link -->
+        <div class="flex items-center justify-center pt-4 border-t border-gray-200">
+            <button class="flex items-center gap-2 text-sm text-gray-600 hover:text-gray-800 transition-colors">
+                <i data-lucide="settings" class="h-4 w-4"></i>
+                通知设置
+            </button>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+        
+        // 添加交互动画
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+
+        // 点击通知标记为已读
+        document.querySelectorAll('.relative .w-2.h-2.bg-red-500').forEach(dot => {
+            dot.parentElement.addEventListener('click', function() {
+                dot.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>

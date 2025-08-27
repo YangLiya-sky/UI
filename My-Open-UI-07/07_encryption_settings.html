@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureChat - 加密设置</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="securechat_theme.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .encryption-container {
+            height: 680px;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        
+        .security-status {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            margin-bottom: 24px;
+            color: white;
+            text-align: center;
+        }
+        
+        .security-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 16px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .key-info-card {
+            background-color: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .key-display {
+            font-family: var(--font-mono);
+            background-color: var(--muted);
+            padding: 12px;
+            border-radius: var(--radius);
+            font-size: 12px;
+            word-break: break-all;
+            margin: 12px 0;
+            position: relative;
+        }
+        
+        .copy-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            padding: 4px;
+            background-color: var(--background);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            cursor: pointer;
+        }
+        
+        .encryption-method {
+            background-color: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 16px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .encryption-method:hover {
+            border-color: var(--primary);
+            transform: translateY(-1px);
+        }
+        
+        .encryption-method.selected {
+            border-color: var(--primary);
+            background-color: rgba(0, 212, 170, 0.05);
+        }
+        
+        .method-header {
+            display: flex;
+            align-items: center;
+            justify-content: between;
+            margin-bottom: 8px;
+        }
+        
+        .method-name {
+            font-weight: 600;
+            flex: 1;
+        }
+        
+        .method-badge {
+            padding: 4px 8px;
+            border-radius: var(--radius);
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .badge-recommended {
+            background-color: rgba(34, 197, 94, 0.1);
+            color: var(--success);
+        }
+        
+        .badge-advanced {
+            background-color: rgba(245, 158, 11, 0.1);
+            color: var(--warning);
+        }
+        
+        .method-description {
+            font-size: 14px;
+            color: var(--muted-foreground);
+            margin-bottom: 8px;
+        }
+        
+        .method-specs {
+            display: flex;
+            gap: 16px;
+            font-size: 12px;
+            color: var(--muted-foreground);
+        }
+        
+        .verification-section {
+            background-color: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .verification-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .verification-item:last-child {
+            border-bottom: none;
+        }
+        
+        .verification-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .verification-status {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        .status-verified {
+            background-color: var(--success);
+        }
+        
+        .status-pending {
+            background-color: var(--warning);
+        }
+        
+        .status-failed {
+            background-color: var(--destructive);
+        }
+        
+        .backup-section {
+            background-color: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .backup-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px;
+            background-color: var(--muted);
+            border-radius: var(--radius);
+            margin-bottom: 12px;
+        }
+        
+        .backup-info {
+            flex: 1;
+        }
+        
+        .backup-date {
+            font-size: 12px;
+            color: var(--muted-foreground);
+            margin-top: 4px;
+        }
+        
+        .danger-zone {
+            background-color: rgba(239, 68, 68, 0.05);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+        }
+        
+        .danger-title {
+            color: var(--destructive);
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .danger-action {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(239, 68, 68, 0.1);
+        }
+        
+        .danger-action:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 顶部导航栏 -->
+        <div class="header">
+            <div class="flex items-center space-x-3">
+                <button class="p-2 hover:bg-muted rounded-lg transition-colors" onclick="history.back()">
+                    <i data-lucide="arrow-left" class="icon"></i>
+                </button>
+                <i data-lucide="shield-check" class="icon text-primary"></i>
+                <span class="text-lg font-semibold">加密设置</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="p-2 hover:bg-muted rounded-lg transition-colors">
+                    <i data-lucide="refresh-cw" class="icon"></i>
+                </button>
+                <button class="p-2 hover:bg-muted rounded-lg transition-colors">
+                    <i data-lucide="help-circle" class="icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- 主内容区域 -->
+        <div class="encryption-container">
+            <!-- 安全状态概览 -->
+            <div class="security-status">
+                <div class="security-icon">
+                    <i data-lucide="shield-check" class="w-8 h-8"></i>
+                </div>
+                <h2 class="text-xl font-bold mb-2">端到端加密已启用</h2>
+                <p class="opacity-90">您的所有消息和文件都受到军用级加密保护</p>
+                <div class="flex justify-center gap-4 mt-4 text-sm">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="check" class="w-4 h-4"></i>
+                        <span>AES-256 加密</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="check" class="w-4 h-4"></i>
+                        <span>RSA-4096 密钥交换</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="check" class="w-4 h-4"></i>
+                        <span>完美前向保密</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 加密密钥信息 -->
+            <div class="key-info-card">
+                <h3 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                    <i data-lucide="key" class="w-5 h-5 text-primary"></i>
+                    密钥信息
+                </h3>
+                
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-2">公钥指纹</label>
+                    <div class="key-display">
+                        SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8
+                        <button class="copy-btn" onclick="copyToClipboard(this.previousSibling.textContent.trim())">
+                            <i data-lucide="copy" class="w-3 h-3"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-2">设备ID</label>
+                    <div class="key-display">
+                        DEVICE:8417b52f945db4c5728c7013b0c4ca4c8afb39d2
+                        <button class="copy-btn" onclick="copyToClipboard(this.previousSibling.textContent.trim())">
+                            <i data-lucide="copy" class="w-3 h-3"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="flex gap-2">
+                    <button class="btn btn-secondary flex-1">
+                        <i data-lucide="download" class="w-4 h-4 mr-2"></i>
+                        导出公钥
+                    </button>
+                    <button class="btn btn-secondary flex-1">
+                        <i data-lucide="qr-code" class="w-4 h-4 mr-2"></i>
+                        显示二维码
+                    </button>
+                </div>
+            </div>
+
+            <!-- 加密算法选择 -->
+            <div class="settings-section">
+                <div class="section-header">
+                    <div class="section-title">
+                        <i data-lucide="cpu" class="w-5 h-5 text-primary"></i>
+                        加密算法
+                    </div>
+                    <div class="section-description">选择消息加密使用的算法</div>
+                </div>
+                
+                <div class="p-4">
+                    <div class="encryption-method selected">
+                        <div class="method-header">
+                            <div class="method-name">AES-256-GCM</div>
+                            <div class="method-badge badge-recommended">推荐</div>
+                        </div>
+                        <div class="method-description">
+                            高级加密标准，256位密钥长度，提供认证加密
+                        </div>
+                        <div class="method-specs">
+                            <span>密钥长度: 256位</span>
+                            <span>•</span>
+                            <span>块大小: 128位</span>
+                            <span>•</span>
+                            <span>性能: 优秀</span>
+                        </div>
+                    </div>
+                    
+                    <div class="encryption-method">
+                        <div class="method-header">
+                            <div class="method-name">ChaCha20-Poly1305</div>
+                            <div class="method-badge badge-advanced">高级</div>
+                        </div>
+                        <div class="method-description">
+                            现代流密码，在移动设备上性能更佳
+                        </div>
+                        <div class="method-specs">
+                            <span>密钥长度: 256位</span>
+                            <span>•</span>
+                            <span>类型: 流密码</span>
+                            <span>•</span>
+                            <span>性能: 移动端优化</span>
+                        </div>
+                    </div>
+                    
+                    <div class="encryption-method">
+                        <div class="method-header">
+                            <div class="method-name">AES-256-CBC</div>
+                        </div>
+                        <div class="method-description">
+                            传统AES加密模式，兼容性好
+                        </div>
+                        <div class="method-specs">
+                            <span>密钥长度: 256位</span>
+                            <span>•</span>
+                            <span>块大小: 128位</span>
+                            <span>•</span>
+                            <span>性能: 良好</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 密钥验证 -->
+            <div class="verification-section">
+                <h3 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                    <i data-lucide="user-check" class="w-5 h-5 text-primary"></i>
+                    联系人密钥验证
+                </h3>
+                
+                <div class="verification-item">
+                    <div class="verification-info">
+                        <div class="verification-status status-verified"></div>
+                        <div>
+                            <div class="font-medium">张三</div>
+                            <div class="text-sm text-muted-foreground">已验证 • 2024-01-15</div>
+                        </div>
+                    </div>
+                    <button class="btn btn-secondary">
+                        <i data-lucide="eye" class="w-4 h-4 mr-2"></i>
+                        查看
+                    </button>
+                </div>
+                
+                <div class="verification-item">
+                    <div class="verification-info">
+                        <div class="verification-status status-pending"></div>
+                        <div>
+                            <div class="font-medium">李四</div>
+                            <div class="text-sm text-muted-foreground">待验证 • 新联系人</div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary">
+                        <i data-lucide="shield-check" class="w-4 h-4 mr-2"></i>
+                        验证
+                    </button>
+                </div>
+                
+                <div class="verification-item">
+                    <div class="verification-info">
+                        <div class="verification-status status-failed"></div>
+                        <div>
+                            <div class="font-medium">王五</div>
+                            <div class="text-sm text-muted-foreground">验证失败 • 密钥已更改</div>
+                        </div>
+                    </div>
+                    <button class="btn btn-secondary">
+                        <i data-lucide="alert-triangle" class="w-4 h-4 mr-2"></i>
+                        重新验证
+                    </button>
+                </div>
+            </div>
+
+            <!-- 密钥备份 -->
+            <div class="backup-section">
+                <h3 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                    <i data-lucide="archive" class="w-5 h-5 text-primary"></i>
+                    密钥备份
+                </h3>
+                
+                <div class="backup-item">
+                    <div class="backup-info">
+                        <div class="font-medium">本地备份</div>
+                        <div class="backup-date">最后备份: 2024-01-20 14:30</div>
+                    </div>
+                    <button class="btn btn-secondary">
+                        <i data-lucide="download" class="w-4 h-4 mr-2"></i>
+                        备份
+                    </button>
+                </div>
+                
+                <div class="backup-item">
+                    <div class="backup-info">
+                        <div class="font-medium">云端备份</div>
+                        <div class="backup-date">已禁用 • 提高安全性</div>
+                    </div>
+                    <button class="btn btn-secondary">
+                        <i data-lucide="cloud" class="w-4 h-4 mr-2"></i>
+                        配置
+                    </button>
+                </div>
+                
+                <div class="backup-item">
+                    <div class="backup-info">
+                        <div class="font-medium">恢复密钥</div>
+                        <div class="backup-date">从备份文件恢复密钥</div>
+                    </div>
+                    <button class="btn btn-secondary">
+                        <i data-lucide="upload" class="w-4 h-4 mr-2"></i>
+                        恢复
+                    </button>
+                </div>
+            </div>
+
+            <!-- 高级安全选项 -->
+            <div class="settings-section">
+                <div class="section-header">
+                    <div class="section-title">
+                        <i data-lucide="settings-2" class="w-5 h-5 text-primary"></i>
+                        高级安全选项
+                    </div>
+                    <div class="section-description">专业用户的高级安全设置</div>
+                </div>
+                
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <div class="setting-label">完美前向保密</div>
+                        <div class="setting-desc">每条消息使用不同的加密密钥</div>
+                    </div>
+                    <div class="setting-control">
+                        <div class="toggle-switch active">
+                            <div class="toggle-slider"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <div class="setting-label">密钥轮换</div>
+                        <div class="setting-desc">定期自动更换加密密钥</div>
+                    </div>
+                    <div class="setting-control">
+                        <select class="select-control">
+                            <option>每周</option>
+                            <option>每月</option>
+                            <option>每季度</option>
+                            <option>手动</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <div class="setting-label">消息自毁</div>
+                        <div class="setting-desc">消息在指定时间后自动删除</div>
+                    </div>
+                    <div class="setting-control">
+                        <select class="select-control">
+                            <option>禁用</option>
+                            <option>1小时</option>
+                            <option>24小时</option>
+                            <option>7天</option>
+                            <option>30天</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="setting-item">
+                    <div class="setting-info">
+                        <div class="setting-label">屏幕截图保护</div>
+                        <div class="setting-desc">防止聊天内容被截图</div>
+                    </div>
+                    <div class="setting-control">
+                        <div class="toggle-switch active">
+                            <div class="toggle-slider"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 危险区域 -->
+            <div class="danger-zone">
+                <div class="danger-title">
+                    <i data-lucide="alert-triangle" class="w-5 h-5"></i>
+                    危险区域
+                </div>
+                
+                <div class="danger-action">
+                    <div>
+                        <div class="font-medium">重新生成密钥</div>
+                        <div class="text-sm text-muted-foreground">将生成新的加密密钥对</div>
+                    </div>
+                    <button class="btn btn-secondary">重新生成</button>
+                </div>
+                
+                <div class="danger-action">
+                    <div>
+                        <div class="font-medium">清除所有密钥</div>
+                        <div class="text-sm text-muted-foreground">删除所有存储的加密密钥</div>
+                    </div>
+                    <button class="button-control danger-button">清除</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部状态栏 -->
+        <div class="footer">
+            <div class="flex items-center space-x-4">
+                <span>加密强度: 军用级</span>
+                <span>•</span>
+                <span>算法: AES-256-GCM</span>
+                <span>•</span>
+                <span>密钥长度: 256位</span>
+            </div>
+            <div class="flex items-center space-x-2">
+                <i data-lucide="shield-check" class="w-3 h-3 text-success"></i>
+                <span class="encrypted-indicator">所有设置已加密存储</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+        
+        // 复制到剪贴板功能
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                // 显示复制成功提示
+                const toast = document.createElement('div');
+                toast.textContent = '已复制到剪贴板';
+                toast.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background-color: var(--success);
+                    color: white;
+                    padding: 12px 16px;
+                    border-radius: var(--radius);
+                    z-index: 1000;
+                    animation: slideIn 0.3s ease-out;
+                `;
+                document.body.appendChild(toast);
+                
+                setTimeout(() => {
+                    toast.remove();
+                }, 2000);
+            });
+        }
+        
+        // 加密方法选择
+        document.querySelectorAll('.encryption-method').forEach(method => {
+            method.addEventListener('click', function() {
+                document.querySelectorAll('.encryption-method').forEach(m => m.classList.remove('selected'));
+                this.classList.add('selected');
+                
+                const methodName = this.querySelector('.method-name').textContent;
+                console.log('选择加密方法:', methodName);
+            });
+        });
+        
+        // 切换开关功能
+        document.querySelectorAll('.toggle-switch').forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                this.classList.toggle('active');
+                
+                const settingName = this.closest('.setting-item').querySelector('.setting-label').textContent;
+                const isActive = this.classList.contains('active');
+                console.log(`${settingName}: ${isActive ? '开启' : '关闭'}`);
+            });
+        });
+        
+        // 验证按钮点击事件
+        document.querySelectorAll('.verification-item button').forEach(button => {
+            button.addEventListener('click', function() {
+                const contactName = this.closest('.verification-item').querySelector('.font-medium').textContent;
+                const action = this.textContent.trim();
+                console.log(`${action}联系人: ${contactName}`);
+            });
+        });
+        
+        // 备份按钮点击事件
+        document.querySelectorAll('.backup-item button').forEach(button => {
+            button.addEventListener('click', function() {
+                const backupType = this.closest('.backup-item').querySelector('.font-medium').textContent;
+                const action = this.textContent.trim();
+                console.log(`${action}: ${backupType}`);
+            });
+        });
+        
+        // 危险操作确认
+        document.querySelectorAll('.danger-action button').forEach(button => {
+            button.addEventListener('click', function() {
+                const actionName = this.closest('.danger-action').querySelector('.font-medium').textContent;
+                if (confirm(`确定要执行"${actionName}"操作吗？此操作不可撤销。`)) {
+                    console.log('执行危险操作:', actionName);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

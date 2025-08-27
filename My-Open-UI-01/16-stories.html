@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VibeChat - 故事</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="glass-styles.css">
+</head>
+<body>
+        <div class="flex items-center justify-center w-full h-full">
+            
+            <!-- Stories Screen -->
+            <div class="animate-slide-up delay-100 flex items-center justify-center">
+                <div class="phone-container">
+                    <div class="phone-screen">
+                        <!-- Status Bar -->
+                        <div class="status-bar flex justify-between items-center px-8 pt-4 pb-2">
+                            <span class="text-sm font-jakarta text-white">9:41</span>
+                            <div class="flex items-center gap-1">
+                                <div class="w-4 h-2 border rounded-sm border-white">
+                                    <div class="w-3 h-1 rounded-sm bg-white"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Header -->
+                        <div class="px-8 pt-6 pb-4">
+                            <div class="flex justify-between items-center">
+                                <h1 class="text-2xl font-jakarta text-white">故事</h1>
+                                <button class="w-10 h-10 rounded-full btn-primary flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                                        <path d="M12 5v14"></path>
+                                        <path d="M5 12h14"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Stories Row -->
+                        <div class="px-8 mb-6">
+                            <div class="flex gap-4 overflow-x-auto hide-scroll">
+                                <!-- My Story -->
+                                <div class="flex flex-col items-center gap-2 min-w-[60px]">
+                                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 p-0.5">
+                                        <div class="w-full h-full rounded-full glass-card flex items-center justify-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                                                <path d="M12 5v14"></path>
+                                                <path d="M5 12h14"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <span class="text-xs font-jakarta text-white">我的</span>
+                                </div>
+
+                                <!-- Friend Stories -->
+                                <div class="flex flex-col items-center gap-2 min-w-[60px]">
+                                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 p-0.5">
+                                        <div class="w-full h-full rounded-full overflow-hidden">
+                                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" class="w-full h-full object-cover" alt="">
+                                        </div>
+                                    </div>
+                                    <span class="text-xs font-jakarta text-white">李明</span>
+                                </div>
+
+                                <div class="flex flex-col items-center gap-2 min-w-[60px]">
+                                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-green-500 to-emerald-500 p-0.5">
+                                        <div class="w-full h-full rounded-full overflow-hidden">
+                                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&q=80" class="w-full h-full object-cover" alt="">
+                                        </div>
+                                    </div>
+                                    <span class="text-xs font-jakarta text-white">王芳</span>
+                                </div>
+
+                                <div class="flex flex-col items-center gap-2 min-w-[60px]">
+                                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-orange-500 to-red-500 p-0.5">
+                                        <div class="w-full h-full rounded-full overflow-hidden">
+                                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80" class="w-full h-full object-cover" alt="">
+                                        </div>
+                                    </div>
+                                    <span class="text-xs font-jakarta text-white">张伟</span>
+                                </div>
+
+                                <div class="flex flex-col items-center gap-2 min-w-[60px]">
+                                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-yellow-500 to-orange-500 p-0.5">
+                                        <div class="w-full h-full rounded-full overflow-hidden">
+                                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" class="w-full h-full object-cover" alt="">
+                                        </div>
+                                    </div>
+                                    <span class="text-xs font-jakarta text-white">陈华</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Active Story View -->
+                        <div class="flex-1 px-8 mb-6">
+                            <div class="glass-button rounded-3xl overflow-hidden relative h-96">
+                                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=80" class="w-full h-full object-cover" alt="">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                                
+                                <!-- Progress Bar -->
+                                <div class="absolute top-4 left-4 right-4">
+                                    <div class="flex gap-1">
+                                        <div class="flex-1 h-1 bg-white/30 rounded-full overflow-hidden">
+                                            <div class="h-full bg-white rounded-full" style="width: 60%"></div>
+                                        </div>
+                                        <div class="flex-1 h-1 bg-white/30 rounded-full overflow-hidden">
+                                            <div class="h-full bg-white rounded-full" style="width: 0%"></div>
+                                        </div>
+                                        <div class="flex-1 h-1 bg-white/30 rounded-full overflow-hidden">
+                                            <div class="h-full bg-white rounded-full" style="width: 0%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- User Info -->
+                                <div class="absolute top-6 left-4 right-4">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 p-0.5">
+                                            <div class="w-full h-full rounded-full overflow-hidden">
+                                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&q=80" class="w-full h-full object-cover" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="flex-1">
+                                            <p class="text-sm font-jakarta text-white">李明</p>
+                                            <p class="text-xs text-white-80 font-jakarta">2小时前</p>
+                                        </div>
+                                        <button class="w-8 h-8 rounded-full glass-card/30 backdrop-blur flex items-center justify-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                                                <circle cx="12" cy="12" r="1"></circle>
+                                                <circle cx="19" cy="12" r="1"></circle>
+                                                <circle cx="5" cy="12" r="1"></circle>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Story Content -->
+                                <div class="absolute bottom-6 left-4 right-4">
+                                    <h3 class="text-lg font-jakarta text-white mb-2">美丽的风景</h3>
+                                    <p class="text-sm text-white-80 font-jakarta mb-4">今天去了一个很美的地方，分享给大家！</p>
+                                    
+                                    <!-- Action Buttons -->
+                                    <div class="flex items-center gap-4">
+                                        <button class="flex items-center gap-2 glass-card/30 backdrop-blur rounded-full px-4 py-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                            </svg>
+                                            <span class="text-xs font-jakarta text-white">回复</span>
+                                        </button>
+                                        <button class="flex items-center gap-2 glass-card/30 backdrop-blur rounded-full px-4 py-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                                                <path d="M22 2L11 13"></path>
+                                                <path d="M22 2l-7 20-4-9-9-4 20-7z"></path>
+                                            </svg>
+                                            <span class="text-xs font-jakarta text-white">分享</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bottom Navigation -->
+                        <nav class="h-24 border-t flex items-center justify-around glass-card border-white/10">
+                            <button class="flex flex-col items-center gap-2 text-white-60">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7">
+                                    <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path>
+                                    <path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                </svg>
+                                <span class="text-xs font-jakarta">首页</span>
+                            </button>
+                            <button class="flex flex-col items-center gap-2 nav-item active">
+                                <div class="w-8 h-8 rounded-xl flex items-center justify-center glass-button">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+                                        <path d="M9 12l2 2 4-4"></path>
+                                        <path d="M21 12c-1 9-4 14-9 14s-8-5-9-14c0-2 .5-5 2-8s6-4 8-4 6 2 8 4 2 6 2 8z"></path>
+                                    </svg>
+                                </div>
+                                <span class="text-xs font-jakarta">故事</span>
+                            </button>
+                            <button class="flex flex-col items-center gap-2 text-white-60">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7">
+                                    <path d="m21 21-4.34-4.34"></path>
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                </svg>
+                                <span class="text-xs font-jakarta">搜索</span>
+                            </button>
+                            <button class="flex flex-col items-center gap-2 text-white-60">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7">
+                                    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                                <span class="text-xs font-jakarta">我的</span>
+                            </button>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>

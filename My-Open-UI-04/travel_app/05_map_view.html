@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="h-full scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>地图视图 - 旅行助手</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="../travel_app_theme.css">
+</head>
+<body class="h-screen w-screen overflow-hidden antialiased flex items-center justify-center font-inter bg-teal-50 bg-[url('https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=2160&q=80')] bg-cover">
+    <div class="relative w-[380px] h-[850px] flex flex-col gap-4 glass-card rounded-3xl pt-0 pr-0 pb-0 pl-0 shadow-2xl animate-slide-up overflow-hidden">
+        <!-- Header -->
+        <div class="flex items-center justify-between p-6 pb-4">
+            <button class="h-8 w-8 rounded-full bg-white shadow flex items-center justify-center hover:scale-105 transition-transform">
+                <i data-lucide="chevron-left" class="h-5 w-5 stroke-gray-700"></i>
+            </button>
+            <h2 class="text-lg font-semibold text-gray-900">东京地图</h2>
+            <button class="h-8 w-8 rounded-full bg-white shadow flex items-center justify-center hover:scale-105 transition-transform">
+                <i data-lucide="layers" class="h-4 w-4 stroke-gray-700"></i>
+            </button>
+        </div>
+
+        <!-- Search & Filters -->
+        <div class="px-6 flex flex-col gap-3">
+            <div class="relative">
+                <input type="text" placeholder="搜索地点..." class="w-full glass-input rounded-xl px-4 py-3 pr-10 focus:ring-2 focus:ring-teal-500 focus:outline-none">
+                <i data-lucide="search" class="absolute right-3 top-1/2 transform -translate-y-1/2 h-5 w-5 stroke-gray-500"></i>
+            </div>
+            
+            <!-- Filter Chips -->
+            <div class="flex gap-2 overflow-x-auto pb-1">
+                <button class="shrink-0 flex items-center gap-1 bg-teal-500 text-white px-3 py-1.5 rounded-full text-xs font-medium">
+                    <i data-lucide="map-pin" class="h-3 w-3"></i>
+                    景点
+                </button>
+                <button class="shrink-0 flex items-center gap-1 bg-white px-3 py-1.5 rounded-full text-xs font-medium text-gray-700 hover:bg-gray-50 transition-colors">
+                    <i data-lucide="utensils" class="h-3 w-3"></i>
+                    餐厅
+                </button>
+                <button class="shrink-0 flex items-center gap-1 bg-white px-3 py-1.5 rounded-full text-xs font-medium text-gray-700 hover:bg-gray-50 transition-colors">
+                    <i data-lucide="hotel" class="h-3 w-3"></i>
+                    酒店
+                </button>
+                <button class="shrink-0 flex items-center gap-1 bg-white px-3 py-1.5 rounded-full text-xs font-medium text-gray-700 hover:bg-gray-50 transition-colors">
+                    <i data-lucide="shopping-bag" class="h-3 w-3"></i>
+                    购物
+                </button>
+            </div>
+        </div>
+
+        <!-- Map Area -->
+        <div class="relative h-64 bg-gradient-to-br from-teal-100 to-blue-100 mx-6 rounded-xl overflow-hidden">
+            <!-- Simulated Map Background -->
+            <div class="absolute inset-0 opacity-20">
+                <svg viewBox="0 0 320 256" class="w-full h-full">
+                    <defs>
+                        <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                            <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#14b8a6" stroke-width="0.5"/>
+                        </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#grid)" />
+                </svg>
+            </div>
+            
+            <!-- Location Pins -->
+            <div class="absolute top-8 left-12 animate-bounce">
+                <div class="relative">
+                    <div class="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center shadow-lg">
+                        <i data-lucide="map-pin" class="h-3 w-3 stroke-white"></i>
+                    </div>
+                    <div class="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-red-500 rotate-45"></div>
+                </div>
+            </div>
+            
+            <div class="absolute top-16 right-16 animate-bounce" style="animation-delay: 0.2s">
+                <div class="relative">
+                    <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center shadow-lg">
+                        <i data-lucide="utensils" class="h-3 w-3 stroke-white"></i>
+                    </div>
+                    <div class="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-blue-500 rotate-45"></div>
+                </div>
+            </div>
+            
+            <div class="absolute bottom-12 left-20 animate-bounce" style="animation-delay: 0.4s">
+                <div class="relative">
+                    <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center shadow-lg">
+                        <i data-lucide="hotel" class="h-3 w-3 stroke-white"></i>
+                    </div>
+                    <div class="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-green-500 rotate-45"></div>
+                </div>
+            </div>
+            
+            <div class="absolute bottom-8 right-8 animate-bounce" style="animation-delay: 0.6s">
+                <div class="relative">
+                    <div class="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center shadow-lg">
+                        <i data-lucide="shopping-bag" class="h-3 w-3 stroke-white"></i>
+                    </div>
+                    <div class="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-purple-500 rotate-45"></div>
+                </div>
+            </div>
+
+            <!-- Map Controls -->
+            <div class="absolute top-4 right-4 flex flex-col gap-2">
+                <button class="w-8 h-8 bg-white rounded-lg shadow flex items-center justify-center hover:scale-105 transition-transform">
+                    <i data-lucide="plus" class="h-4 w-4 stroke-gray-600"></i>
+                </button>
+                <button class="w-8 h-8 bg-white rounded-lg shadow flex items-center justify-center hover:scale-105 transition-transform">
+                    <i data-lucide="minus" class="h-4 w-4 stroke-gray-600"></i>
+                </button>
+            </div>
+            
+            <!-- Current Location -->
+            <button class="absolute bottom-4 right-4 w-10 h-10 bg-teal-500 rounded-full shadow-lg flex items-center justify-center hover:scale-105 transition-transform">
+                <i data-lucide="navigation" class="h-5 w-5 stroke-white"></i>
+            </button>
+        </div>
+
+        <!-- Location Cards -->
+        <div class="flex-1 px-6 pb-6">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-base font-semibold text-gray-900">附近地点</h3>
+                <button class="text-sm text-teal-600 font-medium">查看全部</button>
+            </div>
+            
+            <div class="flex flex-col gap-3 flex-1 overflow-y-auto">
+                <div class="flex items-center gap-3 bg-white rounded-xl p-3 shadow hover:shadow-md transition-shadow animate-fade-in">
+                    <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
+                        <i data-lucide="map-pin" class="h-5 w-5 stroke-red-600"></i>
+                    </div>
+                    <div class="flex-1">
+                        <p class="text-sm font-semibold text-gray-900">浅草寺</p>
+                        <p class="text-xs text-gray-500">距离 0.8km • 4.8⭐</p>
+                    </div>
+                    <button class="text-xs text-teal-600 font-medium">导航</button>
+                </div>
+                
+                <div class="flex items-center gap-3 bg-white rounded-xl p-3 shadow hover:shadow-md transition-shadow animate-fade-in" style="animation-delay: 0.1s">
+                    <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                        <i data-lucide="utensils" class="h-5 w-5 stroke-blue-600"></i>
+                    </div>
+                    <div class="flex-1">
+                        <p class="text-sm font-semibold text-gray-900">拉面大师</p>
+                        <p class="text-xs text-gray-500">距离 0.3km • 4.6⭐</p>
+                    </div>
+                    <button class="text-xs text-teal-600 font-medium">导航</button>
+                </div>
+                
+                <div class="flex items-center gap-3 bg-white rounded-xl p-3 shadow hover:shadow-md transition-shadow animate-fade-in" style="animation-delay: 0.2s">
+                    <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                        <i data-lucide="hotel" class="h-5 w-5 stroke-green-600"></i>
+                    </div>
+                    <div class="flex-1">
+                        <p class="text-sm font-semibold text-gray-900">皇宫酒店</p>
+                        <p class="text-xs text-gray-500">距离 1.2km • 4.9⭐</p>
+                    </div>
+                    <button class="text-xs text-teal-600 font-medium">导航</button>
+                </div>
+                
+                <div class="flex items-center gap-3 bg-white rounded-xl p-3 shadow hover:shadow-md transition-shadow animate-fade-in" style="animation-delay: 0.3s">
+                    <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                        <i data-lucide="shopping-bag" class="h-5 w-5 stroke-purple-600"></i>
+                    </div>
+                    <div class="flex-1">
+                        <p class="text-sm font-semibold text-gray-900">银座购物中心</p>
+                        <p class="text-xs text-gray-500">距离 2.1km • 4.7⭐</p>
+                    </div>
+                    <button class="text-xs text-teal-600 font-medium">导航</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+        
+        // 添加交互动画
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+    </script>
+</body>
+</html>

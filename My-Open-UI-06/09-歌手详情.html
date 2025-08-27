@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>歌手详情 - 音乐APP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="default_ui_darkmode.css">
+    <link rel="stylesheet" href="music-app-theme.css">
+</head>
+<body class="page-center">
+    <div class="mobile-container animate-fadeIn">
+        <!-- 状态栏 -->
+        <div class="status-bar">
+            <div class="flex items-center gap-1">
+                <div class="w-1 h-1 bg-white rounded-full"></div>
+                <div class="w-1 h-1 bg-white rounded-full"></div>
+                <div class="w-1 h-1 bg-white rounded-full opacity-50"></div>
+                <span class="ml-2 text-sm">中国移动</span>
+            </div>
+            <div class="text-sm font-medium">9:41</div>
+            <div class="flex items-center gap-1">
+                <i data-lucide="signal" class="w-4 h-4"></i>
+                <i data-lucide="wifi" class="w-4 h-4"></i>
+                <div class="w-6 h-3 bg-white rounded-sm relative">
+                    <div class="w-4 h-2 bg-green-400 rounded-sm absolute top-0.5 left-0.5"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 导航栏 -->
+        <div class="navbar">
+            <button class="navbar-action">
+                <i data-lucide="arrow-left" class="w-5 h-5"></i>
+            </button>
+            <h1 class="navbar-title flex-1 text-center">歌手</h1>
+            <button class="navbar-action">
+                <i data-lucide="more-horizontal" class="w-5 h-5"></i>
+            </button>
+        </div>
+
+        <!-- 主内容 -->
+        <div class="main-content scrollbar-hide">
+            <!-- 歌手信息 -->
+            <div class="text-center mb-6 p-6">
+                <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=300&q=80" 
+                     class="w-32 h-32 rounded-full mx-auto mb-4" alt="周杰伦">
+                <h2 class="text-2xl font-bold text-white mb-2">周杰伦</h2>
+                <p class="text-sm text-slate-400 mb-4">华语流行歌手、音乐人</p>
+                <div class="flex justify-center gap-6 mb-4">
+                    <div class="text-center">
+                        <p class="text-lg font-bold text-white">28</p>
+                        <p class="text-xs text-slate-400">专辑</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-lg font-bold text-white">156万</p>
+                        <p class="text-xs text-slate-400">粉丝</p>
+                    </div>
+                </div>
+                <button class="btn-primary px-8 py-2 rounded-full">
+                    <i data-lucide="user-plus" class="w-4 h-4 mr-2"></i>
+                    关注
+                </button>
+            </div>
+
+            <!-- 热门歌曲 -->
+            <div class="mb-6">
+                <h3 class="text-lg font-bold text-white mb-4 px-4">热门歌曲</h3>
+                <div class="space-y-2">
+                    <div class="flex items-center gap-3 p-3 hover:bg-slate-800/30 rounded-lg cursor-pointer">
+                        <span class="w-6 text-center text-sm font-bold text-red-400">1</span>
+                        <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=200&q=80" 
+                             class="w-12 h-12 rounded-lg object-cover" alt="告白气球">
+                        <div class="flex-1">
+                            <p class="text-sm font-semibold text-white">告白气球</p>
+                            <p class="text-xs text-slate-400">周杰伦的床边故事</p>
+                        </div>
+                        <button class="navbar-action">
+                            <i data-lucide="play" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="flex items-center gap-3 p-3 hover:bg-slate-800/30 rounded-lg cursor-pointer">
+                        <span class="w-6 text-center text-sm font-bold text-orange-400">2</span>
+                        <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=200&q=80" 
+                             class="w-12 h-12 rounded-lg object-cover" alt="稻香">
+                        <div class="flex-1">
+                            <p class="text-sm font-semibold text-white">稻香</p>
+                            <p class="text-xs text-slate-400">魔杰座</p>
+                        </div>
+                        <button class="navbar-action">
+                            <i data-lucide="play" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 专辑 -->
+            <div class="mb-6">
+                <h3 class="text-lg font-bold text-white mb-4 px-4">专辑</h3>
+                <div class="flex gap-4 overflow-x-auto scrollbar-hide pb-2 px-4">
+                    <div class="flex-shrink-0 w-32">
+                        <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&q=80" 
+                             class="w-32 h-32 rounded-xl object-cover mb-2" alt="周杰伦的床边故事">
+                        <p class="text-sm font-semibold text-white">床边故事</p>
+                        <p class="text-xs text-slate-400">2016</p>
+                    </div>
+                    <div class="flex-shrink-0 w-32">
+                        <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&q=80" 
+                             class="w-32 h-32 rounded-xl object-cover mb-2" alt="魔杰座">
+                        <p class="text-sm font-semibold text-white">魔杰座</p>
+                        <p class="text-xs text-slate-400">2008</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部导航 -->
+        <div class="bottom-nav">
+            <button class="nav-item">
+                <i data-lucide="home" class="w-5 h-5"></i>
+                <span>首页</span>
+            </button>
+            <button class="nav-item active">
+                <i data-lucide="search" class="w-5 h-5"></i>
+                <span>搜索</span>
+            </button>
+            <button class="nav-item">
+                <i data-lucide="library" class="w-5 h-5"></i>
+                <span>音乐库</span>
+            </button>
+            <button class="nav-item">
+                <i data-lucide="user" class="w-5 h-5"></i>
+                <span>我的</span>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', () => {
+                document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+                item.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

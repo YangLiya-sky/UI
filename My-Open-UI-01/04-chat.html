@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VibeChat - 聊天</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="glass-styles.css">
+</head>
+<body>
+    <div class="flex items-center justify-center w-full h-full">
+        
+        <!-- Chat Screen -->
+        <div class="animate-slide-up delay-100 flex items-center justify-center">
+            <div class="phone-container">
+                <div class="phone-screen">
+                    <!-- Status Bar -->
+                    <div class="status-bar flex justify-between items-center px-8 pt-4 pb-2">
+                        <span class="text-sm font-jakarta text-white">9:41</span>
+                        <div class="flex items-center gap-1">
+                            <div class="w-4 h-2 border rounded-sm border-white">
+                                <div class="w-3 h-1 rounded-sm bg-white"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Chat Header -->
+                    <div class="px-8 pt-4 pb-4 border-b border-white/10">
+                        <div class="flex items-center gap-4">
+                            <button class="w-10 h-10 rounded-full glass-button flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                                    <path d="m15 18-6-6 6-6"></path>
+                                </svg>
+                            </button>
+                            <div class="flex items-center gap-3 flex-1">
+                                <div class="relative">
+                                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
+                                        <span class="text-white font-jakarta font-semibold">张</span>
+                                    </div>
+                                    <div class="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white"></div>
+                                </div>
+                                <div>
+                                    <h2 class="text-white font-jakarta font-semibold">张小明</h2>
+                                    <p class="text-white-60 text-sm">在线</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <button class="w-10 h-10 rounded-full glass-button flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                    </svg>
+                                </button>
+                                <button class="w-10 h-10 rounded-full glass-button flex items-center justify-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                                        <path d="M23 7a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h18a2 2 0 0 1 2 2z"></path>
+                                        <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h18a2 2 0 0 1 2 2z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Chat Messages -->
+                    <div class="flex-1 px-8 py-4 overflow-y-auto hide-scroll">
+                        <div class="space-y-4">
+                            <!-- Message from other person -->
+                            <div class="flex items-start gap-3">
+                                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center flex-shrink-0">
+                                    <span class="text-white font-jakarta font-semibold text-sm">张</span>
+                                </div>
+                                <div class="glass-message rounded-2xl px-4 py-3 max-w-[70%]">
+                                    <p class="text-white text-sm">你好！最近怎么样？</p>
+                                    <span class="text-white-40 text-xs mt-2 block">14:30</span>
+                                </div>
+                            </div>
+                            
+                            <!-- My message -->
+                            <div class="flex items-start gap-3 justify-end">
+                                <div class="glass-message-own rounded-2xl px-4 py-3 max-w-[70%]">
+                                    <p class="text-white text-sm">还不错！最近在忙一个新项目</p>
+                                    <span class="text-white-40 text-xs mt-2 block">14:32</span>
+                                </div>
+                                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center flex-shrink-0">
+                                    <span class="text-white font-jakarta font-semibold text-sm">我</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Message from other person -->
+                            <div class="flex items-start gap-3">
+                                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center flex-shrink-0">
+                                    <span class="text-white font-jakarta font-semibold text-sm">张</span>
+                                </div>
+                                <div class="glass-message rounded-2xl px-4 py-3 max-w-[70%]">
+                                    <p class="text-white text-sm">听起来很有趣！是什么项目？</p>
+                                    <span class="text-white-40 text-xs mt-2 block">14:33</span>
+                                </div>
+                            </div>
+                            
+                            <!-- My message -->
+                            <div class="flex items-start gap-3 justify-end">
+                                <div class="glass-message-own rounded-2xl px-4 py-3 max-w-[70%]">
+                                    <p class="text-white text-sm">是一个聊天应用，类似微信但更现代化</p>
+                                    <span class="text-white-40 text-xs mt-2 block">14:35</span>
+                                </div>
+                                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center flex-shrink-0">
+                                    <span class="text-white font-jakarta font-semibold text-sm">我</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Message from other person -->
+                            <div class="flex items-start gap-3">
+                                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center flex-shrink-0">
+                                    <span class="text-white font-jakarta font-semibold text-sm">张</span>
+                                </div>
+                                <div class="glass-message rounded-2xl px-4 py-3 max-w-[70%]">
+                                    <p class="text-white text-sm">哇，那太棒了！什么时候能试用一下？</p>
+                                    <span class="text-white-40 text-xs mt-2 block">14:36</span>
+                                </div>
+                            </div>
+                            
+                            <!-- My message -->
+                            <div class="flex items-start gap-3 justify-end">
+                                <div class="glass-message-own rounded-2xl px-4 py-3 max-w-[70%]">
+                                    <p class="text-white text-sm">大概下个月就能上线了，到时候第一个邀请你测试！</p>
+                                    <span class="text-white-40 text-xs mt-2 block">14:38</span>
+                                </div>
+                                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center flex-shrink-0">
+                                    <span class="text-white font-jakarta font-semibold text-sm">我</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Message Input -->
+                    <div class="px-8 pb-8 pt-4">
+                        <div class="flex items-center gap-3">
+                            <button class="w-10 h-10 rounded-full glass-button flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                </svg>
+                            </button>
+                            <div class="flex-1 relative">
+                                <input type="text" placeholder="输入消息..." class="w-full px-4 py-3 rounded-2xl glass-input text-white placeholder-white/40 font-jakarta focus:outline-none focus:border-white/30 transition-colors pr-12">
+                                <button class="absolute right-3 top-1/2 transform -translate-y-1/2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white-60">
+                                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <button class="w-10 h-10 rounded-full glass-button flex items-center justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                                    <path d="M22 2L11 13"></path>
+                                    <path d="M22 2L15 22L11 13L2 9L22 2Z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

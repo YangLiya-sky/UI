@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旅行助手 - 酒店预订</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="travel_theme.css">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="travel_navigation.js"></script>
+</head>
+<body>
+    <div class="mobile-container">
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <span style="font-weight: 600; font-size: 18px;">8:30</span>
+            <div style="display: flex; gap: 8px; align-items: center;">
+                <i data-lucide="signal" class="icon-sm"></i>
+                <i data-lucide="wifi" class="icon-sm"></i>
+                <div style="display: flex; align-items: center; gap: 2px;">
+                    <div style="width: 24px; height: 12px; border: 1px solid #D9D9D9; border-radius: 3px; position: relative;">
+                        <div style="width: 80%; height: 100%; background: #34C759; border-radius: 2px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <div class="header">
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <i data-lucide="arrow-left" class="icon"></i>
+                <span style="font-size: 20px; font-weight: 600;">酒店预订</span>
+            </div>
+            <div style="display: flex; gap: 12px;">
+                <i data-lucide="map" class="icon"></i>
+                <i data-lucide="filter" class="icon"></i>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Search Form -->
+            <div class="glass-card animate-fade-in">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px;">
+                    <div>
+                        <label style="font-size: 12px; color: var(--muted-foreground); margin-bottom: 4px; display: block;">目的地</label>
+                        <div style="padding: 12px; background: var(--input); border: var(--glass-border); border-radius: var(--radius-sm); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);">
+                            <span style="font-size: 14px;">杭州</span>
+                        </div>
+                    </div>
+                    <div>
+                        <label style="font-size: 12px; color: var(--muted-foreground); margin-bottom: 4px; display: block;">入住日期</label>
+                        <div style="padding: 12px; background: var(--input); border: var(--glass-border); border-radius: var(--radius-sm); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);">
+                            <span style="font-size: 14px;">4月15日</span>
+                        </div>
+                    </div>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                    <div>
+                        <label style="font-size: 12px; color: var(--muted-foreground); margin-bottom: 4px; display: block;">退房日期</label>
+                        <div style="padding: 12px; background: var(--input); border: var(--glass-border); border-radius: var(--radius-sm); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);">
+                            <span style="font-size: 14px;">4月17日</span>
+                        </div>
+                    </div>
+                    <div>
+                        <label style="font-size: 12px; color: var(--muted-foreground); margin-bottom: 4px; display: block;">房间/客人</label>
+                        <div style="padding: 12px; background: var(--input); border: var(--glass-border); border-radius: var(--radius-sm); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);">
+                            <span style="font-size: 14px;">1间 2客人</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filter Tags -->
+            <div class="glass-card animate-fade-in" style="animation-delay: 0.2s;">
+                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                    <div class="btn" style="padding: 6px 12px; font-size: 12px; background: var(--travel-blue);">
+                        价格优先
+                    </div>
+                    <div class="btn" style="padding: 6px 12px; font-size: 12px;">
+                        距离优先
+                    </div>
+                    <div class="btn" style="padding: 6px 12px; font-size: 12px;">
+                        评分优先
+                    </div>
+                    <div class="btn" style="padding: 6px 12px; font-size: 12px;">
+                        <i data-lucide="wifi" style="width: 12px; height: 12px;"></i>
+                        免费WiFi
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hotel List -->
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+                <!-- Hotel 1 -->
+                <div class="glass-card animate-fade-in" style="animation-delay: 0.4s;">
+                    <div style="display: flex; gap: 12px;">
+                        <div style="width: 100px; height: 80px; background: linear-gradient(45deg, var(--travel-blue), var(--travel-green)); border-radius: var(--radius-sm); flex-shrink: 0; position: relative;">
+                            <div style="position: absolute; top: 6px; left: 6px; background: rgba(0,0,0,0.6); padding: 2px 6px; border-radius: 8px;">
+                                <span style="color: white; font-size: 10px;">推荐</span>
+                            </div>
+                        </div>
+                        <div style="flex: 1;">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                                <div>
+                                    <h3 style="font-size: 16px; font-weight: 600; color: var(--foreground); margin-bottom: 4px;">杭州西湖国宾馆</h3>
+                                    <div style="display: flex; align-items: center; gap: 4px; margin-bottom: 4px;">
+                                        <div style="display: flex; align-items: center; gap: 2px;">
+                                            <i data-lucide="star" style="width: 12px; height: 12px; color: #FFC107; fill: #FFC107;"></i>
+                                            <i data-lucide="star" style="width: 12px; height: 12px; color: #FFC107; fill: #FFC107;"></i>
+                                            <i data-lucide="star" style="width: 12px; height: 12px; color: #FFC107; fill: #FFC107;"></i>
+                                            <i data-lucide="star" style="width: 12px; height: 12px; color: #FFC107; fill: #FFC107;"></i>
+                                            <i data-lucide="star" style="width: 12px; height: 12px; color: #FFC107; fill: #FFC107;"></i>
+                                        </div>
+                                        <span style="font-size: 12px; color: var(--muted-foreground);">4.8分</span>
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 4px;">
+                                        <i data-lucide="map-pin" style="width: 12px; height: 12px; color: var(--muted-foreground);"></i>
+                                        <span style="font-size: 12px; color: var(--muted-foreground);">距西湖 0.5km</span>
+                                    </div>
+                                </div>
+                                <i data-lucide="heart" style="width: 20px; height: 20px; color: var(--muted-foreground);"></i>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+                                <div style="display: flex; gap: 6px;">
+                                    <div style="padding: 2px 6px; background: var(--travel-green); border-radius: 4px;">
+                                        <span style="color: white; font-size: 10px;">免费WiFi</span>
+                                    </div>
+                                    <div style="padding: 2px 6px; background: var(--travel-blue); border-radius: 4px;">
+                                        <span style="color: white; font-size: 10px;">免费早餐</span>
+                                    </div>
+                                </div>
+                                <div style="text-align: right;">
+                                    <p style="font-size: 18px; font-weight: 700; color: var(--travel-orange);">¥688</p>
+                                    <p style="font-size: 12px; color: var(--muted-foreground);">每晚</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hotel 2 -->
+                <div class="glass-card animate-fade-in" style="animation-delay: 0.6s;">
+                    <div style="display: flex; gap: 12px;">
+                        <div style="width: 100px; height: 80px; background: linear-gradient(45deg, var(--travel-green), var(--travel-orange)); border-radius: var(--radius-sm); flex-shrink: 0;"></div>
+                        <div style="flex: 1;">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                                <div>
+                                    <h3 style="font-size: 16px; font-weight: 600; color: var(--foreground); margin-bottom: 4px;">杭州凯悦酒店</h3>
+                                    <div style="display: flex; align-items: center; gap: 4px; margin-bottom: 4px;">
+                                        <div style="display: flex; align-items: center; gap: 2px;">
+                                            <i data-lucide="star" style="width: 12px; height: 12px; color: #FFC107; fill: #FFC107;"></i>
+                                            <i data-lucide="star" style="width: 12px; height: 12px; color: #FFC107; fill: #FFC107;"></i>
+                                            <i data-lucide="star" style="width: 12px; height: 12px; color: #FFC107; fill: #FFC107;"></i>
+                                            <i data-lucide="star" style="width: 12px; height: 12px; color: #FFC107; fill: #FFC107;"></i>
+                                            <i data-lucide="star" style="width: 12px; height: 12px; color: var(--muted-foreground);"></i>
+                                        </div>
+                                        <span style="font-size: 12px; color: var(--muted-foreground);">4.6分</span>
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 4px;">
+                                        <i data-lucide="map-pin" style="width: 12px; height: 12px; color: var(--muted-foreground);"></i>
+                                        <span style="font-size: 12px; color: var(--muted-foreground);">距西湖 1.2km</span>
+                                    </div>
+                                </div>
+                                <i data-lucide="heart" style="width: 20px; height: 20px; color: var(--muted-foreground);"></i>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+                                <div style="display: flex; gap: 6px;">
+                                    <div style="padding: 2px 6px; background: var(--travel-green); border-radius: 4px;">
+                                        <span style="color: white; font-size: 10px;">免费WiFi</span>
+                                    </div>
+                                    <div style="padding: 2px 6px; background: var(--travel-purple); border-radius: 4px;">
+                                        <span style="color: white; font-size: 10px;">健身房</span>
+                                    </div>
+                                </div>
+                                <div style="text-align: right;">
+                                    <p style="font-size: 18px; font-weight: 700; color: var(--travel-orange);">¥528</p>
+                                    <p style="font-size: 12px; color: var(--muted-foreground);">每晚</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hotel 3 -->
+                <div class="glass-card animate-fade-in" style="animation-delay: 0.8s;">
+                    <div style="display: flex; gap: 12px;">
+                        <div style="width: 100px; height: 80px; background: linear-gradient(45deg, var(--travel-orange), var(--travel-purple)); border-radius: var(--radius-sm); flex-shrink: 0;"></div>
+                        <div style="flex: 1;">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                                <div>
+                                    <h3 style="font-size: 16px; font-weight: 600; color: var(--foreground); margin-bottom: 4px;">如家酒店(西湖店)</h3>
+                                    <div style="display: flex; align-items: center; gap: 4px; margin-bottom: 4px;">
+                                        <div style="display: flex; align-items: center; gap: 2px;">
+                                            <i data-lucide="star" style="width: 12px; height: 12px; color: #FFC107; fill: #FFC107;"></i>
+                                            <i data-lucide="star" style="width: 12px; height: 12px; color: #FFC107; fill: #FFC107;"></i>
+                                            <i data-lucide="star" style="width: 12px; height: 12px; color: #FFC107; fill: #FFC107;"></i>
+                                            <i data-lucide="star" style="width: 12px; height: 12px; color: #FFC107; fill: #FFC107;"></i>
+                                            <i data-lucide="star" style="width: 12px; height: 12px; color: var(--muted-foreground);"></i>
+                                        </div>
+                                        <span style="font-size: 12px; color: var(--muted-foreground);">4.2分</span>
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 4px;">
+                                        <i data-lucide="map-pin" style="width: 12px; height: 12px; color: var(--muted-foreground);"></i>
+                                        <span style="font-size: 12px; color: var(--muted-foreground);">距西湖 0.8km</span>
+                                    </div>
+                                </div>
+                                <i data-lucide="heart" style="width: 20px; height: 20px; color: var(--muted-foreground);"></i>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+                                <div style="display: flex; gap: 6px;">
+                                    <div style="padding: 2px 6px; background: var(--travel-green); border-radius: 4px;">
+                                        <span style="color: white; font-size: 10px;">免费WiFi</span>
+                                    </div>
+                                    <div style="padding: 2px 6px; background: var(--travel-orange); border-radius: 4px;">
+                                        <span style="color: white; font-size: 10px;">经济实惠</span>
+                                    </div>
+                                </div>
+                                <div style="text-align: right;">
+                                    <p style="font-size: 18px; font-weight: 700; color: var(--travel-orange);">¥268</p>
+                                    <p style="font-size: 12px; color: var(--muted-foreground);">每晚</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Load More -->
+            <div class="glass-card animate-fade-in" style="animation-delay: 1s; text-align: center;">
+                <button class="btn" style="width: 100%; justify-content: center;">
+                    <i data-lucide="refresh-cw" class="icon-sm"></i>
+                    加载更多酒店
+                </button>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <a href="travel_home_1.html" class="nav-item">
+                <i data-lucide="home" class="icon-sm"></i>
+                <span style="font-size: 12px;">首页</span>
+            </a>
+            <a href="travel_search_2.html" class="nav-item">
+                <i data-lucide="search" class="icon-sm"></i>
+                <span style="font-size: 12px;">搜索</span>
+            </a>
+            <a href="travel_destination_3.html" class="nav-item">
+                <i data-lucide="map-pin" class="icon-sm"></i>
+                <span style="font-size: 12px;">目的地</span>
+            </a>
+            <a href="travel_orders_9.html" class="nav-item">
+                <i data-lucide="wallet" class="icon-sm"></i>
+                <span style="font-size: 12px;">订单</span>
+            </a>
+            <a href="travel_profile_10.html" class="nav-item">
+                <i data-lucide="user" class="icon-sm"></i>
+                <span style="font-size: 12px;">我的</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

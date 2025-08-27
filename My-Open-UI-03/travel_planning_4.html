@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旅行助手 - 行程规划</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="travel_theme.css">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="travel_navigation.js"></script>
+</head>
+<body>
+    <div class="mobile-container">
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <span style="font-weight: 600; font-size: 18px;">8:30</span>
+            <div style="display: flex; gap: 8px; align-items: center;">
+                <i data-lucide="signal" class="icon-sm"></i>
+                <i data-lucide="wifi" class="icon-sm"></i>
+                <div style="display: flex; align-items: center; gap: 2px;">
+                    <div style="width: 24px; height: 12px; border: 1px solid #D9D9D9; border-radius: 3px; position: relative;">
+                        <div style="width: 80%; height: 100%; background: #34C759; border-radius: 2px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <div class="header">
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <i data-lucide="arrow-left" class="icon"></i>
+                <span style="font-size: 20px; font-weight: 600;">行程规划</span>
+            </div>
+            <div style="display: flex; gap: 12px;">
+                <i data-lucide="calendar-plus" class="icon"></i>
+                <i data-lucide="more-horizontal" class="icon"></i>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Trip Header -->
+            <div class="glass-card animate-fade-in">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px;">
+                    <div>
+                        <h2 class="title">杭州3日游</h2>
+                        <p class="subtitle">2024年4月15日 - 4月17日</p>
+                    </div>
+                    <div class="glass-card-sm" style="padding: 8px 12px;">
+                        <span style="font-size: 12px; color: var(--travel-green);">● 进行中</span>
+                    </div>
+                </div>
+                
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div style="display: flex; gap: 16px;">
+                        <div>
+                            <p class="text-sm">总天数</p>
+                            <p style="font-weight: 600; font-size: 16px;">3天</p>
+                        </div>
+                        <div>
+                            <p class="text-sm">预算</p>
+                            <p style="font-weight: 600; font-size: 16px;">¥1,200</p>
+                        </div>
+                        <div>
+                            <p class="text-sm">景点</p>
+                            <p style="font-weight: 600; font-size: 16px;">8个</p>
+                        </div>
+                    </div>
+                    <button class="btn" style="padding: 8px 16px; font-size: 14px;">
+                        <i data-lucide="edit" class="icon-sm"></i>
+                        编辑
+                    </button>
+                </div>
+            </div>
+
+            <!-- Day 1 -->
+            <div class="glass-card animate-fade-in" style="animation-delay: 0.2s;">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                    <div style="width: 32px; height: 32px; background: var(--travel-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                        <span style="color: white; font-weight: 600; font-size: 14px;">1</span>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 16px; font-weight: 600; color: var(--foreground);">第一天</h3>
+                        <p class="text-sm">4月15日 周一</p>
+                    </div>
+                </div>
+                
+                <div style="position: relative; padding-left: 24px;">
+                    <!-- Timeline line -->
+                    <div style="position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--travel-blue), var(--travel-green));"></div>
+                    
+                    <!-- Timeline items -->
+                    <div style="display: flex; flex-direction: column; gap: 20px;">
+                        <div style="position: relative;">
+                            <div style="position: absolute; left: -20px; top: 8px; width: 12px; height: 12px; background: var(--travel-blue); border-radius: 50%; border: 2px solid white;"></div>
+                            <div class="glass-card-sm">
+                                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                                    <div>
+                                        <p style="font-weight: 600; font-size: 14px;">西湖风景区</p>
+                                        <p class="text-sm">断桥残雪、苏堤春晓</p>
+                                    </div>
+                                    <span style="font-size: 12px; color: var(--muted-foreground);">09:00</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <i data-lucide="clock" style="width: 14px; height: 14px; color: var(--muted-foreground);"></i>
+                                    <span class="text-sm">预计游玩 3小时</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="position: relative;">
+                            <div style="position: absolute; left: -20px; top: 8px; width: 12px; height: 12px; background: var(--travel-green); border-radius: 50%; border: 2px solid white;"></div>
+                            <div class="glass-card-sm">
+                                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                                    <div>
+                                        <p style="font-weight: 600; font-size: 14px;">楼外楼</p>
+                                        <p class="text-sm">品尝正宗杭帮菜</p>
+                                    </div>
+                                    <span style="font-size: 12px; color: var(--muted-foreground);">12:30</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <i data-lucide="utensils" style="width: 14px; height: 14px; color: var(--muted-foreground);"></i>
+                                    <span class="text-sm">午餐时间</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="position: relative;">
+                            <div style="position: absolute; left: -20px; top: 8px; width: 12px; height: 12px; background: var(--travel-orange); border-radius: 50%; border: 2px solid white;"></div>
+                            <div class="glass-card-sm">
+                                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                                    <div>
+                                        <p style="font-weight: 600; font-size: 14px;">雷峰塔</p>
+                                        <p class="text-sm">登塔俯瞰西湖全景</p>
+                                    </div>
+                                    <span style="font-size: 12px; color: var(--muted-foreground);">14:00</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <i data-lucide="mountain" style="width: 14px; height: 14px; color: var(--muted-foreground);"></i>
+                                    <span class="text-sm">预计游玩 2小时</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 2 -->
+            <div class="glass-card animate-fade-in" style="animation-delay: 0.4s;">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <div style="width: 32px; height: 32px; background: var(--travel-green); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <span style="color: white; font-weight: 600; font-size: 14px;">2</span>
+                        </div>
+                        <div>
+                            <h3 style="font-size: 16px; font-weight: 600; color: var(--foreground);">第二天</h3>
+                            <p class="text-sm">4月16日 周二</p>
+                        </div>
+                    </div>
+                    <button style="background: none; border: none; color: var(--muted-foreground);">
+                        <i data-lucide="chevron-down" class="icon-sm"></i>
+                    </button>
+                </div>
+                
+                <div style="display: flex; align-items: center; gap: 12px; padding: 16px; background: var(--secondary); border-radius: var(--radius-sm); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);">
+                    <i data-lucide="map-pin" style="width: 20px; height: 20px; color: var(--travel-green);"></i>
+                    <div>
+                        <p style="font-size: 14px; font-weight: 500;">灵隐寺 → 龙井茶园 → 宋城</p>
+                        <p class="text-sm">3个景点，预计游玩8小时</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 3 -->
+            <div class="glass-card animate-fade-in" style="animation-delay: 0.6s;">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <div style="width: 32px; height: 32px; background: var(--travel-orange); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <span style="color: white; font-weight: 600; font-size: 14px;">3</span>
+                        </div>
+                        <div>
+                            <h3 style="font-size: 16px; font-weight: 600; color: var(--foreground);">第三天</h3>
+                            <p class="text-sm">4月17日 周三</p>
+                        </div>
+                    </div>
+                    <button style="background: none; border: none; color: var(--muted-foreground);">
+                        <i data-lucide="chevron-down" class="icon-sm"></i>
+                    </button>
+                </div>
+                
+                <div style="display: flex; align-items: center; gap: 12px; padding: 16px; background: var(--secondary); border-radius: var(--radius-sm); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);">
+                    <i data-lucide="shopping-bag" style="width: 20px; height: 20px; color: var(--travel-orange);"></i>
+                    <div>
+                        <p style="font-size: 14px; font-weight: 500;">河坊街 → 南宋御街</p>
+                        <p class="text-sm">购物休闲，下午返程</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="glass-card animate-fade-in" style="animation-delay: 0.8s;">
+                <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 16px; color: var(--foreground);">快捷操作</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                    <button class="btn" style="justify-content: center;">
+                        <i data-lucide="share" class="icon-sm"></i>
+                        分享行程
+                    </button>
+                    <button class="btn" style="justify-content: center;">
+                        <i data-lucide="download" class="icon-sm"></i>
+                        导出PDF
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tips -->
+            <div class="glass-card animate-fade-in" style="animation-delay: 1s;">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                    <i data-lucide="lightbulb" style="width: 20px; height: 20px; color: var(--travel-blue);"></i>
+                    <h3 style="font-size: 16px; font-weight: 600; color: var(--foreground);">贴心提醒</h3>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                    <p style="font-size: 14px; color: var(--muted-foreground);">• 建议提前预订雷峰塔门票，避免排队</p>
+                    <p style="font-size: 14px; color: var(--muted-foreground);">• 龙井茶园最佳参观时间为上午9-11点</p>
+                    <p style="font-size: 14px; color: var(--muted-foreground);">• 记得带好身份证和充电宝</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <a href="travel_home_1.html" class="nav-item">
+                <i data-lucide="home" class="icon-sm"></i>
+                <span style="font-size: 12px;">首页</span>
+            </a>
+            <a href="travel_search_2.html" class="nav-item">
+                <i data-lucide="search" class="icon-sm"></i>
+                <span style="font-size: 12px;">搜索</span>
+            </a>
+            <a href="travel_destination_3.html" class="nav-item">
+                <i data-lucide="map-pin" class="icon-sm"></i>
+                <span style="font-size: 12px;">目的地</span>
+            </a>
+            <a href="travel_orders_9.html" class="nav-item">
+                <i data-lucide="wallet" class="icon-sm"></i>
+                <span style="font-size: 12px;">订单</span>
+            </a>
+            <a href="travel_profile_10.html" class="nav-item">
+                <i data-lucide="user" class="icon-sm"></i>
+                <span style="font-size: 12px;">我的</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

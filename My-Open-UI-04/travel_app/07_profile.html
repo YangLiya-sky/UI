@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="h-full scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人资料 - 旅行助手</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="../travel_app_theme.css">
+</head>
+<body class="h-screen w-screen overflow-hidden antialiased flex items-center justify-center font-inter bg-teal-50 bg-[url('https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=2160&q=80')] bg-cover">
+    <div class="relative w-[380px] h-[850px] flex flex-col gap-6 glass-card rounded-3xl pt-6 pr-6 pb-6 pl-6 shadow-2xl animate-slide-up overflow-y-auto">
+        <!-- Header -->
+        <div class="flex items-center justify-between">
+            <button class="h-8 w-8 rounded-full bg-white shadow flex items-center justify-center hover:scale-105 transition-transform">
+                <i data-lucide="chevron-left" class="h-5 w-5 stroke-gray-700"></i>
+            </button>
+            <h2 class="text-lg font-semibold text-gray-900">个人资料</h2>
+            <button class="h-8 w-8 rounded-full bg-white shadow flex items-center justify-center hover:scale-105 transition-transform">
+                <i data-lucide="settings" class="h-4 w-4 stroke-gray-700"></i>
+            </button>
+        </div>
+
+        <!-- Profile Info -->
+        <div class="flex flex-col items-center gap-4 animate-fade-in">
+            <div class="relative">
+                <img src="https://images.unsplash.com/photo-1713733742914-13a687d26bc9?w=200&q=80" alt="用户头像" class="w-20 h-20 object-cover rounded-full border-4 border-white shadow-lg">
+                <button class="absolute -bottom-1 -right-1 w-6 h-6 bg-teal-500 rounded-full flex items-center justify-center shadow-lg hover:scale-105 transition-transform">
+                    <i data-lucide="camera" class="h-3 w-3 stroke-white"></i>
+                </button>
+            </div>
+            <div class="text-center">
+                <h3 class="text-xl font-bold text-gray-900">小美</h3>
+                <p class="text-sm text-gray-500">旅行爱好者</p>
+                <div class="flex items-center justify-center gap-1 mt-1">
+                    <i data-lucide="map-pin" class="h-3 w-3 stroke-gray-400"></i>
+                    <span class="text-xs text-gray-500">上海，中国</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Travel Stats -->
+        <div class="grid grid-cols-3 gap-3">
+            <div class="bg-white rounded-xl p-3 shadow text-center animate-scale-in">
+                <p class="text-lg font-bold text-teal-600">12</p>
+                <p class="text-xs text-gray-500">已访问国家</p>
+            </div>
+            <div class="bg-white rounded-xl p-3 shadow text-center animate-scale-in" style="animation-delay: 0.1s">
+                <p class="text-lg font-bold text-blue-600">28</p>
+                <p class="text-xs text-gray-500">已访问城市</p>
+            </div>
+            <div class="bg-white rounded-xl p-3 shadow text-center animate-scale-in" style="animation-delay: 0.2s">
+                <p class="text-lg font-bold text-purple-600">156</p>
+                <p class="text-xs text-gray-500">旅行天数</p>
+            </div>
+        </div>
+
+        <!-- Achievements -->
+        <div class="flex flex-col gap-3">
+            <h4 class="text-base font-semibold text-gray-900">成就徽章</h4>
+            <div class="grid grid-cols-4 gap-3">
+                <div class="flex flex-col items-center gap-1 animate-fade-in">
+                    <div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center shadow-lg">
+                        <i data-lucide="plane" class="h-5 w-5 stroke-white"></i>
+                    </div>
+                    <span class="text-xs text-gray-600 text-center">飞行达人</span>
+                </div>
+                <div class="flex flex-col items-center gap-1 animate-fade-in" style="animation-delay: 0.1s">
+                    <div class="w-12 h-12 bg-gradient-to-br from-green-400 to-teal-500 rounded-full flex items-center justify-center shadow-lg">
+                        <i data-lucide="camera" class="h-5 w-5 stroke-white"></i>
+                    </div>
+                    <span class="text-xs text-gray-600 text-center">摄影师</span>
+                </div>
+                <div class="flex flex-col items-center gap-1 animate-fade-in" style="animation-delay: 0.2s">
+                    <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-full flex items-center justify-center shadow-lg">
+                        <i data-lucide="utensils" class="h-5 w-5 stroke-white"></i>
+                    </div>
+                    <span class="text-xs text-gray-600 text-center">美食家</span>
+                </div>
+                <div class="flex flex-col items-center gap-1 animate-fade-in" style="animation-delay: 0.3s">
+                    <div class="w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full flex items-center justify-center shadow-lg">
+                        <i data-lucide="heart" class="h-5 w-5 stroke-white"></i>
+                    </div>
+                    <span class="text-xs text-gray-600 text-center">探险家</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu Options -->
+        <div class="flex flex-col gap-2">
+            <div class="flex items-center justify-between bg-white rounded-xl p-4 shadow hover:shadow-md transition-shadow animate-fade-in">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
+                        <i data-lucide="user" class="h-4 w-4 stroke-blue-600"></i>
+                    </div>
+                    <span class="text-sm font-medium text-gray-800">编辑资料</span>
+                </div>
+                <i data-lucide="chevron-right" class="h-4 w-4 stroke-gray-400"></i>
+            </div>
+
+            <div class="flex items-center justify-between bg-white rounded-xl p-4 shadow hover:shadow-md transition-shadow animate-fade-in" style="animation-delay: 0.1s">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
+                        <i data-lucide="map" class="h-4 w-4 stroke-green-600"></i>
+                    </div>
+                    <span class="text-sm font-medium text-gray-800">我的行程</span>
+                </div>
+                <i data-lucide="chevron-right" class="h-4 w-4 stroke-gray-400"></i>
+            </div>
+
+            <div class="flex items-center justify-between bg-white rounded-xl p-4 shadow hover:shadow-md transition-shadow animate-fade-in" style="animation-delay: 0.2s">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
+                        <i data-lucide="bookmark" class="h-4 w-4 stroke-purple-600"></i>
+                    </div>
+                    <span class="text-sm font-medium text-gray-800">收藏夹</span>
+                </div>
+                <i data-lucide="chevron-right" class="h-4 w-4 stroke-gray-400"></i>
+            </div>
+
+            <div class="flex items-center justify-between bg-white rounded-xl p-4 shadow hover:shadow-md transition-shadow animate-fade-in" style="animation-delay: 0.3s">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center">
+                        <i data-lucide="settings" class="h-4 w-4 stroke-orange-600"></i>
+                    </div>
+                    <span class="text-sm font-medium text-gray-800">设置</span>
+                </div>
+                <i data-lucide="chevron-right" class="h-4 w-4 stroke-gray-400"></i>
+            </div>
+
+            <div class="flex items-center justify-between bg-white rounded-xl p-4 shadow hover:shadow-md transition-shadow animate-fade-in" style="animation-delay: 0.4s">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-yellow-100 rounded-lg flex items-center justify-center">
+                        <i data-lucide="help-circle" class="h-4 w-4 stroke-yellow-600"></i>
+                    </div>
+                    <span class="text-sm font-medium text-gray-800">帮助中心</span>
+                </div>
+                <i data-lucide="chevron-right" class="h-4 w-4 stroke-gray-400"></i>
+            </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="flex flex-col gap-3">
+            <h4 class="text-base font-semibold text-gray-900">最近活动</h4>
+            <div class="flex flex-col gap-2">
+                <div class="flex items-center gap-3 bg-white rounded-lg p-3 shadow animate-fade-in">
+                    <div class="w-8 h-8 bg-teal-100 rounded-lg flex items-center justify-center">
+                        <i data-lucide="heart" class="h-4 w-4 stroke-teal-600"></i>
+                    </div>
+                    <div class="flex-1">
+                        <p class="text-sm text-gray-800">收藏了 <span class="font-medium">东京</span></p>
+                        <p class="text-xs text-gray-500">2小时前</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3 bg-white rounded-lg p-3 shadow animate-fade-in" style="animation-delay: 0.1s">
+                    <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
+                        <i data-lucide="calendar" class="h-4 w-4 stroke-blue-600"></i>
+                    </div>
+                    <div class="flex-1">
+                        <p class="text-sm text-gray-800">创建了 <span class="font-medium">巴黎之旅</span> 行程</p>
+                        <p class="text-xs text-gray-500">1天前</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <nav class="flex items-center justify-between glass-nav rounded-full py-3 px-6 shadow mt-4">
+            <button class="hover:scale-110 transition-transform">
+                <i data-lucide="home" class="stroke-gray-400 w-6 h-6"></i>
+            </button>
+            <button class="hover:scale-110 transition-transform">
+                <i data-lucide="map-pin" class="stroke-gray-400 w-6 h-6"></i>
+            </button>
+            <button class="hover:scale-110 transition-transform">
+                <i data-lucide="heart" class="stroke-gray-400 w-6 h-6"></i>
+            </button>
+            <button class="flex flex-col items-center gap-1">
+                <span class="flex h-8 w-8 items-center justify-center rounded-full bg-teal-500">
+                    <i data-lucide="user" class="h-4 w-4 stroke-white"></i>
+                </span>
+            </button>
+        </nav>
+    </div>
+
+    <script>
+        lucide.createIcons();
+        
+        // 添加交互动画
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+    </script>
+</body>
+</html>

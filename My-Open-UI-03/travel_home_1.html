@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旅行助手 - 首页</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="travel_theme.css">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="travel_navigation.js"></script>
+</head>
+<body>
+    <div class="mobile-container">
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <span style="font-weight: 600; font-size: 18px;">8:30</span>
+            <div style="display: flex; gap: 8px; align-items: center;">
+                <i data-lucide="signal" class="icon-sm"></i>
+                <i data-lucide="wifi" class="icon-sm"></i>
+                <div style="display: flex; align-items: center; gap: 2px;">
+                    <div style="width: 24px; height: 12px; border: 1px solid #D9D9D9; border-radius: 3px; position: relative;">
+                        <div style="width: 80%; height: 100%; background: #34C759; border-radius: 2px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <div class="header">
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <i data-lucide="menu" class="icon"></i>
+                <span style="font-size: 20px; font-weight: 600;">旅行助手</span>
+            </div>
+            <i data-lucide="bell" class="icon"></i>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Welcome Section -->
+            <div class="glass-card animate-fade-in">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                    <div>
+                        <h2 class="title">你好，旅行者！</h2>
+                        <p class="subtitle">发现世界的美好</p>
+                    </div>
+                    <div class="glass-card-sm" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                        <i data-lucide="map-pin" style="width: 32px; height: 32px; color: var(--travel-blue);"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="glass-card animate-fade-in" style="animation-delay: 0.2s;">
+                <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 16px; color: var(--foreground);">快速预订</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                    <div class="glass-card-sm" style="text-align: center; padding: 20px; cursor: pointer;" data-navigate="transport">
+                        <i data-lucide="plane" style="width: 28px; height: 28px; color: var(--travel-blue); margin-bottom: 8px;"></i>
+                        <p style="font-size: 14px; font-weight: 500;">机票</p>
+                    </div>
+                    <div class="glass-card-sm" style="text-align: center; padding: 20px; cursor: pointer;" data-navigate="hotel">
+                        <i data-lucide="bed" style="width: 28px; height: 28px; color: var(--travel-green); margin-bottom: 8px;"></i>
+                        <p style="font-size: 14px; font-weight: 500;">酒店</p>
+                    </div>
+                    <div class="glass-card-sm" style="text-align: center; padding: 20px; cursor: pointer;" data-navigate="transport">
+                        <i data-lucide="car" style="width: 28px; height: 28px; color: var(--travel-orange); margin-bottom: 8px;"></i>
+                        <p style="font-size: 14px; font-weight: 500;">租车</p>
+                    </div>
+                    <div class="glass-card-sm" style="text-align: center; padding: 20px; cursor: pointer;" data-navigate="food">
+                        <i data-lucide="utensils" style="width: 28px; height: 28px; color: var(--travel-purple); margin-bottom: 8px;"></i>
+                        <p style="font-size: 14px; font-weight: 500;">美食</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Destinations -->
+            <div class="glass-card animate-fade-in" style="animation-delay: 0.4s;">
+                <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 16px; color: var(--foreground);">热门目的地</h3>
+                <div style="display: flex; gap: 12px; overflow-x: auto; padding-bottom: 8px;">
+                    <div class="glass-card-sm" style="min-width: 200px; position: relative; padding: 0; overflow: hidden; cursor: pointer;" data-navigate="destination">
+                        <div style="width: 100%; height: 120px; background: linear-gradient(45deg, var(--travel-blue), var(--travel-purple)); position: relative;">
+                            <div style="position: absolute; bottom: 12px; left: 12px; right: 12px;">
+                                <h4 style="font-size: 16px; font-weight: 600; color: white; margin-bottom: 4px;">北京</h4>
+                                <p style="font-size: 12px; color: rgba(255,255,255,0.8);">历史文化名城</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glass-card-sm" style="min-width: 200px; position: relative; padding: 0; overflow: hidden; cursor: pointer;" data-navigate="destination">
+                        <div style="width: 100%; height: 120px; background: linear-gradient(45deg, var(--travel-green), var(--travel-blue)); position: relative;">
+                            <div style="position: absolute; bottom: 12px; left: 12px; right: 12px;">
+                                <h4 style="font-size: 16px; font-weight: 600; color: white; margin-bottom: 4px;">上海</h4>
+                                <p style="font-size: 12px; color: rgba(255,255,255,0.8);">国际化大都市</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glass-card-sm" style="min-width: 200px; position: relative; padding: 0; overflow: hidden; cursor: pointer;" data-navigate="destination">
+                        <div style="width: 100%; height: 120px; background: linear-gradient(45deg, var(--travel-orange), var(--travel-green)); position: relative;">
+                            <div style="position: absolute; bottom: 12px; left: 12px; right: 12px;">
+                                <h4 style="font-size: 16px; font-weight: 600; color: white; margin-bottom: 4px;">杭州</h4>
+                                <p style="font-size: 12px; color: rgba(255,255,255,0.8);">人间天堂</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="glass-card animate-fade-in" style="animation-delay: 0.6s;">
+                <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 16px; color: var(--foreground);">最近活动</h3>
+                <div style="display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                    <div class="glass-card-sm" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; padding: 8px;">
+                        <i data-lucide="bookmark" style="width: 20px; height: 20px; color: var(--travel-blue);"></i>
+                    </div>
+                    <div style="flex: 1;">
+                        <p style="font-size: 14px; font-weight: 500; margin-bottom: 2px;">收藏了"西湖十景"</p>
+                        <p class="text-sm">2小时前</p>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 12px; padding: 12px 0;">
+                    <div class="glass-card-sm" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; padding: 8px;">
+                        <i data-lucide="calendar" style="width: 20px; height: 20px; color: var(--travel-green);"></i>
+                    </div>
+                    <div style="flex: 1;">
+                        <p style="font-size: 14px; font-weight: 500; margin-bottom: 2px;">创建了行程计划</p>
+                        <p class="text-sm">昨天</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <a href="travel_home_1.html" class="nav-item active">
+                <i data-lucide="home" class="icon-sm"></i>
+                <span style="font-size: 12px;">首页</span>
+            </a>
+            <a href="travel_search_2.html" class="nav-item">
+                <i data-lucide="search" class="icon-sm"></i>
+                <span style="font-size: 12px;">搜索</span>
+            </a>
+            <a href="travel_destination_3.html" class="nav-item">
+                <i data-lucide="map-pin" class="icon-sm"></i>
+                <span style="font-size: 12px;">目的地</span>
+            </a>
+            <a href="travel_orders_9.html" class="nav-item">
+                <i data-lucide="wallet" class="icon-sm"></i>
+                <span style="font-size: 12px;">订单</span>
+            </a>
+            <a href="travel_profile_10.html" class="nav-item">
+                <i data-lucide="user" class="icon-sm"></i>
+                <span style="font-size: 12px;">我的</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

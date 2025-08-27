@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人中心</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        html, body { 
+            height: 100%; 
+            overflow: hidden;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+        .ios-blur {
+            background: rgba(28, 28, 30, 0.72);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+        }
+        .ios-card {
+            background: rgba(44, 44, 46, 0.85);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+        }
+        .ios-secondary-card {
+            background: rgba(58, 58, 60, 0.6);
+        }
+        .ios-gradient {
+            background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
+        }
+        .ios-destructive {
+            background: #FF3B30;
+        }
+        .ios-success {
+            background: #34C759;
+        }
+        .ios-separator {
+            background: rgba(84, 84, 88, 0.36);
+            height: 0.33px;
+        }
+        .scrollable-content {
+            overflow-y: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            height: calc(915px - 112px);
+        }
+        .scrollable-content::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body class="min-h-screen ios-gradient text-white antialiased selection:bg-blue-500/30 flex items-center justify-center">
+    <div class="w-[412px] h-[915px] ios-gradient rounded-[40px] shadow-[0_8px_30px_rgba(0,0,0,0.8)] overflow-hidden relative">
+        
+        <!-- 可滚动内容区 -->
+        <div class="scrollable-content pt-4 pb-24 px-4">
+            <!-- 用户信息 -->
+            <div class="ios-blur p-6 rounded-b-3xl">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-16 h-16 rounded-full bg-gray-600 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="user" class="lucide lucide-user text-white w-8 h-8"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                        </div>
+                        <div>
+                            <div class="text-white text-xl font-bold">用户名称</div>
+                            <div class="text-gray-400 text-sm">普通会员</div>
+                            <div class="text-gray-400 text-xs">积分: 1200</div>
+                        </div>
+                    </div>
+                    <button onclick="window.location.href='settings.html'" class="ios-card p-2 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="settings" class="lucide lucide-settings text-white w-6 h-6"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0-.73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0 .73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0 .73-2.73l-.15-.1a2 2 0 0 1-1-1.72v-.51a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0-.73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- 我的订单 -->
+            <div class="ios-card mx-4 mt-6 p-4 rounded-2xl">
+                <div class="flex justify-between items-center mb-4">
+                    <div class="text-white font-bold">我的订单</div>
+                    <button onclick="window.location.href='orders.html'" class="text-gray-400 text-sm flex items-center">
+                        查看全部
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-right" class="lucide lucide-chevron-right w-4 h-4 ml-1"><path d="m9 18 6-6-6-6"></path></svg>
+                    </button>
+                </div>
+                
+                <div class="flex justify-between">
+                    <div class="flex flex-col items-center">
+                        <div class="ios-secondary-card w-12 h-12 rounded-full flex items-center justify-center mb-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="package" class="lucide lucide-package text-white w-6 h-6"><path d="m7.5 4.27 9 5.15"></path><path d="M21 8a2 2 0 0 0-1-1.73l-9-5.15a2 2 0 0 0-2 0l-9 5.15A2 2 0 0 0 3 8v8.15a2 2 0 0 0 1 1.73l9 5.15a2 2 0 0 0 2 0l9-5.15a2 2 0 0 0 1-1.73V8Z"></path><path d="M3.3 7.5 12 12.5l8.7-5"></path><path d="M12 22.1V12.5"></path></svg>
+                        </div>
+                        <div class="text-white text-xs">待付款</div>
+                    </div>
+                    
+                    <div class="flex flex-col items-center">
+                        <div class="ios-secondary-card w-12 h-12 rounded-full flex items-center justify-center mb-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="truck" class="lucide lucide-truck text-white w-6 h-6"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"></path><path d="M15 18H9"></path><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"></path><path d="M6 16h.01"></path><path d="M9 13v1"></path><rect x="4" y="18" width="10" height="4" rx="2"></rect></svg>
+                        </div>
+                        <div class="text-white text-xs">待收货</div>
+                    </div>
+                    
+                    <div class="flex flex-col items-center">
+                        <div class="ios-secondary-card w-12 h-12 rounded-full flex items-center justify-center mb-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="check-circle" class="lucide lucide-check-circle text-white w-6 h-6"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><path d="m9 11 3 3L22 4"></path></svg>
+                        </div>
+                        <div class="text-white text-xs">已完成</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 我的服务 -->
+            <div class="ios-card mx-4 mt-6 p-4 rounded-2xl">
+                <div class="grid grid-cols-4 gap-4">
+                    <div class="flex flex-col items-center" onclick="window.location.href='wallet.html'">
+                        <div class="ios-secondary-card w-12 h-12 rounded-full flex items-center justify-center mb-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="wallet" class="lucide lucide-wallet text-white w-6 h-6"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"></path><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"></path><path d="M10 15.5a2 2 0 0 0 4 0V9a2 2 0 0 0-4 0z"></path><path d="M10 9h4"></path></svg>
+                        </div>
+                        <div class="text-white text-xs">我的钱包</div>
+                    </div>
+                    
+                    <div class="flex flex-col items-center" onclick="window.location.href='coupons.html'">
+                        <div class="ios-secondary-card w-12 h-12 rounded-full flex items-center justify-center mb-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="ticket" class="lucide lucide-ticket text-white w-6 h-6"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"></path><path d="M13 5v2"></path><path d="M13 17v2"></path><path d="M13 11v2"></path></svg>
+                        </div>
+                        <div class="text-white text-xs">优惠券</div>
+                    </div>
+                    
+                    <div class="flex flex-col items-center" onclick="window.location.href='favorites.html'">
+                        <div class="ios-secondary-card w-12 h-12 rounded-full flex items-center justify-center mb-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="heart" class="lucide lucide-heart text-white w-6 h-6"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"></path></svg>
+                        </div>
+                        <div class="text-white text-xs">我的收藏</div>
+                    </div>
+                    
+                    <div class="flex flex-col items-center" onclick="window.location.href='addresses.html'">
+                        <div class="ios-secondary-card w-12 h-12 rounded-full flex items-center justify-center mb-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="map-pin" class="lucide lucide-map-pin text-white w-6 h-6"><path d="M20 10c0-4.41-3.59-8-8-8s-8 3.59-8 8c0 1.66.5 3.22 1.34 4.5l7.83 11.3a1 1 0 0 0 1.66 0l7.83-11.3c.84-1.28 1.34-2.84 1.34-4.5z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        </div>
+                        <div class="text-white text-xs">收货地址</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 其他功能 -->
+            <div class="ios-card mx-4 mt-6 p-4 rounded-2xl">
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="bell" class="lucide lucide-bell text-white w-5 h-5 mr-3"><path d="M6 8a6 6 0 0 1 12 0c0 4.29-1.2 7.29-3 9a3 3 0 0 1-6 0c-1.8-1.71-3-4.71-3-9z"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                            <div class="text-white">消息通知</div>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-right" class="lucide lucide-chevron-right text-gray-400 w-5 h-5"><path d="m9 18 6-6-6-6"></path></svg>
+                    </div>
+                    
+                    <div class="ios-separator"></div>
+                    
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="shield" class="lucide lucide-shield text-white w-5 h-5 mr-3"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                            <div class="text-white">隐私设置</div>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-right" class="lucide lucide-chevron-right text-gray-400 w-5 h-5"><path d="m9 18 6-6-6-6"></path></svg>
+                    </div>
+                    
+                    <div class="ios-separator"></div>
+                    
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="help-circle" class="lucide lucide-help-circle text-white w-5 h-5 mr-3"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><path d="M12 17h.01"></path></svg>
+                            <div class="text-white">帮助中心</div>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-right" class="lucide lucide-chevron-right text-gray-400 w-5 h-5"><path d="m9 18 6-6-6-6"></path></svg>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- 底部导航栏 -->
+        <div class="absolute bottom-8 left-2 right-2 ios-blur rounded-xl p-2">
+            <div class="flex items-center justify-around py-2">
+                <div class="flex flex-col items-center gap-1">
+                    <div class="w-8 h-8 rounded-lg flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home w-4 h-4 text-white"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+                    </div>
+                    <span class="text-xs text-white font-medium">首页</span>
+                </div>
+                <div class="flex flex-col items-center gap-1">
+                    <div class="w-8 h-8 rounded-lg flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-grid w-4 h-4 text-white"><rect width="7" height="7" x="3" y="3" rx="1"></rect><rect width="7" height="7" x="14" y="3" rx="1"></rect><rect width="7" height="7" x="14" y="14" rx="1"></rect><rect width="7" height="7" x="3" y="14" rx="1"></rect></svg>
+                    </div>
+                    <span class="text-xs text-white font-medium">分类</span>
+                </div>
+                <div class="flex flex-col items-center gap-1">
+                    <div class="w-8 h-8 rounded-lg flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search w-4 h-4 text-white"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+                    </div>
+                    <span class="text-xs text-white font-medium">搜索</span>
+                </div>
+                <div class="flex flex-col items-center gap-1">
+                    <div class="w-8 h-8 rounded-lg flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart w-4 h-4 text-white"><circle cx="8" cy="21" r="1"></circle><circle cx="19" cy="21" r="1"></circle><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path></svg>
+                    </div>
+                    <span class="text-xs text-white font-medium">购物车</span>
+                </div>
+                <div class="flex flex-col items-center gap-1">
+                    <div class="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user w-4 h-4 text-black"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    </div>
+                    <span class="text-xs text-white font-medium">我的</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Home Indicator -->
+        <div class="absolute bottom-2 left-1/2 -translate-x-1/2 w-32 h-1 bg-gray-600 rounded-full"></div>
+    </div>
+    
+    <script>
+        // 初始化Lucide图标
+        lucide.createIcons();
+        
+        // 添加底部导航栏点击事件
+        document.querySelectorAll('.ios-blur .flex-col').forEach((item, index) => {
+            item.addEventListener('click', () => {
+                switch(index) {
+                    case 0:
+                        window.location.href = 'index.html';
+                        break;
+                    case 1:
+                        window.location.href = 'categories.html';
+                        break;
+                    case 2:
+                        window.location.href = 'search.html';
+                        break;
+                    case 3:
+                        window.location.href = 'cart.html';
+                        break;
+                    case 4:
+                        // 当前页面
+                        break;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

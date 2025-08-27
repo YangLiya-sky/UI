@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="h-full antialiased">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>我的音乐库 - 音乐App</title>
+  <link rel="preconnect" href="https://fonts.bunny.net">
+  <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Serif:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="music_app_theme.css">
+</head>
+<body class="h-full flex items-center justify-center bg-gradient-to-bl from-teal-400 to-blue-500">
+  <div class="mobile-container">
+    <!-- Content Area -->
+    <div class="content-area">
+      <!-- Header -->
+      <div class="px-6 pt-8 pb-4">
+        <div class="flex items-center justify-between mb-6">
+          <h1 class="text-xl font-bold">我的音乐库</h1>
+          <button class="p-2 hover:bg-white/10 rounded-full transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Access -->
+      <div class="px-6 mb-6">
+        <div class="grid grid-cols-3 gap-3">
+          <div class="bg-gradient-to-br from-red-500 to-pink-600 rounded-xl p-4 text-center hover:scale-105 transition-transform cursor-pointer animate-fade-in-up">
+            <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2">
+              <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
+              </svg>
+            </div>
+            <p class="text-xs font-semibold text-white">最近播放</p>
+            <p class="text-xs text-white/70">43首</p>
+          </div>
+          
+          <div class="bg-gradient-to-br from-purple-500 to-indigo-600 rounded-xl p-4 text-center hover:scale-105 transition-transform cursor-pointer animate-fade-in-up" style="animation-delay: 0.1s">
+            <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2">
+              <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
+              </svg>
+            </div>
+            <p class="text-xs font-semibold text-white">我喜欢的</p>
+            <p class="text-xs text-white/70">127首</p>
+          </div>
+          
+          <div class="bg-gradient-to-br from-green-500 to-teal-600 rounded-xl p-4 text-center hover:scale-105 transition-transform cursor-pointer animate-fade-in-up" style="animation-delay: 0.2s">
+            <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+              </svg>
+            </div>
+            <p class="text-xs font-semibold text-white">下载音乐</p>
+            <p class="text-xs text-white/70">89首</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Created Playlists -->
+      <div class="px-6 mb-6">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-lg font-semibold">创建的歌单</h2>
+          <button class="text-xs text-slate-400 hover:text-white transition-colors">管理</button>
+        </div>
+        <div class="space-y-3">
+          <div class="flex items-center gap-3 hover:bg-slate-800/30 rounded-lg p-3 transition-colors cursor-pointer animate-slide-in-left">
+            <img src="https://images.unsplash.com/photo-1677586883848-695b3ad692b4?w=200&q=80" class="w-14 h-14 rounded-lg object-cover" alt="">
+            <div class="flex-1">
+              <p class="text-sm font-semibold mb-1">我的收藏歌单</p>
+              <p class="text-xs text-slate-400">23首歌曲 • 1小时32分钟</p>
+            </div>
+            <button class="p-2 hover:bg-white/10 rounded-full transition-colors">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01"></path>
+              </svg>
+            </button>
+          </div>
+
+          <div class="flex items-center gap-3 hover:bg-slate-800/30 rounded-lg p-3 transition-colors cursor-pointer animate-slide-in-left" style="animation-delay: 0.1s">
+            <img src="https://images.unsplash.com/photo-1629948618343-0d33f97a3091?w=200&q=80" class="w-14 h-14 rounded-lg object-cover" alt="">
+            <div class="flex-1">
+              <p class="text-sm font-semibold mb-1">夜晚听歌</p>
+              <p class="text-xs text-slate-400">15首歌曲 • 58分钟</p>
+            </div>
+            <button class="p-2 hover:bg-white/10 rounded-full transition-colors">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01"></path>
+              </svg>
+            </button>
+          </div>
+
+          <div class="flex items-center gap-3 hover:bg-slate-800/30 rounded-lg p-3 transition-colors cursor-pointer animate-slide-in-left" style="animation-delay: 0.2s">
+            <img src="https://images.unsplash.com/photo-1633596683562-4a47eb4983c5?w=200&q=80" class="w-14 h-14 rounded-lg object-cover" alt="">
+            <div class="flex-1">
+              <p class="text-sm font-semibold mb-1">运动音乐</p>
+              <p class="text-xs text-slate-400">32首歌曲 • 2小时15分钟</p>
+            </div>
+            <button class="p-2 hover:bg-white/10 rounded-full transition-colors">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01"></path>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Create New Playlist Button -->
+          <div class="flex items-center gap-3 hover:bg-slate-800/30 rounded-lg p-3 transition-colors cursor-pointer animate-slide-in-left" style="animation-delay: 0.3s">
+            <div class="w-14 h-14 bg-slate-700 rounded-lg flex items-center justify-center">
+              <svg class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+              </svg>
+            </div>
+            <div class="flex-1">
+              <p class="text-sm font-semibold mb-1 text-slate-300">创建新歌单</p>
+              <p class="text-xs text-slate-400">添加你喜欢的音乐</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Favorite Albums -->
+      <div class="px-6 mb-6">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-lg font-semibold">收藏的专辑</h2>
+          <button class="text-xs text-slate-400 hover:text-white transition-colors">查看全部</button>
+        </div>
+        <div class="flex gap-4 overflow-x-auto pb-2">
+          <div class="flex-shrink-0 w-32 cursor-pointer group animate-fade-in-up">
+            <div class="relative mb-3">
+              <img src="https://images.unsplash.com/photo-1627637819794-fba32f82be16?w=300&q=80" class="w-32 h-32 rounded-xl object-cover" alt="">
+              <button class="absolute bottom-2 right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-lg">
+                <svg class="w-4 h-4 text-black ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z"></path>
+                </svg>
+              </button>
+            </div>
+            <p class="text-sm font-semibold mb-1">叶惠美</p>
+            <p class="text-xs text-slate-400">周杰伦 • 2003</p>
+          </div>
+
+          <div class="flex-shrink-0 w-32 cursor-pointer group animate-fade-in-up" style="animation-delay: 0.1s">
+            <div class="relative mb-3">
+              <img src="https://images.unsplash.com/photo-1629946832022-c327f74956e0?w=300&q=80" class="w-32 h-32 rounded-xl object-cover" alt="">
+              <button class="absolute bottom-2 right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-lg">
+                <svg class="w-4 h-4 text-black ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z"></path>
+                </svg>
+              </button>
+            </div>
+            <p class="text-sm font-semibold mb-1">七里香</p>
+            <p class="text-xs text-slate-400">周杰伦 • 2004</p>
+          </div>
+
+          <div class="flex-shrink-0 w-32 cursor-pointer group animate-fade-in-up" style="animation-delay: 0.2s">
+            <div class="relative mb-3">
+              <img src="https://images.unsplash.com/photo-1711861982584-b7493627213c?w=300&q=80" class="w-32 h-32 rounded-xl object-cover" alt="">
+              <button class="absolute bottom-2 right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-lg">
+                <svg class="w-4 h-4 text-black ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z"></path>
+                </svg>
+              </button>
+            </div>
+            <p class="text-sm font-semibold mb-1">我很忙</p>
+            <p class="text-xs text-slate-400">周杰伦 • 2007</p>
+          </div>
+
+          <div class="flex-shrink-0 w-32 cursor-pointer group animate-fade-in-up" style="animation-delay: 0.3s">
+            <div class="relative mb-3">
+              <img src="https://images.unsplash.com/photo-1719090024421-f29c83ab4034?w=300&q=80" class="w-32 h-32 rounded-xl object-cover" alt="">
+              <button class="absolute bottom-2 right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-lg">
+                <svg class="w-4 h-4 text-black ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z"></path>
+                </svg>
+              </button>
+            </div>
+            <p class="text-sm font-semibold mb-1">魔杰座</p>
+            <p class="text-xs text-slate-400">周杰伦 • 2008</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Followed Artists -->
+      <div class="px-6 pb-20">
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-lg font-semibold">关注的歌手</h2>
+          <button class="text-xs text-slate-400 hover:text-white transition-colors">查看全部</button>
+        </div>
+        <div class="space-y-3">
+          <div class="flex items-center gap-3 hover:bg-slate-800/30 rounded-lg p-3 transition-colors cursor-pointer animate-slide-in-left">
+            <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=200&q=80" class="w-14 h-14 rounded-full object-cover" alt="">
+            <div class="flex-1">
+              <p class="text-sm font-semibold mb-1">周杰伦</p>
+              <p class="text-xs text-slate-400">华语流行 • 1,234,567 月听众</p>
+            </div>
+            <button class="px-4 py-2 bg-slate-700 hover:bg-slate-600 rounded-full text-xs transition-colors">
+              已关注
+            </button>
+          </div>
+
+          <div class="flex items-center gap-3 hover:bg-slate-800/30 rounded-lg p-3 transition-colors cursor-pointer animate-slide-in-left" style="animation-delay: 0.1s">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80" class="w-14 h-14 rounded-full object-cover" alt="">
+            <div class="flex-1">
+              <p class="text-sm font-semibold mb-1">林俊杰</p>
+              <p class="text-xs text-slate-400">华语流行 • 987,654 月听众</p>
+            </div>
+            <button class="px-4 py-2 bg-slate-700 hover:bg-slate-600 rounded-full text-xs transition-colors">
+              已关注
+            </button>
+          </div>
+
+          <div class="flex items-center gap-3 hover:bg-slate-800/30 rounded-lg p-3 transition-colors cursor-pointer animate-slide-in-left" style="animation-delay: 0.2s">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80" class="w-14 h-14 rounded-full object-cover" alt="">
+            <div class="flex-1">
+              <p class="text-sm font-semibold mb-1">陈奕迅</p>
+              <p class="text-xs text-slate-400">华语流行 • 2,345,678 月听众</p>
+            </div>
+            <button class="px-4 py-2 bg-slate-700 hover:bg-slate-600 rounded-full text-xs transition-colors">
+              已关注
+            </button>
+          </div>
+
+          <div class="flex items-center gap-3 hover:bg-slate-800/30 rounded-lg p-3 transition-colors cursor-pointer animate-slide-in-left" style="animation-delay: 0.3s">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80" class="w-14 h-14 rounded-full object-cover" alt="">
+            <div class="flex-1">
+              <p class="text-sm font-semibold mb-1">薛之谦</p>
+              <p class="text-xs text-slate-400">华语流行 • 1,876,543 月听众</p>
+            </div>
+            <button class="px-4 py-2 bg-slate-700 hover:bg-slate-600 rounded-full text-xs transition-colors">
+              已关注
+            </button>
+          </div>
+
+          <div class="flex items-center gap-3 hover:bg-slate-800/30 rounded-lg p-3 transition-colors cursor-pointer animate-slide-in-left" style="animation-delay: 0.4s">
+            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&q=80" class="w-14 h-14 rounded-full object-cover" alt="">
+            <div class="flex-1">
+              <p class="text-sm font-semibold mb-1">邓紫棋</p>
+              <p class="text-xs text-slate-400">华语流行 • 1,543,210 月听众</p>
+            </div>
+            <button class="px-4 py-2 bg-slate-700 hover:bg-slate-600 rounded-full text-xs transition-colors">
+              已关注
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <div class="bottom-nav">
+      <div class="flex items-center justify-around py-3 h-full">
+        <button class="nav-item flex flex-col items-center gap-1 p-2">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+          </svg>
+          <span class="text-xs">首页</span>
+        </button>
+        <button class="nav-item flex flex-col items-center gap-1 p-2">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+          <span class="text-xs">搜索</span>
+        </button>
+        <button class="nav-item active flex flex-col items-center gap-1 p-2">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"></path>
+          </svg>
+          <span class="text-xs font-medium">音乐库</span>
+        </button>
+        <button class="nav-item flex flex-col items-center gap-1 p-2">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+          </svg>
+          <span class="text-xs">我的</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 添加交互功能
+    document.addEventListener('DOMContentLoaded', function() {
+      // 快速访问卡片点击效果
+      const quickAccessCards = document.querySelectorAll('.grid > div');
+      quickAccessCards.forEach(card => {
+        card.addEventListener('click', function() {
+          this.style.transform = 'scale(0.95)';
+          setTimeout(() => {
+            this.style.transform = 'scale(1.05)';
+          }, 100);
+          setTimeout(() => {
+            this.style.transform = 'scale(1)';
+          }, 200);
+        });
+      });
+
+      // 歌单项悬停效果
+      const playlistItems = document.querySelectorAll('.space-y-3 > div');
+      playlistItems.forEach(item => {
+        item.addEventListener('mouseenter', function() {
+          this.style.transform = 'translateX(4px)';
+        });
+        item.addEventListener('mouseleave', function() {
+          this.style.transform = 'translateX(0)';
+        });
+      });
+
+      // 专辑封面悬停旋转效果
+      const albumCovers = document.querySelectorAll('.flex-shrink-0 img');
+      albumCovers.forEach(cover => {
+        cover.addEventListener('mouseenter', function() {
+          this.style.transform = 'rotate(5deg) scale(1.05)';
+        });
+        cover.addEventListener('mouseleave', function() {
+          this.style.transform = 'rotate(0deg) scale(1)';
+        });
+      });
+
+      // 关注按钮点击效果
+      const followButtons = document.querySelectorAll('button:contains("已关注")');
+      followButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          e.stopPropagation();
+          if (this.textContent === '已关注') {
+            this.textContent = '关注';
+            this.classList.remove('bg-slate-700', 'hover:bg-slate-600');
+            this.classList.add('bg-primary', 'hover:bg-primary/80');
+          } else {
+            this.textContent = '已关注';
+            this.classList.remove('bg-primary', 'hover:bg-primary/80');
+            this.classList.add('bg-slate-700', 'hover:bg-slate-600');
+          }
+        });
+      });
+
+      // 播放按钮点击效果
+      const playButtons = document.querySelectorAll('.bg-green-500');
+      playButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          e.stopPropagation();
+          // 添加播放动画
+          this.style.transform = 'scale(0.9)';
+          setTimeout(() => {
+            this.style.transform = 'scale(1)';
+          }, 150);
+          
+          // 模拟播放状态
+          const icon = this.querySelector('svg');
+          if (icon) {
+            icon.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path>';
+            setTimeout(() => {
+              icon.innerHTML = '<path d="M8 5v14l11-7z"></path>';
+            }, 2000);
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

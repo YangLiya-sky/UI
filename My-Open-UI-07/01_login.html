@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureChat - 登录</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="securechat_theme.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .login-form {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .logo-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+        
+        .input-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        .input-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--muted-foreground);
+        }
+        
+        .input-with-icon {
+            padding-left: 44px !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 顶部导航栏 -->
+        <div class="header">
+            <div class="flex items-center space-x-3">
+                <i data-lucide="shield-check" class="icon text-primary"></i>
+                <span class="text-lg font-semibold">SecureChat</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <span class="text-sm text-muted-foreground">安全 · 私密 · 可靠</span>
+            </div>
+        </div>
+
+        <!-- 主内容区域 -->
+        <div class="main-content">
+            <div class="login-form w-full max-w-md">
+                <!-- Logo区域 -->
+                <div class="text-center mb-8">
+                    <div class="logo-animation inline-flex items-center justify-center w-20 h-20 bg-primary rounded-full mb-4">
+                        <i data-lucide="lock" class="w-10 h-10 text-primary-foreground"></i>
+                    </div>
+                    <h1 class="text-3xl font-bold mb-2">SecureChat</h1>
+                    <p class="text-muted-foreground">端到端加密聊天应用</p>
+                </div>
+
+                <!-- 登录表单 -->
+                <div class="card">
+                    <h2 class="text-xl font-semibold mb-6 text-center">登录您的账户</h2>
+                    
+                    <form class="space-y-4">
+                        <div class="input-group">
+                            <i data-lucide="phone" class="input-icon"></i>
+                            <input type="tel" class="input input-with-icon w-full" placeholder="请输入手机号码" required>
+                        </div>
+                        
+                        <div class="input-group">
+                            <i data-lucide="key" class="input-icon"></i>
+                            <input type="text" class="input input-with-icon w-full" placeholder="请输入验证码" required>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary w-full">
+                            <i data-lucide="log-in" class="w-4 h-4 mr-2"></i>
+                            登录
+                        </button>
+                        
+                        <div class="text-center">
+                            <a href="#" class="text-primary hover:text-accent text-sm">还没有账户？立即注册</a>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- 安全提示 -->
+                <div class="mt-6 p-4 bg-muted rounded-lg">
+                    <div class="flex items-center space-x-2 text-sm">
+                        <i data-lucide="shield" class="w-4 h-4 text-success"></i>
+                        <span class="text-muted-foreground">您的数据采用端到端加密保护</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部状态栏 -->
+        <div class="footer">
+            <div class="flex items-center space-x-4">
+                <span>版本 v1.0.0</span>
+                <span>•</span>
+                <span>© 2024 SecureChat</span>
+            </div>
+            <div class="flex items-center space-x-2">
+                <div class="online-status"></div>
+                <span>服务器连接正常</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 初始化Lucide图标
+        lucide.createIcons();
+        
+        // 表单提交动画
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const button = this.querySelector('button[type="submit"]');
+            button.innerHTML = '<i data-lucide="loader-2" class="w-4 h-4 mr-2 animate-spin"></i>登录中...';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                button.innerHTML = '<i data-lucide="check" class="w-4 h-4 mr-2"></i>登录成功';
+                setTimeout(() => {
+                    window.location.href = '02_main_chat.html';
+                }, 1000);
+            }, 2000);
+        });
+        
+        // 输入框焦点动画
+        document.querySelectorAll('.input').forEach(input => {
+            input.addEventListener('focus', function() {
+                this.style.transform = 'scale(1.02)';
+                this.style.transition = 'all 0.2s ease';
+            });
+            
+            input.addEventListener('blur', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>

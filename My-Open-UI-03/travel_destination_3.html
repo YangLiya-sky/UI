@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旅行助手 - 目的地详情</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="travel_theme.css">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="travel_navigation.js"></script>
+</head>
+
+<body>
+    <div class="mobile-container">
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <span style="font-weight: 600; font-size: 18px;">8:30</span>
+            <div style="display: flex; gap: 8px; align-items: center;">
+                <i data-lucide="signal" class="icon-sm"></i>
+                <i data-lucide="wifi" class="icon-sm"></i>
+                <div style="display: flex; align-items: center; gap: 2px;">
+                    <div
+                        style="width: 24px; height: 12px; border: 1px solid #D9D9D9; border-radius: 3px; position: relative;">
+                        <div style="width: 80%; height: 100%; background: #34C759; border-radius: 2px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Header with Hero Image -->
+        <div
+            style="position: relative; height: 200px; background: linear-gradient(45deg, var(--travel-blue), var(--travel-green)); overflow: hidden;">
+            <div
+                style="position: absolute; top: 12px; left: 0; right: 0; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; z-index: 10;">
+                <i data-lucide="arrow-left" class="icon"
+                    style="background: rgba(0,0,0,0.3); padding: 8px; border-radius: 50%; backdrop-filter: blur(10px);"></i>
+                <div style="display: flex; gap: 12px;">
+                    <i data-lucide="share" class="icon"
+                        style="background: rgba(0,0,0,0.3); padding: 8px; border-radius: 50%; backdrop-filter: blur(10px);"></i>
+                    <i data-lucide="heart" class="icon"
+                        style="background: rgba(0,0,0,0.3); padding: 8px; border-radius: 50%; backdrop-filter: blur(10px);"></i>
+                </div>
+            </div>
+            <div style="position: absolute; bottom: 20px; left: 20px; right: 20px;">
+                <h1 style="font-size: 28px; font-weight: 700; color: white; margin-bottom: 8px;">杭州西湖</h1>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <i data-lucide="map-pin" style="width: 16px; height: 16px; color: rgba(255,255,255,0.8);"></i>
+                    <span style="color: rgba(255,255,255,0.8); font-size: 14px;">浙江省杭州市</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="content" style="margin-top: -40px; position: relative; z-index: 5; height: calc(var(--mobile-height) - var(--status-bar-height) - 200px - var(--nav-bar-height)); overflow-y: auto; padding-bottom: 20px;">
+            <!-- Info Card -->
+            <div class="glass-card animate-fade-in">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <div style="display: flex; align-items: center; gap: 4px;">
+                            <i data-lucide="star" style="width: 16px; height: 16px; color: #FFC107; fill: #FFC107;"></i>
+                            <span style="font-weight: 600; font-size: 16px;">4.8</span>
+                        </div>
+                        <span class="text-sm">(2.3k 评价)</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 4px;">
+                        <i data-lucide="eye" style="width: 16px; height: 16px; color: var(--muted-foreground);"></i>
+                        <span class="text-sm">今日 1.2k 人浏览</span>
+                    </div>
+                </div>
+
+                <p style="color: var(--muted-foreground); line-height: 1.6; margin-bottom: 16px;">
+                    西湖，位于浙江省杭州市西湖区龙井路1号，杭州市区西部，景区总面积49平方千米，汇水面积21.22平方千米，湖面面积6.38平方千米。
+                </p>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;">
+                    <div style="text-align: center;">
+                        <div
+                            style="width: 48px; height: 48px; background: var(--travel-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 8px;">
+                            <i data-lucide="clock" style="width: 24px; height: 24px; color: white;"></i>
+                        </div>
+                        <p style="font-size: 12px; color: var(--muted-foreground);">游玩时长</p>
+                        <p style="font-size: 14px; font-weight: 600;">3-4小时</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div
+                            style="width: 48px; height: 48px; background: var(--travel-green); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 8px;">
+                            <i data-lucide="ticket" style="width: 24px; height: 24px; color: white;"></i>
+                        </div>
+                        <p style="font-size: 12px; color: var(--muted-foreground);">门票价格</p>
+                        <p style="font-size: 14px; font-weight: 600;">免费</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div
+                            style="width: 48px; height: 48px; background: var(--travel-orange); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 8px;">
+                            <i data-lucide="calendar" style="width: 24px; height: 24px; color: white;"></i>
+                        </div>
+                        <p style="font-size: 12px; color: var(--muted-foreground);">最佳时节</p>
+                        <p style="font-size: 14px; font-weight: 600;">四季皆宜</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Highlights -->
+            <div class="glass-card animate-fade-in" style="animation-delay: 0.2s;">
+                <h3 style="font-size: 18px; font-weight: 600; margin-bottom: 16px; color: var(--foreground);">景点亮点</h3>
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <div style="width: 8px; height: 8px; background: var(--travel-blue); border-radius: 50%;"></div>
+                        <span style="font-size: 14px;">西湖十景：苏堤春晓、曲院风荷、平湖秋月等</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <div style="width: 8px; height: 8px; background: var(--travel-green); border-radius: 50%;">
+                        </div>
+                        <span style="font-size: 14px;">世界文化遗产，国家5A级旅游景区</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <div style="width: 8px; height: 8px; background: var(--travel-orange); border-radius: 50%;">
+                        </div>
+                        <span style="font-size: 14px;">可乘坐游船欣赏湖光山色</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Photos -->
+            <div class="glass-card animate-fade-in" style="animation-delay: 0.4s;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                    <h3 style="font-size: 18px; font-weight: 600; color: var(--foreground);">精彩照片</h3>
+                    <span style="color: var(--muted-foreground); font-size: 14px;">查看全部 ></span>
+                </div>
+                <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 8px; height: 120px;">
+                    <div
+                        style="background: linear-gradient(45deg, var(--travel-blue), var(--travel-purple)); border-radius: var(--radius-sm); position: relative;">
+                        <div
+                            style="position: absolute; bottom: 8px; left: 8px; background: rgba(0,0,0,0.5); padding: 4px 8px; border-radius: 12px;">
+                            <span style="color: white; font-size: 12px;">断桥残雪</span>
+                        </div>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <div
+                            style="background: linear-gradient(45deg, var(--travel-green), var(--travel-blue)); border-radius: var(--radius-sm); flex: 1;">
+                        </div>
+                        <div
+                            style="background: linear-gradient(45deg, var(--travel-orange), var(--travel-green)); border-radius: var(--radius-sm); flex: 1;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="glass-card animate-fade-in" style="animation-delay: 0.6s;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                    <button class="btn" style="background: var(--travel-blue); justify-content: center;" data-navigate="planning">
+                        <i data-lucide="route" class="icon-sm"></i>
+                        规划行程
+                    </button>
+                    <button class="btn" style="justify-content: center;" onclick="alert('正在打开地图导航...')">
+                        <i data-lucide="navigation" class="icon-sm"></i>
+                        导航前往
+                    </button>
+                </div>
+            </div>
+
+            <!-- Reviews -->
+            <div class="glass-card animate-fade-in" style="animation-delay: 0.8s;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                    <h3 style="font-size: 18px; font-weight: 600; color: var(--foreground);">游客评价</h3>
+                    <span style="color: var(--muted-foreground); font-size: 14px;">查看全部 ></span>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 16px;">
+                    <div
+                        style="padding: 16px; background: var(--secondary); border-radius: var(--radius-sm); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <div
+                                    style="width: 32px; height: 32px; background: var(--travel-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                    <span style="color: white; font-weight: 600; font-size: 14px;">张</span>
+                                </div>
+                                <span style="font-weight: 500; font-size: 14px;">张三</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 4px;">
+                                <i data-lucide="star"
+                                    style="width: 14px; height: 14px; color: #FFC107; fill: #FFC107;"></i>
+                                <span style="font-size: 14px;">5.0</span>
+                            </div>
+                        </div>
+                        <p style="font-size: 14px; line-height: 1.5; color: var(--muted-foreground);">
+                            西湖真的很美，特别是春天的时候，柳絮飞舞，湖光山色令人陶醉。建议早上去，人少景美。
+                        </p>
+                        <p class="text-sm" style="margin-top: 8px;">2天前</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <a href="travel_home_1.html" class="nav-item">
+                <i data-lucide="home" class="icon-sm"></i>
+                <span style="font-size: 12px;">首页</span>
+            </a>
+            <a href="travel_search_2.html" class="nav-item">
+                <i data-lucide="search" class="icon-sm"></i>
+                <span style="font-size: 12px;">搜索</span>
+            </a>
+            <a href="travel_destination_3.html" class="nav-item active">
+                <i data-lucide="map-pin" class="icon-sm"></i>
+                <span style="font-size: 12px;">目的地</span>
+            </a>
+            <a href="travel_orders_9.html" class="nav-item">
+                <i data-lucide="wallet" class="icon-sm"></i>
+                <span style="font-size: 12px;">订单</span>
+            </a>
+            <a href="travel_profile_10.html" class="nav-item">
+                <i data-lucide="user" class="icon-sm"></i>
+                <span style="font-size: 12px;">我的</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

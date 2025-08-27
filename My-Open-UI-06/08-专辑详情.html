@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>专辑详情 - 音乐APP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="default_ui_darkmode.css">
+    <link rel="stylesheet" href="music-app-theme.css">
+</head>
+<body class="page-center">
+    <div class="mobile-container animate-fadeIn">
+        <!-- 状态栏 -->
+        <div class="status-bar">
+            <div class="flex items-center gap-1">
+                <div class="w-1 h-1 bg-white rounded-full"></div>
+                <div class="w-1 h-1 bg-white rounded-full"></div>
+                <div class="w-1 h-1 bg-white rounded-full opacity-50"></div>
+                <span class="ml-2 text-sm">中国移动</span>
+            </div>
+            <div class="text-sm font-medium">9:41</div>
+            <div class="flex items-center gap-1">
+                <i data-lucide="signal" class="w-4 h-4"></i>
+                <i data-lucide="wifi" class="w-4 h-4"></i>
+                <div class="w-6 h-3 bg-white rounded-sm relative">
+                    <div class="w-4 h-2 bg-green-400 rounded-sm absolute top-0.5 left-0.5"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 导航栏 -->
+        <div class="navbar">
+            <button class="navbar-action">
+                <i data-lucide="arrow-left" class="w-5 h-5"></i>
+            </button>
+            <h1 class="navbar-title flex-1 text-center">专辑</h1>
+            <button class="navbar-action">
+                <i data-lucide="more-horizontal" class="w-5 h-5"></i>
+            </button>
+        </div>
+
+        <!-- 主内容 -->
+        <div class="main-content scrollbar-hide">
+            <!-- 专辑信息 -->
+            <div class="text-center mb-6 p-6">
+                <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=400&q=80" 
+                     class="w-48 h-48 rounded-2xl mx-auto mb-4 shadow-2xl" alt="专辑封面">
+                <h2 class="text-2xl font-bold text-white mb-2">周杰伦的床边故事</h2>
+                <p class="text-lg text-slate-400 mb-2">周杰伦</p>
+                <p class="text-sm text-slate-500">2016年6月24日 • 10首歌曲</p>
+            </div>
+
+            <!-- 操作按钮 -->
+            <div class="flex gap-3 mb-6 px-4">
+                <button class="btn-primary flex-1 py-3 rounded-full">
+                    <i data-lucide="play" class="w-5 h-5 mr-2"></i>
+                    播放专辑
+                </button>
+                <button class="btn-ghost p-3 rounded-full">
+                    <i data-lucide="heart" class="w-5 h-5"></i>
+                </button>
+                <button class="btn-ghost p-3 rounded-full">
+                    <i data-lucide="share-2" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <!-- 歌曲列表 -->
+            <div class="space-y-2">
+                <div class="flex items-center gap-3 p-3 hover:bg-slate-800/30 rounded-lg cursor-pointer">
+                    <span class="w-6 text-center text-sm font-bold text-slate-400">1</span>
+                    <div class="flex-1">
+                        <p class="text-sm font-semibold text-white">床边故事</p>
+                        <p class="text-xs text-slate-400">周杰伦</p>
+                    </div>
+                    <span class="text-xs text-slate-500">3:47</span>
+                    <button class="navbar-action">
+                        <i data-lucide="more-horizontal" class="w-4 h-4"></i>
+                    </button>
+                </div>
+                
+                <div class="flex items-center gap-3 p-3 hover:bg-slate-800/30 rounded-lg cursor-pointer">
+                    <span class="w-6 text-center text-sm font-bold text-slate-400">2</span>
+                    <div class="flex-1">
+                        <p class="text-sm font-semibold text-white">说走就走</p>
+                        <p class="text-xs text-slate-400">周杰伦</p>
+                    </div>
+                    <span class="text-xs text-slate-500">4:12</span>
+                    <button class="navbar-action">
+                        <i data-lucide="more-horizontal" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <div class="flex items-center gap-3 p-3 hover:bg-slate-800/30 rounded-lg cursor-pointer">
+                    <span class="w-6 text-center text-sm font-bold text-slate-400">3</span>
+                    <div class="flex-1">
+                        <p class="text-sm font-semibold text-white">告白气球</p>
+                        <p class="text-xs text-slate-400">周杰伦</p>
+                    </div>
+                    <span class="text-xs text-slate-500">3:34</span>
+                    <button class="navbar-action">
+                        <i data-lucide="more-horizontal" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部导航 -->
+        <div class="bottom-nav">
+            <button class="nav-item">
+                <i data-lucide="home" class="w-5 h-5"></i>
+                <span>首页</span>
+            </button>
+            <button class="nav-item">
+                <i data-lucide="search" class="w-5 h-5"></i>
+                <span>搜索</span>
+            </button>
+            <button class="nav-item active">
+                <i data-lucide="library" class="w-5 h-5"></i>
+                <span>音乐库</span>
+            </button>
+            <button class="nav-item">
+                <i data-lucide="user" class="w-5 h-5"></i>
+                <span>我的</span>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', () => {
+                document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+                item.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

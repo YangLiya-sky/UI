@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旅行助手 - 我的订单</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="travel_theme.css">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="travel_navigation.js"></script>
+</head>
+<body>
+    <div class="mobile-container">
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <span style="font-weight: 600; font-size: 18px;">8:30</span>
+            <div style="display: flex; gap: 8px; align-items: center;">
+                <i data-lucide="signal" class="icon-sm"></i>
+                <i data-lucide="wifi" class="icon-sm"></i>
+                <div style="display: flex; align-items: center; gap: 2px;">
+                    <div style="width: 24px; height: 24px; border: 1px solid #D9D9D9; border-radius: 3px; position: relative;">
+                        <div style="width: 80%; height: 100%; background: #34C759; border-radius: 2px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <div class="header">
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <i data-lucide="arrow-left" class="icon"></i>
+                <span style="font-size: 20px; font-weight: 600;">我的订单</span>
+            </div>
+            <div style="display: flex; gap: 12px;">
+                <i data-lucide="search" class="icon"></i>
+                <i data-lucide="more-horizontal" class="icon"></i>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Order Status Tabs -->
+            <div class="glass-card animate-fade-in">
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 8px;">
+                    <div style="text-align: center; padding: 12px 8px; background: var(--travel-blue); border-radius: var(--radius-sm);">
+                        <i data-lucide="clock" style="width: 20px; height: 20px; color: white; margin-bottom: 4px;"></i>
+                        <p style="font-size: 12px; color: white; font-weight: 500;">待付款</p>
+                        <div style="width: 16px; height: 16px; background: var(--travel-orange); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 4px auto 0;">
+                            <span style="color: white; font-size: 10px; font-weight: 600;">1</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; padding: 12px 8px;">
+                        <i data-lucide="package" style="width: 20px; height: 20px; color: var(--muted-foreground); margin-bottom: 4px;"></i>
+                        <p style="font-size: 12px; color: var(--muted-foreground); font-weight: 500;">待确认</p>
+                    </div>
+                    <div style="text-align: center; padding: 12px 8px;">
+                        <i data-lucide="plane" style="width: 20px; height: 20px; color: var(--muted-foreground); margin-bottom: 4px;"></i>
+                        <p style="font-size: 12px; color: var(--muted-foreground); font-weight: 500;">待出行</p>
+                        <div style="width: 16px; height: 16px; background: var(--travel-green); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 4px auto 0;">
+                            <span style="color: white; font-size: 10px; font-weight: 600;">2</span>
+                        </div>
+                    </div>
+                    <div style="text-align: center; padding: 12px 8px;">
+                        <i data-lucide="star" style="width: 20px; height: 20px; color: var(--muted-foreground); margin-bottom: 4px;"></i>
+                        <p style="font-size: 12px; color: var(--muted-foreground); font-weight: 500;">待评价</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order List -->
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+                <!-- Order 1 - Pending Payment -->
+                <div class="glass-card animate-fade-in" style="animation-delay: 0.2s;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <i data-lucide="plane" style="width: 16px; height: 16px; color: var(--travel-blue);"></i>
+                            <span style="font-size: 14px; font-weight: 500;">机票订单</span>
+                        </div>
+                        <div style="padding: 4px 8px; background: var(--travel-orange); border-radius: 8px;">
+                            <span style="color: white; font-size: 12px; font-weight: 500;">待付款</span>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; gap: 12px; margin-bottom: 12px;">
+                        <div style="width: 60px; height: 60px; background: linear-gradient(45deg, var(--travel-blue), var(--travel-green)); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="plane" style="width: 28px; height: 28px; color: white;"></i>
+                        </div>
+                        <div style="flex: 1;">
+                            <h3 style="font-size: 16px; font-weight: 600; color: var(--foreground); margin-bottom: 4px;">上海 → 杭州</h3>
+                            <p style="font-size: 14px; color: var(--muted-foreground); margin-bottom: 2px;">东方航空 MU5137</p>
+                            <p style="font-size: 12px; color: var(--muted-foreground);">4月15日 08:30-09:45</p>
+                        </div>
+                        <div style="text-align: right;">
+                            <p style="font-size: 18px; font-weight: 700; color: var(--travel-orange);">¥428</p>
+                            <p style="font-size: 12px; color: var(--muted-foreground);">经济舱</p>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <p style="font-size: 12px; color: var(--muted-foreground);">订单号: TK202404150001</p>
+                        <div style="display: flex; gap: 8px;">
+                            <button style="padding: 6px 12px; background: var(--secondary); border: none; border-radius: 8px; color: var(--muted-foreground); font-size: 12px;">取消订单</button>
+                            <button class="btn" style="padding: 6px 16px; font-size: 12px; background: var(--travel-orange);">立即付款</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order 2 - Confirmed -->
+                <div class="glass-card animate-fade-in" style="animation-delay: 0.4s;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <i data-lucide="bed" style="width: 16px; height: 16px; color: var(--travel-green);"></i>
+                            <span style="font-size: 14px; font-weight: 500;">酒店订单</span>
+                        </div>
+                        <div style="padding: 4px 8px; background: var(--travel-green); border-radius: 8px;">
+                            <span style="color: white; font-size: 12px; font-weight: 500;">已确认</span>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; gap: 12px; margin-bottom: 12px;">
+                        <div style="width: 60px; height: 60px; background: linear-gradient(45deg, var(--travel-green), var(--travel-blue)); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="bed" style="width: 28px; height: 28px; color: white;"></i>
+                        </div>
+                        <div style="flex: 1;">
+                            <h3 style="font-size: 16px; font-weight: 600; color: var(--foreground); margin-bottom: 4px;">杭州西湖国宾馆</h3>
+                            <p style="font-size: 14px; color: var(--muted-foreground); margin-bottom: 2px;">豪华大床房</p>
+                            <p style="font-size: 12px; color: var(--muted-foreground);">4月15日-4月17日 (2晚)</p>
+                        </div>
+                        <div style="text-align: right;">
+                            <p style="font-size: 18px; font-weight: 700; color: var(--travel-green);">¥1,376</p>
+                            <p style="font-size: 12px; color: var(--muted-foreground);">含早餐</p>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <p style="font-size: 12px; color: var(--muted-foreground);">订单号: HT202404150002</p>
+                        <div style="display: flex; gap: 8px;">
+                            <button style="padding: 6px 12px; background: var(--secondary); border: none; border-radius: 8px; color: var(--muted-foreground); font-size: 12px;">查看详情</button>
+                            <button class="btn" style="padding: 6px 16px; font-size: 12px;">联系酒店</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order 3 - Completed -->
+                <div class="glass-card animate-fade-in" style="animation-delay: 0.6s;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <i data-lucide="train" style="width: 16px; height: 16px; color: var(--travel-purple);"></i>
+                            <span style="font-size: 14px; font-weight: 500;">火车票订单</span>
+                        </div>
+                        <div style="padding: 4px 8px; background: var(--muted); border-radius: 8px;">
+                            <span style="color: var(--muted-foreground); font-size: 12px; font-weight: 500;">已完成</span>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; gap: 12px; margin-bottom: 12px;">
+                        <div style="width: 60px; height: 60px; background: linear-gradient(45deg, var(--travel-purple), var(--travel-orange)); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="train" style="width: 28px; height: 28px; color: white;"></i>
+                        </div>
+                        <div style="flex: 1;">
+                            <h3 style="font-size: 16px; font-weight: 600; color: var(--foreground); margin-bottom: 4px;">北京 → 上海</h3>
+                            <p style="font-size: 14px; color: var(--muted-foreground); margin-bottom: 2px;">G103 二等座</p>
+                            <p style="font-size: 12px; color: var(--muted-foreground);">3月28日 08:00-12:28</p>
+                        </div>
+                        <div style="text-align: right;">
+                            <p style="font-size: 18px; font-weight: 700; color: var(--muted-foreground);">¥553</p>
+                            <p style="font-size: 12px; color: var(--muted-foreground);">已出行</p>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <p style="font-size: 12px; color: var(--muted-foreground);">订单号: TR202403280003</p>
+                        <div style="display: flex; gap: 8px;">
+                            <button style="padding: 6px 12px; background: var(--secondary); border: none; border-radius: 8px; color: var(--muted-foreground); font-size: 12px;">再次购买</button>
+                            <button class="btn" style="padding: 6px 16px; font-size: 12px;">评价服务</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order Statistics -->
+            <div class="glass-card animate-fade-in" style="animation-delay: 0.8s;">
+                <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 16px; color: var(--foreground);">订单统计</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;">
+                    <div style="text-align: center;">
+                        <div style="width: 48px; height: 48px; background: var(--travel-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 8px;">
+                            <i data-lucide="shopping-bag" style="width: 24px; height: 24px; color: white;"></i>
+                        </div>
+                        <p style="font-size: 20px; font-weight: 700; color: var(--foreground); margin-bottom: 2px;">12</p>
+                        <p style="font-size: 12px; color: var(--muted-foreground);">总订单</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="width: 48px; height: 48px; background: var(--travel-green); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 8px;">
+                            <i data-lucide="check-circle" style="width: 24px; height: 24px; color: white;"></i>
+                        </div>
+                        <p style="font-size: 20px; font-weight: 700; color: var(--foreground); margin-bottom: 2px;">9</p>
+                        <p style="font-size: 12px; color: var(--muted-foreground);">已完成</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="width: 48px; height: 48px; background: var(--travel-orange); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 8px;">
+                            <i data-lucide="wallet" style="width: 24px; height: 24px; color: white;"></i>
+                        </div>
+                        <p style="font-size: 20px; font-weight: 700; color: var(--foreground); margin-bottom: 2px;">¥8,642</p>
+                        <p style="font-size: 12px; color: var(--muted-foreground);">总消费</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="glass-card animate-fade-in" style="animation-delay: 1s;">
+                <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 16px; color: var(--foreground);">快捷服务</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                    <div class="glass-card-sm" style="text-align: center; padding: 16px;">
+                        <i data-lucide="headphones" style="width: 24px; height: 24px; color: var(--travel-blue); margin-bottom: 8px;"></i>
+                        <p style="font-size: 14px; font-weight: 500;">客服中心</p>
+                        <p class="text-sm">在线咨询</p>
+                    </div>
+                    <div class="glass-card-sm" style="text-align: center; padding: 16px;">
+                        <i data-lucide="file-text" style="width: 24px; height: 24px; color: var(--travel-green); margin-bottom: 8px;"></i>
+                        <p style="font-size: 14px; font-weight: 500;">退改政策</p>
+                        <p class="text-sm">查看规则</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <a href="travel_home_1.html" class="nav-item">
+                <i data-lucide="home" class="icon-sm"></i>
+                <span style="font-size: 12px;">首页</span>
+            </a>
+            <a href="travel_search_2.html" class="nav-item">
+                <i data-lucide="search" class="icon-sm"></i>
+                <span style="font-size: 12px;">搜索</span>
+            </a>
+            <a href="travel_destination_3.html" class="nav-item">
+                <i data-lucide="map-pin" class="icon-sm"></i>
+                <span style="font-size: 12px;">目的地</span>
+            </a>
+            <a href="travel_orders_9.html" class="nav-item active">
+                <i data-lucide="wallet" class="icon-sm"></i>
+                <span style="font-size: 12px;">订单</span>
+            </a>
+            <a href="travel_profile_10.html" class="nav-item">
+                <i data-lucide="user" class="icon-sm"></i>
+                <span style="font-size: 12px;">我的</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

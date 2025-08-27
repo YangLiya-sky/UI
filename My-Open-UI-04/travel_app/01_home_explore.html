@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="h-full scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>探索 - 旅行助手</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="../travel_app_theme.css">
+</head>
+<body class="h-screen w-screen overflow-hidden antialiased flex items-center justify-center font-inter bg-teal-50 bg-[url('https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=2160&q=80')] bg-cover">
+    <div class="relative w-[380px] h-[850px] flex flex-col gap-6 glass-card rounded-3xl pt-6 pr-6 pb-6 pl-6 shadow-2xl animate-slide-up overflow-hidden">
+        <!-- Header -->
+        <div class="flex items-center justify-between">
+            <img src="https://images.unsplash.com/photo-1713733742914-13a687d26bc9?w=1080&q=80" alt="用户头像" class="h-9 w-9 object-cover rounded-full">
+            <button class="relative h-9 w-9 rounded-full bg-white shadow flex items-center justify-center hover:scale-105 transition-transform">
+                <i data-lucide="bell" class="h-5 w-5 stroke-gray-700"></i>
+                <span class="absolute -top-1 -right-1 h-3 w-3 bg-red-500 rounded-full animate-pulse-soft"></span>
+            </button>
+        </div>
+
+        <!-- Title -->
+        <h1 class="leading-snug text-3xl font-semibold text-gray-900 tracking-tight text-gradient">探索精彩世界</h1>
+
+        <!-- Search -->
+        <label class="flex items-center glass-input rounded-full pt-3 pr-3 pb-3 pl-4 transition-all focus-within:ring-2 focus-within:ring-teal-500">
+            <input type="search" placeholder="城市、目的地..." class="flex-1 bg-transparent placeholder-gray-500 text-sm focus:outline-none">
+            <i data-lucide="search" class="h-5 w-5 stroke-gray-600"></i>
+        </label>
+
+        <!-- Trending -->
+        <div class="flex flex-col gap-3">
+            <h2 class="text-base font-semibold text-gray-900">热门推荐</h2>
+            <div class="flex gap-3 overflow-x-auto pb-1">
+                <button class="shrink-0 flex items-center gap-2 bg-white rounded-xl shadow px-3 py-2 hover:scale-105 transition-transform animate-fade-in">
+                    <img src="https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?w=1080&q=80" class="h-7 w-7 object-cover rounded-lg" alt="海岛">
+                    <span class="text-sm font-medium text-gray-800">海岛</span>
+                </button>
+                <button class="shrink-0 flex items-center gap-2 bg-white rounded-xl shadow px-3 py-2 hover:scale-105 transition-transform animate-fade-in" style="animation-delay: 0.1s">
+                    <img src="https://images.unsplash.com/photo-1514565131-fce0801e5785?w=1080&q=80" class="h-7 w-7 object-cover rounded-lg" alt="城市">
+                    <span class="text-sm font-medium text-gray-800">城市</span>
+                </button>
+                <button class="shrink-0 flex items-center gap-2 bg-white rounded-xl shadow px-3 py-2 hover:scale-105 transition-transform animate-fade-in" style="animation-delay: 0.2s">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1080&q=80" class="h-7 w-7 object-cover rounded-lg" alt="山脉">
+                    <span class="text-sm font-medium text-gray-800">山脉</span>
+                </button>
+                <button class="shrink-0 flex items-center justify-center bg-white rounded-xl shadow w-10 h-10 hover:scale-105 transition-transform animate-fade-in" style="animation-delay: 0.3s">
+                    <i data-lucide="more-horizontal" class="h-5 w-5 stroke-gray-700"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="flex items-center gap-6">
+            <button class="relative pb-1 text-sm font-semibold text-gray-900 after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-full after:bg-teal-500">已计划</button>
+            <button class="text-sm font-medium text-gray-500 hover:text-gray-700 transition-colors">历史记录</button>
+        </div>
+
+        <!-- Planned Cards -->
+        <div class="flex-1 overflow-y-auto">
+            <div class="flex gap-4 overflow-x-auto pb-1">
+                <div class="shrink-0 w-40 bg-white rounded-2xl shadow hover:shadow-lg transition-shadow animate-scale-in">
+                    <img src="https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?w=1080&q=80" class="h-24 w-full object-cover rounded-t-2xl" alt="东京">
+                    <div class="p-3 flex flex-col gap-1">
+                        <p class="text-sm font-semibold text-gray-900">东京</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs text-gray-500">5月15日</span>
+                            <i data-lucide="chevron-right" class="h-4 w-4 stroke-gray-500"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="shrink-0 w-40 bg-white rounded-2xl shadow hover:shadow-lg transition-shadow animate-scale-in" style="animation-delay: 0.1s">
+                    <img src="https://images.unsplash.com/photo-1504218727796-db522606b16f?w=1080&q=80" class="h-24 w-full object-cover rounded-t-2xl" alt="瑞士">
+                    <div class="p-3 flex flex-col gap-1">
+                        <p class="text-sm font-semibold text-gray-900">瑞士</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs text-gray-500">6月22日</span>
+                            <i data-lucide="chevron-right" class="h-4 w-4 stroke-gray-500"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="shrink-0 w-40 bg-white rounded-2xl shadow hover:shadow-lg transition-shadow animate-scale-in" style="animation-delay: 0.2s">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1080&q=80" class="h-24 w-full object-cover rounded-t-2xl" alt="巴厘岛">
+                    <div class="p-3 flex flex-col gap-1">
+                        <p class="text-sm font-semibold text-gray-900">巴厘岛</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs text-gray-500">7月8日</span>
+                            <i data-lucide="chevron-right" class="h-4 w-4 stroke-gray-500"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <nav class="flex items-center justify-between glass-nav rounded-full py-3 px-6 shadow mt-auto">
+            <button class="flex flex-col items-center gap-1">
+                <span class="flex h-8 w-8 items-center justify-center rounded-full bg-teal-500">
+                    <i data-lucide="home" class="h-4 w-4 stroke-white"></i>
+                </span>
+            </button>
+            <button class="hover:scale-110 transition-transform">
+                <i data-lucide="map-pin" class="stroke-gray-400 w-6 h-6"></i>
+            </button>
+            <button class="hover:scale-110 transition-transform">
+                <i data-lucide="heart" class="stroke-gray-400 w-6 h-6"></i>
+            </button>
+            <button class="hover:scale-110 transition-transform">
+                <i data-lucide="user" class="stroke-gray-400 w-6 h-6"></i>
+            </button>
+        </nav>
+    </div>
+
+    <script>
+        lucide.createIcons();
+        
+        // 添加交互动画
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+    </script>
+</body>
+</html>
